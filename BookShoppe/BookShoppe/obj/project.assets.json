@@ -12563,11 +12563,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Net Core\\BookShoppe\\BookShoppe\\BookShoppe.csproj",
+      "projectUniqueName": "D:\\DA_BookMarket\\BookShoppe\\BookShoppe\\BookShoppe.csproj",
       "projectName": "BookShoppe",
-      "projectPath": "F:\\Net Core\\BookShoppe\\BookShoppe\\BookShoppe.csproj",
+      "projectPath": "D:\\DA_BookMarket\\BookShoppe\\BookShoppe\\BookShoppe.csproj",
       "packagesPath": "C:\\Users\\QUANG\\.nuget\\packages\\",
-      "outputPath": "F:\\Net Core\\BookShoppe\\BookShoppe\\obj\\",
+      "outputPath": "D:\\DA_BookMarket\\BookShoppe\\BookShoppe\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
