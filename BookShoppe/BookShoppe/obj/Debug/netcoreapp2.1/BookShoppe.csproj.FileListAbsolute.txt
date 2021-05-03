@@ -49,7 +49,6 @@ D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.Assemb
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.TagHelpers.input.cache
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.TagHelpers.output.cache
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.RazorCoreGenerate.cache
-D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\BookDetail\BookDetail.g.cshtml.cs
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Index\Index.g.cshtml.cs
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Layouts\_Layout.g.cshtml.cs
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
@@ -64,3 +63,5 @@ D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.Views.
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.dll
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.pdb
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\BookShoppe.csproj.CopyComplete
+D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Index\AllProducts.g.cshtml.cs
+D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Detail\ProductDetail.g.cshtml.cs

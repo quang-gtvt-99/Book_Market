@@ -194,7 +194,7 @@ a {
 }
 
 .top-nav-bar {
-    background: #98b827;
+    background: #242424;
     color: #fff;
 }
 
@@ -221,14 +221,12 @@ a {
         color: #fff;
     }
 
-/*
-            ,top-nav li a:hover,
-            .top-nav li a.active {
+        .top-nav li a:hover, .top-nav li a.active {
             background: #98b827;
             color: #fff;
             text-decoration: none;
         }
-        */
+
 .e-commerce-list {
     position: relative;
 }
@@ -380,13 +378,19 @@ a {
     overflow: hidden;
 }
 
-.price {
+.price1 {
     float: left;
     margin-top: 4px;
     padding-left: 10px;
-    border-left: 1px solid #ababab;
-    font-size: 20px;
+    font-size: 15px;
+    color: #98b827;
+}
+.price2 {
+    float: left;
+    margin-top: 4px;
+    font-size: 13px;
     color: #000;
+    text-decoration-line:line-through
 }
 
 .sale-icon {
@@ -2203,8 +2207,4 @@ h3.sub-heading-404 {
         float: left;
         line-height: 25px;
         width: 25%;
-    }
-    .sizeimg{
-        width:244px;
-        height:325px;
     }
