@@ -297,17 +297,17 @@ address { font-style: italic; }
 	height: 500px;
 }
 .tg-btn {
-	color: #666;
-	padding: 0 50px;
-	background: #fff;
-	position:relative;
-	text-align:center;
-	border-radius: 4px;
-	display: inline-block;
-	vertical-align: middle;
-	border: 1px solid #dbdbdb;
-	text-transform: capitalize;
-	font:400 13px/38px 'Work Sans', Arial, Helvetica, sans-serif;
+    color: #666;
+    padding: 0 50px;
+    background: #fff;
+    position: relative;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #dbdbdb;
+    text-transform: capitalize;
+    font: 400 13px/38px 'Work Sans', Arial, Helvetica, sans-serif;
 }
 .tg-btn:hover,
 .tg-btn.tg-active {color:#fff;}
@@ -637,18 +637,20 @@ li.tg-rss a { background:#ff6600; }
 	padding: 0 25px;
 	margin: 6px 0 0;
 	border-radius: 20px;
+    border-color:#666
 }
 .tg-btnstyletwo {
 	float: none;
 	display: inline-block;
 	vertical-align: top;
 }
-.tg-btnstyletwo i,
-.tg-btnstyletwo em {
-	float: left;
-	font-style: normal;
-	line-height: inherit;
-}
+    .tg-btnstyletwo i,
+    .tg-btnstyletwo em {
+        float: left;
+        font-style: normal;
+        line-height: inherit;
+   
+    }
 .tg-btnstyletwo i{padding: 0 5px 0 0;}
 .tg-btnstyletwo:hover { box-shadow: none !important; }
 .tg-btnaddtowishlist {

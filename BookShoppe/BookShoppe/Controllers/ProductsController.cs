@@ -6,13 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookShoppe.Controllers
 {
-    public class DetailController : Controller
+    public class ProductsController : Controller
     {
-        public IActionResult ProductDetail()
+        public IActionResult AllProduct()
         {
             return View();
         }
-        public ViewResult ListDetail()
+        public ViewResult ListProduct()
         {
             return View();
         }

@@ -6,13 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookShoppe.Controllers
 {
-    public class DetailController : Controller
+    public class CartController : Controller
     {
-        public IActionResult ProductDetail()
-        {
-            return View();
-        }
-        public ViewResult ListDetail()
+        public IActionResult Cart()
         {
             return View();
         }

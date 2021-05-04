@@ -14,18 +14,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta name="viewport" content="width=device-width">
+
     <link href="~/css/style.css" rel="stylesheet" type="text/css" />
     <link href="~/css/bs.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="~/css/main-slider.css" />
     <link href="~/css/font-awesome.css" rel="stylesheet" type="text/css" />
     <link href="~/css/font-awesome-ie7.css" rel="stylesheet" type="text/css" />
-
     <link href="~/css/jquery.booklet.latest.css" type="text/css" rel="stylesheet" media="screen, projection, tv" />
-    <noscript>
-        <link rel="stylesheet" type="text/css" href="~/css/noJS.css" />
-    </noscript>
+    <noscript><link rel="stylesheet" type="text/css" href="~/css/noJS.css" /></noscript>
     <link href="~/css/switcher.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" name="skins" href="~/css/default.css" type="text/css" media="all">
+
+
 
     <link type="text/css" rel="stylesheet" href="~/style2/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="~/style2/css/normalize.css">
@@ -80,8 +80,9 @@
                                 </ul>
                             </div>
                             <div class="tg-userlogin">
-                                <figure><a href="javascript:void(0);"><img src="images/users/img-01.jpg" alt="image description"></a></figure>
-                                <span>Đăng nhập</span>
+                                <a href="javascript:void(0);">Đăng nhập /</a>
+                                <a href="javascript:void(0);">Đăng Kí</a>
+
                             </div>
                         </div>
                     </div>
@@ -817,22 +818,8 @@
         <!--************************************
             Header End
     *************************************-->
-        <!--************************************
-            Inner Banner Start
-    *************************************-->
-        <div class="tg-innerbanner tg-haslayout tg-parallax tg-bginnerbanner" data-z-index="-100" data-appear-top-offset="600" data-parallax="scroll" data-image-src="style2/images/parallax/bgparallax-04.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--************************************
-            Inner Banner End
-    *************************************-->
-        <section class="tg-sectionspace tg-haslayout">
+       
+        <section class="">
             @RenderBody()
 
         </section>
