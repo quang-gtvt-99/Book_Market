@@ -78,7 +78,6 @@ textarea,
 select,
 .tg-select select,
 .form-control,
-input[type="text"],
 input[type="password"],
 input[type="datetime"],
 input[type="datetime-local"],
@@ -150,8 +149,8 @@ form p span i {
 }
 option { padding: 5px 15px; }
 li {
-	line-height: 28px;
-	list-style: disc inside none;
+    line-height: 28px;
+    list-style: disc inside none;
 }
 ul ul { margin-left: 20px; }
 ol {

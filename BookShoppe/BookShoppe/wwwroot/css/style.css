@@ -378,19 +378,13 @@ a {
     overflow: hidden;
 }
 
-.price1 {
+.price {
     float: left;
     margin-top: 4px;
     padding-left: 10px;
-    font-size: 15px;
-    color: #98b827;
-}
-.price2 {
-    float: left;
-    margin-top: 4px;
-    font-size: 13px;
+    border-left: 1px solid #ababab;
+    font-size: 20px;
     color: #000;
-    text-decoration-line:line-through
 }
 
 .sale-icon {

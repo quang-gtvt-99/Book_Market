@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "D:\\DA_BookMarket\\BookShoppe\\BookShoppe\\BookShoppe.csproj",
-        "projectName": "BookShoppe",
+        "projectName": "BookMarket",
         "projectPath": "D:\\DA_BookMarket\\BookShoppe\\BookShoppe\\BookShoppe.csproj",
         "packagesPath": "C:\\Users\\QUANG\\.nuget\\packages\\",
         "outputPath": "D:\\DA_BookMarket\\BookShoppe\\BookShoppe\\obj\\",
@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp2.1": {
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -51,6 +55,20 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.1, )"
             },
             "Microsoft.NETCore.App": {
               "target": "Package",

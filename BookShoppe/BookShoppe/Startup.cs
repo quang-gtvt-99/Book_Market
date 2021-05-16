@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using BookMarket.Models;
+using Microsoft.EntityFrameworkCore;
 namespace BookShoppe
 {
     public class Startup
@@ -30,8 +31,8 @@ namespace BookShoppe
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
+            var connectionString = Configuration.GetConnectionString("Server=THINKPAD-E580\\MSSQLSERVERTP; Database=Book_Market; Trusted_Connection=True;");
+            services.AddDbContext<Book_MarketContext>(item => item.UseSqlServer(connectionString));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

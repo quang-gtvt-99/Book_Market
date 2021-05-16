@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "25fc9ac184529cf3e879bbbc8e2343b16ef8a11e"
+    "signature": "a74c2f7a96f2d4a5108b1dadfe428b2b5d9c8ccc"
   },
   "compilationOptions": {
     "defines": [
@@ -22,20 +22,25 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.1": {
-      "BookShoppe/1.0.0": {
+      "BookMarket/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.4.4",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
+          "Microsoft.EntityFrameworkCore.Design": "2.1.1",
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.10"
         },
         "runtime": {
-          "BookShoppe.dll": {}
+          "BookMarket.dll": {}
         },
         "compile": {
-          "BookShoppe.dll": {}
+          "BookMarket.dll": {}
         }
       },
+      "EntityFramework/6.4.4": {},
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
       "Microsoft.CodeAnalysis.CSharp.Workspaces/2.8.0": {
         "dependencies": {
@@ -3457,10 +3462,17 @@
     }
   },
   "libraries": {
-    "BookShoppe/1.0.0": {
+    "BookMarket/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EntityFramework/6.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
+      "path": "entityframework/6.4.4",
+      "hashPath": "entityframework.6.4.4.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
