@@ -8,6 +8,7 @@ namespace BookMarket.Models
         public Products()
         {
             FeedBack = new HashSet<FeedBack>();
+            HotSale = new HashSet<HotSale>();
             OrderDetail = new HashSet<OrderDetail>();
         }
 
@@ -25,12 +26,19 @@ namespace BookMarket.Models
         public int Nphid { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public int? Weight { get; set; }
+        public string Format { get; set; }
+        public DateTime? ReleaseDate { get; set; }
+        public string Language { get; set; }
+        public string Size { get; set; }
+        public int? NumPage { get; set; }
 
         public Author Author { get; set; }
         public Categories Category { get; set; }
         public Nph Nph { get; set; }
         public Nxb Nxb { get; set; }
         public ICollection<FeedBack> FeedBack { get; set; }
+        public ICollection<HotSale> HotSale { get; set; }
         public ICollection<OrderDetail> OrderDetail { get; set; }
     }
 }

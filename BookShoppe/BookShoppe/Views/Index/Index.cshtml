@@ -1,19 +1,19 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Layouts/_Layout.cshtml";
-}
-<!--************************************
-           Inner Banner Start
-           *************************************-->
 
-<!--************************************
-    Inner Banner End
-    *************************************-->
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Layouts/_Layout.cshtml";
+    }
+    <!--************************************
+               Inner Banner Start
+               *************************************-->
+    <!--************************************
+        Inner Banner End
+        *************************************-->
 
     <section id="content-holder" class="container-fluid container">
 
-     
+
 
         <section class="row features-books">
             <section class="span12 m-bottom">
@@ -21,167 +21,31 @@
                     <h3 style="color:#5EB950">Hot Sale</h3>
                     <span class="h-line"></span>
                 </div>
+
                 <div class="slider1">
-                    <div class="slide ">
-                        <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/co-hai-con-meo-ngoi-ben-cua-so_NNA.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="@Url.Action("ProductDetail","Detail")">Có hai con mèo ngôi bên</a><span>...</span></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
+                   
+                    {
+                        <div class="slide ">
+                            <a href="@Url.Action("ProductDetail", "Detail")"><img src="~/images/" alt="" class="pro-img" /></a>
+                            <div class="tg-postbookcontent">
+                                <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
+                                <div class="tg-booktitle">
+                                    <h3><a href="@Url.Action("ProductDetail", "Detail")">Có hai con mèo ngôi bên</a><span>...</span></h3>
+                                </div>
+                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
+                                <span class="tg-stars"><span></span></span>
+                                <span class="tg-bookprice">
+                                    <ins style="font-size:15px">999.999đ</ins>
+                                    <del style="font-size:12px">999.999đ</del>
+                                </span>
+                                <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart", "Cart")">
+                                    <i class="fa fa-shopping-basket"></i>
+                                    <span>Mua Ngay</span>
+                                </a>
 
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="~/images/con-cho-nho-mang-gio-hoa-hong-NNA.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="javascript:void(0);">Let The Good Cuộc hành trình</a></h3>
                             </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
                         </div>
-                    </div>
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="images/image06.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="javascript:void(0);">Let The Good Times Roll Up</a></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="images/image06.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="javascript:void(0);">Let The Good Times Roll Up</a></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="images/image06.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="javascript:void(0);">Let The Good Times Roll Up</a></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="images/image06.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="javascript:void(0);">Let The Good Times Roll Up</a></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="images/image06.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="javascript:void(0);">Let The Good Times Roll Up</a></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="images/image06.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="javascript:void(0);">Let The Good Times Roll Up</a></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="javascript:void(0);">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
-                        </div>
-                    </div>
+                    }
                 </div>
             </section>
         </section>
@@ -193,26 +57,29 @@
                     <span class="h-line"></span>
                 </div>
                 <div class="slider1">
-                    <div class="slide ">
-                        <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/co-hai-con-meo-ngoi-ben-cua-so_NNA.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="@Url.Action("ProductDetail","Detail")">Có hai con mèo ngôi bên</a><span>...</span></h3>
-                            </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
+                   
+                    {
+                        <div class="slide ">
+                            <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/" alt="" class="pro-img" /></a>
+                            <div class="tg-postbookcontent">
+                                <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
+                                <div class="tg-booktitle">
+                                    <h3><a href="@Url.Action("ProductDetail","Detail")"></a><span>...</span></h3>
+                                </div>
+                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">4</a></span>
+                                <span class="tg-stars"><span></span></span>
+                                <span class="tg-bookprice">
+                                    <ins style="font-size:15px">4</ins>
+                                    <del style="font-size:12px">4</del>
+                                </span>
+                                <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
+                                    <i class="fa fa-shopping-basket"></i>
+                                    <span>Mua Ngay</span>
+                                </a>
 
+                            </div>
                         </div>
-                    </div>
+                    }
 
                 </div>
             </section>
@@ -296,27 +163,29 @@
                     <span class="h-line"></span>
                 </div>
                 <div class="slider1">
-                    <div class="slide ">
-                        <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/co-hai-con-meo-ngoi-ben-cua-so_NNA.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="@Url.Action("ProductDetail","Detail")">Có hai con mèo ngôi bên</a><span>...</span></h3>
+                   
+                    {
+                        <div class="slide ">
+                            <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/mg" /></a>
+                            <div class="tg-postbookcontent">
+                                <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
+                                <div class="tg-booktitle">
+                                    <h3><a href="@Url.Action("ProductDetail","Detail")"></a><span>...</span></h3>
+                                </div>
+                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">1</a></span>
+                                <span class="tg-stars"><span></span></span>
+                                <span class="tg-bookprice">
+                                    <ins style="font-size:15px">4</ins>
+                                    <del style="font-size:12px">4</del>
+                                </span>
+                                <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
+                                    <i class="fa fa-shopping-basket"></i>
+                                    <span>Mua Ngay</span>
+                                </a>
+
                             </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
                         </div>
-                    </div>
-
+                    }
                 </div>
             </section>
         </section>

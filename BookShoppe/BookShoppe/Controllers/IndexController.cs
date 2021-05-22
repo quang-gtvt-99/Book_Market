@@ -6,16 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using BookShoppe.Controllers;
 using BookShoppe.Models;
 using BookMarket.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShoppe.Controllers
 {
     public class IndexController : Controller
     {
-        private readonly Book_MarketContext bmcontext = new Book_MarketContext(); 
-        public IActionResult Index()
+        private readonly Book_MarketContext _BMContext;
+        public IndexController(Book_MarketContext _MarketContext)
         {
-            var sp = this.bmcontext.User.ToArray();
-            return View();
+            _BMContext = _MarketContext;
+        }
+       
+        public  IActionResult Index()
+        {
+         
+            return View(); 
         }
         
     }

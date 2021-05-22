@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using BookMarket.Models;
 using Microsoft.EntityFrameworkCore;
+
 namespace BookShoppe
 {
     public class Startup
@@ -31,9 +32,10 @@ namespace BookShoppe
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            var connectionString = Configuration.GetConnectionString("Server=THINKPAD-E580\\MSSQLSERVERTP; Database=Book_Market; Trusted_Connection=True;");
-            services.AddDbContext<Book_MarketContext>(item => item.UseSqlServer(connectionString));
+            var connectionStrings = Configuration.GetConnectionString("Server=THINKPAD-E580\\MSSQLSERVERTP; Database=Book_Market;Trusted_Connection=True;MultipleActiveResultSets=true");
+            services.AddDbContext<Book_MarketContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BookMarketConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+          
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

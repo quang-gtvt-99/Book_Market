@@ -9,9 +9,84 @@
     <link type="text/css" rel="stylesheet" href="~/style2/css/color.css">
     <link type="text/css" rel="stylesheet" href="~/style2/css/responsive.css">
 
+
+
 </head>
 <body>
+  <style>
+      .or-seperator {
+    margin-top: 32px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+}
 
+    .or-seperator b {
+        color: #666;
+        padding: 0 8px;
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+        text-align: center;
+        line-height: 26px;
+        background: #fff;
+        display: inline-block;
+        border: 1px solid #e0e0e0;
+        border-radius: 50%;
+        position: relative;
+        top: -15px;
+        z-index: 1;
+    }
+    .btn ,.btn-primary:active {
+    color: #fff;
+    background: #5EB950;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    vertical-align: middle;
+    border: none;
+}
+    .btn .btn-facebook:active {
+    color: #fff;
+    background: #2E68B2;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    vertical-align: middle;
+    border: none;
+}
+
+
+    .btn-primary:hover,.btn-primary:focus {
+        color: #fff;
+        outline: none;
+        background: #77A022;
+    }
+    .form-footer {
+    text-align: center;
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+    .form-footer a:hover {
+        text-decoration: underline;
+    }
+    .form-control {
+    box-shadow: none;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+    .form-control:focus {
+        border-color: #33cabb;
+        box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+ .hint-text {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+ .btn-primary,.btn-primary:active {
+        display: block;
+    }
+  </style>
     <div class="wrapper ">
         <!--************************************
                 Header Start
@@ -43,7 +118,7 @@
                                 <ul class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-currenty">
                                     <li>
                                         <a href="javascript:void(0);">
-                                            <i>£</i>
+                                     
                                             <span>Tiếng Việt</span>
                                         </a>
                                     </li>
@@ -55,6 +130,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="tg-middlecontainer">
                 <div class="container">
                     <div class="row">
@@ -62,13 +139,34 @@
                             <strong class="tg-logo"><a href="index-2.html"><img src="~/images/logonew.png" alt="company name here"></a></strong>
                             <div class="tg-wishlistandcart">
                                 <div class="dropdown tg-themedropdown tg-wishlistdropdown">
-                                    <a href="javascript:void(0);" id="tg-wishlisst" class="tg-btnthemedropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-                                        <i class="icon-heart"></i>
+                                    <a href="" id="tg-wishlisst" class="tg-btnthemedropdown"
+                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-user"></i>
                                         <span>Đăng nhập</span>
                                     </a>
-                                    <div class="dropdown-menu tg-themedropdownmenu" aria-labelledby="tg-wishlisst">
-                                        <div class="tg-description"><p>No products were added to the wishlist!</p></div>
+                                    <div class="dropdown-menu tg-themedropdownmenu" >
+                                        <form action="" method="post">
+                                            <p class="hint-text">Đăng nhập</p>
+                                            <div class="form-group">
+                                                <a href="#" class="btn btn-facebook pull-left"><i class="fa fa-facebook"></i> Facebook</a>
+                                                <a href="#" class="btn btn-info pull-right"><i class="fa fa-twitter"></i> Twitter</a>
+                                            </div>
+                                            <div class="or-seperator"><b>or</b></div>
+
+                                            <div class="form-group">
+                                                <p>Email</p>
+                                                <input type="email" class="form-control" placeholder="" required="required">
+                                            </div>
+                                            <p>Mật khẩu</p>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="" required="required">
+                                            </div>
+                                            <input type="submit" class="btn btn-primary btn-block" value="Đăng nhập">
+                                            <div class="form-footer">
+                                                <a href="#">Quên mật khẩu ?</a>
+                                            </div>
+                                        </form>
+                                           
                                     </div>
                                 </div>
                                 <div class="dropdown tg-themedropdown tg-minicartdropdown">
@@ -800,7 +898,7 @@
     <script src="~/style2/js/parallax.js"></script>
     <style>
         .input2{
-          
+
         }
     </style>
 </body>

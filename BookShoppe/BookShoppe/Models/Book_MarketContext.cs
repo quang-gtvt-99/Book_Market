@@ -18,6 +18,7 @@ namespace BookMarket.Models
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<FeedBack> FeedBack { get; set; }
+        public virtual DbSet<HotSale> HotSale { get; set; }
         public virtual DbSet<Nph> Nph { get; set; }
         public virtual DbSet<Nxb> Nxb { get; set; }
         public virtual DbSet<Order> Order { get; set; }
@@ -27,14 +28,14 @@ namespace BookMarket.Models
         public virtual DbSet<Slide> Slide { get; set; }
         public virtual DbSet<User> User { get; set; }
 
-       /* protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=THINKPAD-E580\\MSSQLSERVERTP; Database=Book_Market; Trusted_Connection=True;");
             }
-        }*/
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -86,6 +87,28 @@ namespace BookMarket.Models
                     .WithMany(p => p.FeedBack)
                     .HasForeignKey(d => d.ProductId)
                     .HasConstraintName("FK_FeedBack_Products");
+            });
+
+            modelBuilder.Entity<HotSale>(entity =>
+            {
+                entity.HasKey(e => new { e.Id, e.ProductId });
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.ProductId).HasColumnName("productID");
+
+                entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+
+                entity.Property(e => e.EndDate).HasColumnType("datetime");
+
+                entity.Property(e => e.Status).HasMaxLength(500);
+
+                entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.HotSale)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK_HotSale_Products");
             });
 
             modelBuilder.Entity<Nph>(entity =>
@@ -184,7 +207,13 @@ namespace BookMarket.Models
 
                 entity.Property(e => e.CreatedAt).HasColumnType("datetime");
 
+                entity.Property(e => e.Format).HasMaxLength(10);
+
+                entity.Property(e => e.Language).HasMaxLength(20);
+
                 entity.Property(e => e.Nphid).HasColumnName("NPHID");
+
+                entity.Property(e => e.NumPage).HasColumnName("numPage");
 
                 entity.Property(e => e.Nxbid).HasColumnName("NXBID");
 
@@ -200,6 +229,12 @@ namespace BookMarket.Models
                 entity.Property(e => e.Quanity)
                     .HasColumnName("quanity")
                     .HasMaxLength(10);
+
+                entity.Property(e => e.ReleaseDate)
+                    .HasColumnName("releaseDate")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.Size).HasMaxLength(50);
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
