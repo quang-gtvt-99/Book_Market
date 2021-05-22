@@ -913,7 +913,7 @@ body.tg-comingsoonpage .tg-wrapper{overflow:visible;}
 	border: 0;
 	opacity: 0;
 	z-index: 10;
-	width: 330px;
+	width: 300px;
 	padding: 15px;
 	display: block;
 	border-radius: 0;
@@ -3509,7 +3509,7 @@ blockquote .tg-bookwriter{
 .tg-productdetail .tg-postbook{padding:0;}
 .tg-productdetail .tg-postbook .tg-featureimg{
 	padding:20px;
-	background:#f7f7f7;
+	background:#ffffff;
 }
 .tg-productdetail .tg-postbook .tg-bookprice{padding:0 0 14px 20px;}
 .tg-productdetail .tg-postbook .tg-bookprice ins{
