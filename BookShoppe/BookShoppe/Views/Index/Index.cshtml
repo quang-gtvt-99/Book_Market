@@ -1,300 +1,1248 @@
-﻿
+﻿@model IEnumerable<BookMarket.Models.Products>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layouts/_Layout.cshtml";
+}
+<div class="em-wrapper-main">
+    <div class="container container-main">
+        <div class="em-inner-main">
+            <div class="em-wrapper-area01">
+                <div class="row em-wrapper-ads-13 hidden-xs">
 
-    @{
-        ViewData["Title"] = "Index";
-        Layout = "~/Views/Layouts/_Layout.cshtml";
-    }
-    <!--************************************
-               Inner Banner Start
-               *************************************-->
-    <!--************************************
-        Inner Banner End
-        *************************************-->
+                </div><!-- /.em-wrapper-ads-13-->
+            </div><!-- /.em-wrapper-area01 -->
 
-    <section id="content-holder" class="container-fluid container">
-        <section class="row features-books">
-            <section class="span12 m-bottom">
-                <div class="heading-bar">
-                    <h3 style="color:#5EB950">Hot Sale</h3>
-                    <span class="h-line"></span>
-                </div>
-
-                <div class="slider1">
-                   
-                    {
-                        <div class="slide ">
-                            <a href="@Url.Action("ProductDetail", "Detail")"><img src="~/images/" alt="" class="pro-img" /></a>
-                            <div class="tg-postbookcontent">
-                                <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                                <div class="tg-booktitle">
-                                    <h3><a href="@Url.Action("ProductDetail", "Detail")">Có hai con mèo ngôi bên</a><span>...</span></h3>
-                                </div>
-                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                                <span class="tg-stars"><span></span></span>
-                                <span class="tg-bookprice">
-                                    <ins style="font-size:15px">999.999đ</ins>
-                                    <del style="font-size:12px">999.999đ</del>
-                                </span>
-                                <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart", "Cart")">
-                                    <i class="fa fa-shopping-basket"></i>
-                                    <span>Mua Ngay</span>
-                                </a>
-
-                            </div>
-                        </div>
-                    }
-                </div>
-            </section>
-        </section>
-
-        <section class="row features-books">
-            <section class="span12 m-bottom">
-                <div class="heading-bar">
-                    <h3 style="color:#5EB950">Sách bán chạy</h3>
-                    <span class="h-line"></span>
-                </div>
-                <div class="slider1">
-                   
-                    {
-                        <div class="slide ">
-                            <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/" alt="" class="pro-img" /></a>
-                            <div class="tg-postbookcontent">
-                                <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                                <div class="tg-booktitle">
-                                    <h3><a href="@Url.Action("ProductDetail","Detail")"></a><span>...</span></h3>
-                                </div>
-                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">4</a></span>
-                                <span class="tg-stars"><span></span></span>
-                                <span class="tg-bookprice">
-                                    <ins style="font-size:15px">4</ins>
-                                    <del style="font-size:12px">4</del>
-                                </span>
-                                <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
-                                    <i class="fa fa-shopping-basket"></i>
-                                    <span>Mua Ngay</span>
-                                </a>
-
-                            </div>
-                        </div>
-                    }
-
-                </div>
-            </section>
-        </section>
-        <section class="row row-fluid ">
-            <section class="span9 blog-section">
-                <div class="heading-bar">
-                    <h3 style="color:#5EB950">Sách bán chạy của tác giả : xxxx</h3>
-                    <span class="h-line"></span>
-                </div>
-                <div class="slider3">
-                    <div class="slide">
-                        <div class="post-img"><a href="blog-detail.html"><img src="images/image18.jpg" alt="" /></a> <span class="post-date"><span>02</span> May</span> </div>
-                        <div class="post-det">
-                            <h3><a href="blog-detail.html">Our latest arrival is the Spring Summer 2013 Book Fair</a></h3>
-                            <span class="comments-num">6 comments</span>
-                            <p>Gluten-free quinoa selfies carles, kogi gentrify retro marfa viral. Aesthetic before they sold out put a bird on it sriracha typewriter. Skateboard viral irony tonx ... </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            <section class="span3 best-sellers">
-                <div class="heading-bar">
-                    <h3>Sách bán chạy</h3>
-                    <span class="h-line"></span>
-                </div>
-                <div class="slider2">
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="~/images/image15.jpg" alt="" /></a>
-                        <div class="slide2-caption">
-                            <div class="left"> <span class="title"><a href="book-detail.html">Thousand Splendid Miles</a></span> <span class="author-name">by Khalid Housseini</span> </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-        </section>
-
-        <div class="heading-bar">
-            <h3 style="color:#5EB950">Sách hay</h3>
-        </div>
-        <section class="tg-sectionspace tg-haslayout ">
-            <div class="container">
+            <div class="em-main-container em-col2-left-layout">
                 <div class="row">
 
-                    <div class="tg-featureditm">
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 hidden-sm hidden-xs">
-                            <figure><img src="~/style2//images/img-02.png" alt="image description"></figure>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                            <div class="tg-featureditmcontent">
-                                <div class="tg-themetagbox"><span class="tg-themetag">Hot</span></div>
-                                <div class="tg-booktitle">
-                                    <h3><a href="javascript:void(0);">Things To Know About Green Flat Design</a></h3>
-                                </div>
-                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">Farrah Whisenhunt</a></span>
-                                <span class="tg-stars"><span></span></span>
-                                <div class="tg-priceandbtn">
-                                    <span class="tg-bookprice">
-                                        <ins>999.999 đ</ins>
-                                        <del>111.111 đ</del>
-                                    </span>
-                                    <a class="tg-btn tg-btnstyletwo tg-active" href="javascript:void(0);">
-                                        <i class="fa fa-shopping-basket"></i>
-                                        <em>Mua Ngay</em>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    <div class="col-sm-18 col-sm-push-6 em-col-main">
+                        <div class="em-wrapper-area03">
+                            <div class="em-slideshow">
+                                <div class="em-owlcarousel-slideshow">
+                                    <div id="em_owlcarousel_2_2484_sync1" class="owl-carousel">
+                                        <div class="item">
+                                            <a href="#"> <img alt="1435569308_1_2.jpg" class="lazyOwl img-responsive" src="~/images/loading.gif" data-src="images/em_minislideshow/slide_thay_doi_cuoc_song_voi_nhan_so_hoc.jpg" /> </a>
 
-        <section class="row features-books">
-            <section class="span12 m-bottom">
-                <div class="heading-bar">
-                    <h3 style="color:#5EB950">Sách kinh tế mới </h3>
-                    <span class="h-line"></span>
-                </div>
-                <div class="slider1">
-                   
-                    {
-                        <div class="slide ">
-                            <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/mg" /></a>
-                            <div class="tg-postbookcontent">
-                                <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                                <div class="tg-booktitle">
-                                    <h3><a href="@Url.Action("ProductDetail","Detail")"></a><span>...</span></h3>
+                                        </div><!-- /.item -->
+                                        <div class="item">
+                                            <a href="#"> <img alt="1435569308_1_2.jpg" class="lazyOwl img-responsive" src="~/images/loading.gif" data-src="images/em_minislideshow/slide-con-chim-xanhbiec-bay-ve.jpg" /> </a>
+
+                                        </div><!-- /.item -->
+                                        <div class="item">
+                                            <a href="#"> <img alt="1436500083_0_slideshow3.jpg" class="lazyOwl img-responsive" src="~/images/loading.gif" data-src="images/em_minislideshow/slide-con-nguoi-80-20.jpg" /> </a>
+                                       
+                                        </div><!-- /.item -->
+                                    </div><!-- /# em_owlcarousel_2_2484_sync1 -->
+                                </div><!-- /.em-owlcarousel-slideshow -->
+                            </div><!-- /.em-slideshow -->
+                        </div><!-- /.em-wrapper-area03 -->
+                        <div class="std"></div>
+                        <div class="row hidden-xs">
+                            <div class="em-wrapper-banners">
+                                <div class="col-sm-8  text-center">
+                                    <div class="img-banner">
+                                        <a class="banner-img" title="em-sample-title" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-gio-he-may.jpg" /> </a>
+                                    </div>
                                 </div>
-                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">1</a></span>
-                                <span class="tg-stars"><span></span></span>
-                                <span class="tg-bookprice">
-                                    <ins style="font-size:15px">4</ins>
-                                    <del style="font-size:12px">4</del>
-                                </span>
-                                <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
-                                    <i class="fa fa-shopping-basket"></i>
-                                    <span>Mua Ngay</span>
+                                <div class="col-sm-8  img-banner text-center">
+                                    <div class="effect-hover-text4">
+                                        <a class="banner-img" title="em-sample-title" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-netflix.jpg" /> </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 text-center">
+                                    <div class="img-banner">
+                                        <a class="banner-img" title="em-sample-title" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-jessica.jpg" /> </a>
+                                    </div>
+                                </div>
+                            </div><!-- /.em-wrapper-banners -->
+                        </div>
+
+                        <div class="em-wrapper-new-arrivals-tabs">
+                            <div class="em-new-arrivals-tabs em-line-01">
+                                <div class="emtabs-ajaxblock-loaded">
+                                    <div class="em-tabs-widget tabs-widget ">
+                                        <div class="widget-title em-widget-title">
+                                            <h3><span>Sách Mới Phát Hành</span></h3>
+                                        </div>
+                                        <div id="emtabs_1" class="em-tabs emtabs r-tabs">
+                                            <ul class="em-tabs-control tabs-control r-tabs-nav">
+                                                <li class="r-tabs-tab r-tabs-state-active">
+                                                    <a class="r-tabs-anchor active" href="#tab_emtabs_1_1" data-hover="Shirt"> <span class="icon"></span>Văn Học</a>
+                                                </li>
+                                                <li class="r-tabs-state-default r-tabs-tab">
+                                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_2" data-hover="Skirt"> <span class="icon"></span>Kinh Tế</a>
+                                                </li>
+                                                <li class="r-tabs-state-default r-tabs-tab">
+                                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_3" data-hover="Dresses"> <span class="icon"></span>Ngoại Văn</a>
+                                                </li>
+                                                <li class="r-tabs-state-default r-tabs-tab">
+                                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_4" data-hover="Outerwear"> <span class="icon"></span>Truyện Tranh</a>
+                                                </li>
+                                            </ul>
+                                            <div class="em-tabs-content tab-content">
+                                                <div class="r-tabs-accordion-title active">
+                                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_1"> <span class="icon tab_emtabs_1_1"></span>Shirt</a>
+                                                </div>
+                                                <div id="tab_emtabs_1_1" class="tab-pane tab-item content_tab_emtabs_1_1 r-tabs-panel r-tabs-state-active">
+                                                    <div class="wrapper button-show01 button-hide-text em-wrapper-loaded">
+                                                        <div class="emfilter-ajaxblock-loaded">
+                                                            <div id="em_fashion_new_arrivals_tab01" class="em-grid-20 ">
+
+                                                                <div class="widget em-filterproducts-grid">
+                                                                    <div class="widget-products em-widget-products">
+                                                                        <div class="emcatalog-desktop-4" id="em-grid-mode-em_fashion_new_arrivals_tab01">
+                                                                            <div class="products-grid ">
+                                                                                @foreach (var item in Model)
+                                                                                {
+                                                                                   
+                                                                                    <div class="item" style="  ">
+
+                                                                                        <div class="product-item">
+                                                                                            <div class="product-shop-top">
+                                                                                                <a href="#" title="Drape Back Playsuit " class="product-image">
+                                                                                                    <!--show label product - label extension is required-->
+                                                                                                    <ul class="productlabels_icons">
+                                                                                                        <li class="label hot">
+                                                                                                            <p>
+                                                                                                                Mới
+                                                                                                            </p>
+                                                                                                        </li>
+                                                                                                        <li class="label special">
+                                                                                                            <p>
+                                                                                                                <span>-14%</span>
+                                                                                                            </p>
+                                                                                                        </li>
+                                                                                                    </ul>
+
+                                                                                                    <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/350x350/@Html.DisplayFor(modelItem=>item.ProductImg)" data-original="~/images/product/350x350/clothing_sp17_2.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                                    <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/350x350/@Html.DisplayFor(modelItem=>item.ProductImg)" data-original="~/images/product/350x350/clothing_sp17_1.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                                </a>
+                                                                                                <div class="em-element-display-hover bottom">
+                                                                                                    <div class="em-btn-addto">
+                                                                                                        <!--product add to cart-->
+                                                                                                        <button type="button" title="Add to Cart" class="button btn-cart">
+                                                                                                            <span><span>Thêm Vào Giỏ</span></span>
+                                                                                                        </button>
+                                                                                                        <!--product add to compare-wishlist-->
+
+                                                                                                    </div>
+                                                                                                    <div class="quickshop-link-container">
+                                                                                                        <a href="#" class="quickshop-link" title="Quickshop">Chi Tiết</a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div><!-- /.product-shop-top -->
+                                                                                            <div class="product-shop">
+                                                                                                <div class="f-fix">
+                                                                                                    <!--product name-->
+                                                                                                    <h3 style="min-height: 19px;" class="product-name"><a href="#" title="Drape Back Playsuit ">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                                                    <!--product description-->
+                                                                                                    <h5 style="min-height: 19px;color:#FF6148"><a href="#" title="Drape Back Playsuit ">Nguyễn Nhật Ánh</a></h5>
+                                                                                                    <!--product reviews-->
+                                                                                                    <div class="ratings">
+                                                                                                        <div class="rating-box">
+                                                                                                            <div class="rating" style="width:100%"></div>
+                                                                                                        </div>
+                                                                                                        <span class="amount"><a href="#">(1)</a></span>
+                                                                                                    </div>
+                                                                                                    <!--product price-->
+                                                                                                    <div class="price-box">
+                                                                                                        <p class="old-price">
+                                                                                                            <span class="price-label"></span>
+                                                                                                            <span class="price" id="old-price-182-emprice-e28d8be0787e9d8ae65c6afe74f8df0a">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                                                        </p>
+                                                                                                        <p class="special-price">
+                                                                                                            <span class="price-label"></span>
+                                                                                                            <span class="price" content="60" id="product-price-182-emprice-e28d8be0787e9d8ae65c6afe74f8df0a">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                                                        </p>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div><!-- /.product-shop -->
+                                                                                        </div>
+
+                                                                                    </div><!-- item -->
+                                                                                }
+                                                                            </div><!-- /.products-grid -->
+                                                                        </div><!-- /.emcatalog-desktop-4 -->
+                                                                    </div><!-- /.widget-products -->
+                                                                </div><!-- /.widget -->
+
+                                                            </div><!-- /#em_fashion_new_arrivals_tab01 -->
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /#tab_emtabs_1_1 -->
+
+                                                <div class="r-tabs-accordion-title">
+                                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_2"> <span class="icon tab_emtabs_1_2"></span>Skirt</a>
+                                                </div>
+                                                <div id="tab_emtabs_1_2" class="tab-pane tab-item content_tab_emtabs_1_2 r-tabs-state-default r-tabs-panel">
+                                                    <div class="wrapper button-show01 button-hide-text em-wrapper-loaded">
+                                                        <div class="emfilter-ajaxblock-loaded">
+                                                            <div id="em_fashion_new_arrivals_tab02" class="em-grid-20 ">
+
+                                                                <div class="widget em-filterproducts-grid">
+                                                                    <div class="widget-products em-widget-products">
+                                                                        <div class="emcatalog-desktop-4" id="em-grid-mode-em_fashion_new_arrivals_tab02">
+                                                                            <div class="products-grid ">
+
+                                                                                <div class="item" style="  ">
+                                                                                    <div class="product-item">
+                                                                                        <div class="product-shop-top">
+                                                                                            <a href="#" title="Drape Back Playsuit " class="product-image">
+                                                                                                <!--show label product - label extension is required-->
+                                                                                                <ul class="productlabels_icons">
+                                                                                                    <li class="label hot">
+                                                                                                        <p>
+                                                                                                            Hot
+                                                                                                        </p>
+                                                                                                    </li>
+                                                                                                    <li class="label special">
+                                                                                                        <p>
+                                                                                                            <span>-14%</span>
+                                                                                                        </p>
+                                                                                                    </li>
+                                                                                                </ul>
+
+                                                                                                <img class="em-alt-hover img-responsive em-img-lazy" src="~/images/product/350x350/clothing_sp17_2.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                                <img class="img-responsive em-img-lazy em-alt-org" src="~/images/product/350x350/clothing_sp17_1.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                            </a>
+                                                                                            <div class="em-element-display-hover bottom">
+                                                                                                <div class="em-btn-addto">
+                                                                                                    <!--product add to cart-->
+                                                                                                    <button type="button" title="Add to Cart" class="button btn-cart">
+                                                                                                        <span><span>Add to Cart</span></span>
+                                                                                                    </button>
+                                                                                                    <!--product add to compare-wishlist-->
+                                                                                                    <ul class="add-to-links">
+                                                                                                        <li>
+                                                                                                            <a onclick="" href="#182" class="link-wishlist" title="Add to Wishlist">Add to Wishlist</a>
+                                                                                                        </li>
+                                                                                                        <li>
+                                                                                                            <span class="separator">|</span> <a href="#182" class="link-compare" title="Add to Compare">Add to Compare</a>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                                <div class="quickshop-link-container">
+                                                                                                    <a href="#" class="quickshop-link" title="Quickshop">Quickshop</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div><!-- /.product-shop-top -->
+
+                                                                                        <div class="product-shop">
+                                                                                            <div class="f-fix">
+                                                                                                <!--product name-->
+                                                                                                <h3 style="min-height: 0px;" class="product-name"><a href="#" title="Drape Back Playsuit ">Drape Back Playsuit </a></h3>
+                                                                                                <!--product description-->
+                                                                                                <!--product reviews-->
+                                                                                                <div class="ratings">
+                                                                                                    <div class="rating-box">
+                                                                                                        <div class="rating" style="width:100%"></div>
+                                                                                                    </div>
+                                                                                                    <span class="amount"><a href="#">(1)</a></span>
+                                                                                                </div>
+
+                                                                                                <div class="price-box">
+
+                                                                                                    <p class="old-price">
+                                                                                                        <span class="price-label">Regular Price:</span>
+                                                                                                        <span class="price" id="old-price-182-emprice-c095817cdda4bcb80055091211aacad7">$70.00</span>
+                                                                                                    </p>
+
+                                                                                                    <p class="special-price">
+                                                                                                        <span class="price-label">Special Price</span>
+                                                                                                        <span class="price" content="60" id="product-price-182-emprice-c095817cdda4bcb80055091211aacad7">$60.00</span>
+                                                                                                    </p>
+
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div><!-- /.product-shop -->
+                                                                                    </div>
+                                                                                </div><!-- /.item -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.widget -->
+
+                                                            </div><!-- /#em_fashion_new_arrivals_tab02 -->
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /#tab_emtabs_1_2 -->
+
+                                                <div class="r-tabs-accordion-title">
+                                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_3"> <span class="icon tab_emtabs_1_3"></span>Dresses</a>
+                                                </div>
+                                                <div id="tab_emtabs_1_3" class="tab-pane tab-item content_tab_emtabs_1_3 r-tabs-state-default r-tabs-panel">
+                                                    <div class="wrapper button-show01 button-hide-text em-wrapper-loaded">
+                                                        <div class="emfilter-ajaxblock-loaded">
+                                                            <div id="em_fashion_new_arrivals_tab03" class="em-grid-20 ">
+
+
+                                                                <div class="widget em-filterproducts-grid">
+                                                                    <div class="widget-products em-widget-products">
+                                                                        <div class="emcatalog-desktop-4" id="em-grid-mode-em_fashion_new_arrivals_tab03">
+                                                                            <div class="products-grid ">
+
+
+                                                                                <div class="item" style="  ">
+                                                                                    <div class="product-item">
+                                                                                        <div class="product-shop-top">
+                                                                                            <a href="#" title="Drape Back Playsuit " class="product-image">
+                                                                                                <!--show label product - label extension is required-->
+                                                                                                <ul class="productlabels_icons">
+                                                                                                    <li class="label hot">
+                                                                                                        <p>
+                                                                                                            Hot
+                                                                                                        </p>
+                                                                                                    </li>
+                                                                                                    <li class="label special">
+                                                                                                        <p>
+                                                                                                            <span>-14%</span>
+                                                                                                        </p>
+                                                                                                    </li>
+                                                                                                </ul>
+
+                                                                                                <img class="em-alt-hover img-responsive em-img-lazy" src="~/images/product/350x350/clothing_sp17_2.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                                <img class="img-responsive em-img-lazy em-alt-org" src="~/images/product/350x350/clothing_sp17_1.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                            </a>
+                                                                                            <div class="em-element-display-hover bottom">
+                                                                                                <div class="em-btn-addto">
+                                                                                                    <!--product add to cart-->
+                                                                                                    <button type="button" title="Add to Cart" class="button btn-cart">
+                                                                                                        <span><span>Add to Cart</span></span>
+                                                                                                    </button>
+                                                                                                    <!--product add to compare-wishlist-->
+                                                                                                    <ul class="add-to-links">
+                                                                                                        <li>
+                                                                                                            <a onclick="" href="#182" class="link-wishlist" title="Add to Wishlist">Add to Wishlist</a>
+                                                                                                        </li>
+                                                                                                        <li>
+                                                                                                            <span class="separator">|</span> <a href="#182" class="link-compare" title="Add to Compare">Add to Compare</a>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                                <div class="quickshop-link-container">
+                                                                                                    <a href="#" class="quickshop-link" title="Quickshop">Quickshop</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="product-shop">
+                                                                                            <div class="f-fix">
+                                                                                                <!--product name-->
+                                                                                                <h3 style="min-height: 0px;" class="product-name"><a href="#" title="Drape Back Playsuit ">Drape Back Playsuit </a></h3>
+                                                                                                <!--product description-->
+                                                                                                <!--product reviews-->
+                                                                                                <div class="ratings">
+                                                                                                    <div class="rating-box">
+                                                                                                        <div class="rating" style="width:100%"></div>
+                                                                                                    </div>
+                                                                                                    <span class="amount"><a href="#">(1)</a></span>
+                                                                                                </div>
+
+                                                                                                <div class="price-box">
+
+                                                                                                    <p class="old-price">
+                                                                                                        <span class="price-label">Regular Price:</span>
+                                                                                                        <span class="price" id="old-price-182-emprice-1cf9bc7db75928d6682f6b8a6ff12014">$70.00</span>
+                                                                                                    </p>
+
+                                                                                                    <p class="special-price">
+                                                                                                        <span class="price-label">Special Price</span>
+                                                                                                        <span class="price" content="60" id="product-price-182-emprice-1cf9bc7db75928d6682f6b8a6ff12014">$60.00</span>
+                                                                                                    </p>
+
+
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- /.item -->
+                                                                            </div><!-- /.products-grid -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.widget -->
+
+                                                            </div><!-- /#em_fashion_new_arrivals_tab03 -->
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /#tab_emtabs_1_3 -->
+
+                                                <div class="r-tabs-accordion-title">
+                                                    <a class="r-tabs-anchor" href="#tab_emtabs_1_4"> <span class="icon tab_emtabs_1_4"></span>Outerwear</a>
+                                                </div>
+                                                <div id="tab_emtabs_1_4" class="tab-pane tab-item content_tab_emtabs_1_4 r-tabs-state-default r-tabs-panel">
+                                                    <div class="wrapper button-show01 button-hide-text em-wrapper-loaded">
+                                                        <div class="emfilter-ajaxblock-loaded">
+                                                            <div id="em_fashion_new_arrivals_tab04" class="em-grid-20 ">
+
+
+                                                                <div class="widget em-filterproducts-grid">
+                                                                    <div class="widget-products em-widget-products">
+                                                                        <div class="emcatalog-desktop-4" id="em-grid-mode-em_fashion_new_arrivals_tab04">
+                                                                            <div class="products-grid ">
+
+
+                                                                                <div class="item" style="  ">
+                                                                                    <div class="product-item">
+                                                                                        <div class="product-shop-top">
+                                                                                            <a href="#" title="Drape Back Playsuit " class="product-image">
+                                                                                                <!--show label product - label extension is required-->
+                                                                                                <ul class="productlabels_icons">
+                                                                                                    <li class="label hot">
+                                                                                                        <p>
+                                                                                                            Hot
+                                                                                                        </p>
+                                                                                                    </li>
+                                                                                                    <li class="label special">
+                                                                                                        <p>
+                                                                                                            <span>-14%</span>
+                                                                                                        </p>
+                                                                                                    </li>
+                                                                                                </ul>
+
+                                                                                                <img class="em-alt-hover img-responsive em-img-lazy" src="~/images/product/350x350/clothing_sp17_2.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                                <img class="img-responsive em-img-lazy em-alt-org" src="~/images/product/350x350/clothing_sp17_1.jpg" alt="Drape Back Playsuit " height="350" width="350">
+                                                                                            </a>
+                                                                                            <div class="em-element-display-hover bottom">
+                                                                                                <div class="em-btn-addto">
+                                                                                                    <!--product add to cart-->
+                                                                                                    <button type="button" title="Add to Cart" class="button btn-cart">
+                                                                                                        <span><span>Add to Cart</span></span>
+                                                                                                    </button>
+                                                                                                    <!--product add to compare-wishlist-->
+                                                                                                    <ul class="add-to-links">
+                                                                                                        <li>
+                                                                                                            <a onclick="" href="#182" class="link-wishlist" title="Add to Wishlist">Add to Wishlist</a>
+                                                                                                        </li>
+                                                                                                        <li>
+                                                                                                            <span class="separator">|</span> <a href="#182" class="link-compare" title="Add to Compare">Add to Compare</a>
+                                                                                                        </li>
+                                                                                                    </ul>
+                                                                                                </div>
+                                                                                                <div class="quickshop-link-container">
+                                                                                                    <a href="#" class="quickshop-link" title="Quickshop">Quickshop</a>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                        <div class="product-shop">
+                                                                                            <div class="f-fix">
+                                                                                                <!--product name-->
+                                                                                                <h3 style="min-height: 0px;" class="product-name"><a href="#" title="Drape Back Playsuit ">Drape Back Playsuit </a></h3>
+                                                                                                <!--product description-->
+                                                                                                <!--product reviews-->
+                                                                                                <div class="ratings">
+                                                                                                    <div class="rating-box">
+                                                                                                        <div class="rating" style="width:100%"></div>
+                                                                                                    </div>
+                                                                                                    <span class="amount"><a href="#">(1)</a></span>
+                                                                                                </div>
+                                                                                                <!--product price-->
+
+
+
+                                                                                                <div class="price-box">
+
+                                                                                                    <p class="old-price">
+                                                                                                        <span class="price-label">Regular Price:</span>
+                                                                                                        <span class="price" id="old-price-182-emprice-6cd67a43b83c74f1b40e2ad0cbe2ba74">$70.00</span>
+                                                                                                    </p>
+
+                                                                                                    <p class="special-price">
+                                                                                                        <span class="price-label">Special Price</span>
+                                                                                                        <span class="price" content="60" id="product-price-182-emprice-6cd67a43b83c74f1b40e2ad0cbe2ba74">$60.00</span>
+                                                                                                    </p>
+
+
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- /.item -->
+                                                                            </div><!-- /.products-grid -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.widget -->
+
+                                                            </div><!-- /#em_fashion_new_arrivals_tab04 -->
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /#tab_emtabs_1_4 -->
+                                            </div><!-- /.tab-content -->
+                                        </div><!-- /#emtabs_1 -->
+                                    </div>
+                                </div>
+                            </div><!-- /.em-new-arrivals-tabs -->
+                        </div><!-- /.em-wrapper-new-arrivals-tabs -->
+
+                        <div class="em-wrapper-banners hidden-xs">
+                            <div class="">
+                                <a class="" title="em-sample-title" href="#"> <img class="img-responsive" alt="em-sample-alt" src="~/images/wysiwyg/Mua-sam-an-toan-920x420.png" /> </a>
+                            </div>
+                        </div><!-- /.em-wrapper-banners -->
+
+                        <div class="em-best-sales em-wrapper-product-15">
+                            <div class="emfilter-ajaxblock-loaded">
+                                <div class="em-grid-15 custom-product-list">
+                                    <div class="widget-title em-widget-title">
+                                        <h3><span>Best Sales</span></h3>
+
+                                    </div>
+
+                                    <div class="widget em-filterproducts-list">
+                                        <div class="widget-products em-widget-products">
+                                            <div class="products-list ">
+                                                @{int i = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    if (i < 3)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+                                                        i++;
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                            <div class="products-list ">
+                                                @{int j = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    j++;
+                                                    if (j > 3 && j <= 6)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                        </div>
+                                    </div><!-- /.widget -->
+                                    <div class="" style="display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight:Bold">
+                                        <a style="color:#EC6A54" href="#" class="">Xem Thêm</a>
+                                    </div>
+                                </div><!-- /.em-grid-15 -->
+                            </div>
+                        </div><!-- /.em-best-sales -->
+
+
+                        <div class="em-best-sales em-wrapper-product-15">
+                            <div class="emfilter-ajaxblock-loaded">
+                                <div class="em-grid-15 custom-product-list">
+                                    <div class="widget-title em-widget-title">
+                                        <h3><span>Sách kinh tế</span></h3>
+                                    </div>
+
+                                    <div class="widget em-filterproducts-list">
+                                        <div class="widget-products em-widget-products">
+                                            <div class="products-list ">
+                                                @{int a = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    if (a < 3)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+                                                        a++;
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                            <div class="products-list ">
+                                                @{int n = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    n++;
+                                                    if (n > 3 && n <= 6)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                        </div>
+                                    </div><!-- /.widget -->
+                                    <div class="" style="display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight:Bold">
+                                        <a style="color:#EC6A54" href="#" class="">Xem Thêm</a>
+                                    </div>
+                                </div><!-- /.em-grid-15 -->
+                            </div>
+                        </div><!-- /.em-best-sales -->
+
+
+                        <div class="em-best-sales em-wrapper-product-15">
+                            <div class="emfilter-ajaxblock-loaded">
+                                <div class="em-grid-15 custom-product-list">
+                                    <div class="widget-title em-widget-title">
+                                        <h3><span>sách chính trị</span></h3>
+                                    </div>
+
+                                    <div class="widget em-filterproducts-list">
+                                        <div class="widget-products em-widget-products">
+                                            <div class="products-list ">
+                                                @{int m = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    if (m < 3)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+                                                        m++;
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                            <div class="products-list ">
+                                                @{int o = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    o++;
+                                                    if (o > 3 && o <= 6)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                        </div>
+                                    </div><!-- /.widget -->
+                                    <div class="" style="display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight:Bold">
+                                        <a style="color:#EC6A54" href="#" class="">Xem Thêm</a>
+                                    </div>
+                                </div><!-- /.em-grid-15 -->
+                            </div>
+                        </div><!-- /.em-best-sales -->
+
+
+                        <div class="em-best-sales em-wrapper-product-15">
+                            <div class="emfilter-ajaxblock-loaded">
+                                <div class="em-grid-15 custom-product-list">
+                                    <div class="widget-title em-widget-title">
+                                        <h3><span>Sách dạy trẻ</span></h3>
+                                    </div>
+
+                                    <div class="widget em-filterproducts-list">
+                                        <div class="widget-products em-widget-products">
+                                            <div class="products-list ">
+                                                @{int p = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    if (p < 3)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+                                                        p++;
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                            <div class="products-list ">
+                                                @{int q = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    q++;
+                                                    if (q > 3 && q <= 6)
+                                                    {
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" title="Mono Scallop" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+                                                                    <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <div class="rating-box">
+                                                                            <div class="rating" style=""></div>
+                                                                        </div>
+                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                    </div>
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                        </div>
+                                    </div><!-- /.widget -->
+                                    <div class="" style="display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight:Bold">
+                                        <a style="color:#EC6A54" href="#" class="">Xem Thêm</a>
+                                    </div>
+                                </div><!-- /.em-grid-15 -->
+                            </div>
+                        </div><!-- /.em-best-sales -->
+
+
+
+
+
+
+                    </div><!-- /.em-col-main -->
+                    <!-- Slidebar -->
+                    <div class="col-sm-6 col-sm-pull-18 em-col-left em-sidebar">
+                        <div class="em-wrapper-area02">
+                            <div class="menu-wrapper hidden-xs">
+                                <div id="menuleftText" class="all_categories">
+                                    <div class="menuleftText-title">
+                                        <div class="menuleftText">
+                                            <span class="em-text-upercase">Danh Mục</span>
+                                        </div>
+                                    </div>
+                                </div><!-- /.menuleftText -->
+                                <div class="menuleft">
+                                    <div id="menu-default" class="mega-menu em-menu-icon">
+                                        <div class="megamenu-wrapper wrapper-5_4607">
+                                            <div class="em_nav" id="toogle_menu_5_4607">
+                                                <ul class="vnav em-menu-icon effect-menu em-menu-long">
+                                                    <li class="menu-item-link menu-item-depth-0  hidden-sm ">
+                                                        <a class="em-menu-link" href="@Url.Action("AllProduct","Products")"> <span>Sách Bán Chạy</span> </a>
+                                                    </li><!-- /.menu-item-link -->
+                                                    <li class="menu-item-link menu-item-depth-0 em-more-menu  hidden-sm ">
+                                                        <a class="em-menu-link" href="#"> <span>Sách Mới Phát Hành </span> </a>
+                                                    </li><!-- /.menu-item-link -->
+                                                    <li class="menu-item-link menu-item-depth-0 em-more-menu  hidden-sm ">
+                                                        <a class="em-menu-link" href="#"> <span>Sách Sắp Phát Hành </span> </a>
+                                                    </li><!-- /.menu-item-link -->
+                                                    <li class="menu-item-link menu-item-depth-0  menu-item-parent">
+                                                        <a class="em-menu-link" href="#"> <span>Sách Ngoại Văn </span> </a>
+                                                        <ul class="menu-container" style="background-image:url(/images/menu/16644541718_a9bf09d186_b.jpg); background-repeat:no-repeat; background-position:right bottom;">
+                                                            <li class="menu-item-hbox menu-item-depth-1  menu-item-parent" style="">
+                                                                <ul class="menu-container">
+                                                                    <li class="menu-item-vbox menu-item-depth-2  menu-item-parent" style="">
+                                                                        <ul class="menu-container">
+                                                                            <li class="menu-item-hbox menu-item-depth-3 col-menu menu_col18 grid_18 bkg-menu01 menu-item-parent" style="">
+                                                                                <ul class="menu-container">
+                                                                                    <li class="menu-item-vbox menu-item-depth-4 col-sm-24 menu-item-parent" style="">
+                                                                                        <ul class="menu-container">
+                                                                                            <li class="menu-item-text menu-item-depth-5  ">
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li><!-- /.menu-item-hbox -->
+                                                                            <li class="menu-item-hbox menu-item-depth-3 col-menu menu_col18 grid_18 bkg-menu01 menu-item-parent" style="">
+                                                                                <ul class="menu-container">
+                                                                                    <li class="menu-item-vbox menu-item-depth-4 col-sm-5 menu-item-parent" style="">
+                                                                                        <ul class="menu-container">
+                                                                                            <li class="menu-item-text menu-item-depth-5  ">
+                                                                                                <h4>Danh mục</h4>
+                                                                                                <ul class="list-text">
+                                                                                                    <li>
+                                                                                                        <a href="#">Bathtime Goods</a>
+                                                                                                    </li>
+
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li class="menu-item-vbox menu-item-depth-4 col-sm-5 menu-item-parent" style="">
+                                                                                        <ul class="menu-container">
+                                                                                            <li class="menu-item-text menu-item-depth-5  ">
+                                                                                                <h4>Tác giả</h4>
+                                                                                                <ul class="list-text">
+                                                                                                    <li>
+                                                                                                        <a href="#">Daybeds</a>
+                                                                                                    </li>
+
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li class="menu-item-vbox menu-item-depth-4 col-sm-5 menu-item-parent" style="">
+                                                                                        <ul class="menu-container">
+                                                                                            <li class="menu-item-text menu-item-depth-5  ">
+                                                                                                <h4>Nhà phát hành</h4>
+                                                                                                <ul class="list-text">
+                                                                                                    <li>
+                                                                                                        <a href="#">7 For All Mankind</a>
+                                                                                                    </li>
+
+                                                                                                </ul>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+
+                                                                                </ul>
+                                                                            </li>
+                                                                            <li class="menu-item-hbox menu-item-depth-3 col-menu menu_col18 grid_18 bkg-menu01 menu-item-parent" style="">
+                                                                                <ul class="menu-container">
+                                                                                    <li class="menu-item-vbox menu-item-depth-4 col-sm-24 menu-item-parent" style="">
+                                                                                        <ul class="menu-container">
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li><!-- /.menu-item-hbox -->
+                                                                            <li class="menu-item-hbox menu-item-depth-3 col-menu menu_col18 grid_18 bkg-menu01 menu-item-parent" style="">
+                                                                                <ul class="menu-container">
+                                                                                    <li class="menu-item-vbox menu-item-depth-4 col-sm-9 menu-item-parent" style="">
+                                                                                        <ul class="menu-container">
+                                                                                            <li class="menu-item-text menu-item-depth-5  ">
+                                                                                                <div class="menu-cate effect03 zoom-img">
+                                                                                                    <a title="em-sample-title" href="#">
+                                                                                                        <img class="img-responsive" src="~/images/menu/menu-img01.jpg" alt="em-sample-alt" />
+                                                                                                    </a>
+                                                                                                </div>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    <li class="menu-item-vbox menu-item-depth-4 col-sm-11 menu-item-parent" style="">
+                                                                                        <ul class="menu-container">
+                                                                                            <li class="menu-item-text menu-item-depth-5  ">
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li><!-- /.menu-item-hbox -->
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li><!-- /.menu-item-hbox -->
+                                                        </ul>
+                                                    </li><!-- /.menu-item-link -->
+
+                                                </ul><!-- /.vnav -->
+                                            </div>
+                                        </div><!-- /.megamenu-wrapper -->
+                                    </div>
+                                </div><!-- /.menuleft -->
+                            </div>
+                        </div><!-- /.em-wrapper-area02 -->
+                        <div class="em-wrapper-banners hidden-xs">
+                            <div class="">
+                                <a class="" href="#">
+                                    <img class="img-responsive retina-img" alt="em_ads_01.jpg" src="~/images/wysiwyg/cdtg-BannerChinh_920x420.png" />
                                 </a>
-
                             </div>
-                        </div>
-                    }
-                </div>
-            </section>
-        </section>
+                        </div><!--  /.em-wrapper-banners -->
+                        <div class="row">
+                            <div class="col-sm-24">
+                                <div class="em-wrapper-ads-15">
+                                    <div class="em-slider em-slider-category" data-emslider-pagination="true" data-emslider-items="1">
 
-
-        <section class="row-fluid row m-bottom">
-            <section class="span9">
-                <div class="featured-author">
-
-                    <div class="left">
-                        <span class="author-img-holder"><a href="about-us.html"><img src="images/image16.jpg" alt="" /></a></span>
-                        <div class="author-det-box">
-                            <div class="author-det">
-                                <span class="title"><strong>Tác giả nổi bật</strong></span> <span class="title2">Nguyễn Nhật Ánh</span>
-                                <ul class="books-list">
-                                    <li style="list-style:none"><a href="book-detail.html"><img src="images/image11.jpg" alt="" /></a></li>
-
-                                </ul>
+                                    </div><!-- /.em-slider -->
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <div class="current-book">
-                            <strong class="title"><a href="book-detail.html">Tiểu sử</a></strong>
-                            <p>Tác giả nhật ánh sinh năm 1970 là một nhà văn lớn một đại thi hào của dân tộc, ông có hàng ngìn tác phẩm hay như khi con tu hú .. (xem thêm)</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="span3 best-sellers">
-                <div class="heading-bar">
-                    <h3>Sách bán chạy</h3>
-                    <span class="h-line"></span>
-                </div>
-                <div class="slider2">
-                    <div class="slide">
-                        <a href="book-detail.html"><img src="~/images/image15.jpg" alt="" /></a>
-                        <div class="slide2-caption">
-                            <div class="left"> <span class="title"><a href="book-detail.html">Thousand Splendid Miles</a></span> <span class="author-name">by Khalid Housseini</span> </div>
+                        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-sm-24">
+                                <div class="em-wrapper-ads-10 em-line-01">
+                                    <div class="em-block-title">
+                                        <h2><span>Tác Giả Nổi Bật</span></h2>
+                                    </div>
+                                    <div class="em-blog-style01">
+                                        <div class="em-from-our-blog">
+                                            <div class="em-blog-item em-effect-13">
+                                                <div class="em-blog-content bkg-top">
+                                                    <a title="em-sample-title" class="img-banner-small" href="#"> <img alt="em_blog" class="img-responsive" src="~/images/wysiwyg/nguyen-nhat-anh.jpg" /> </a>
 
-                        </div>
-                    </div>
+                                                    <div class="hov">&nbsp;</div>
+                                                </div>
+                                                <div class="em-box bkg-bottom">
+                                                    <h4 class="em-blog-title"><a href="#">Nguyễn Nhật Ánh</a></h4>
+                                                    <p class="em-blog-des">Boutique festival Secret Garden went down in Sydney&rsquo;s&nbsp;Camden over the weekend,&hellip;Boutique festival Secret Garden went down in Sydney&rsquo;s&nbsp;Camden over the weekend,&hellip;</p>
+                                                    <p>
+                                                        <a class="link-more" href="#">Read more</a>
+                                                    </p>
+                                                </div>
+                                            </div><!-- /.em-blog-item -->
 
-                </div>
-            </section>
+                                        </div>
+                                    </div><!-- /.em-blog-style01 -->
+                                </div>
+                                <div class="em-wrapper-ads-10 em-line-01">
+                                    <div class="em-block-title">
+                                        <h2><span>Tác Phẩm Nổi Bật</span></h2>
+                                    </div>
+                                    <div class="em-blog-style01">
+                                        <div class="em-from-our-blog">
+                                            <div class="em-blog-item em-effect-13">
+                                                <div class="em-blog-content bkg-top">
+                                                    <a title="em-sample-title" class="img-banner-small" href="#"> <img alt="em_blog" class="img-responsive" src="~/images/wysiwyg/nguyen-nhat-anh.jpg" /> </a>
 
-        </section>
-        <section class="row features-books">
-            <section class="span12 m-bottom">
-                <div class="heading-bar">
-                    <h3 style="color:#5EB950">Sách thiếu nhi</h3>
-                    <span class="h-line"></span>
-                </div>
-                <div class="slider1">
-                    <div class="slide ">
-                        <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/co-hai-con-meo-ngoi-ben-cua-so_NNA.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="@Url.Action("ProductDetail","Detail")">Có hai con mèo ngôi bên</a><span>...</span></h3>
+                                                    <div class="hov">&nbsp;</div>
+                                                </div>
+                                                <div class="em-box bkg-bottom">
+                                                    <h4 class="em-blog-title"><a href="#">Nguyễn Nhật Ánh</a></h4>
+                                                    <p class="em-blog-des">Boutique festival Secret Garden went down in Sydney&rsquo;s&nbsp;Camden over the weekend,&hellip;Boutique festival Secret Garden went down in Sydney&rsquo;s&nbsp;Camden over the weekend,&hellip;</p>
+                                                    <p>
+                                                        <a class="link-more" href="#">Read more</a>
+                                                    </p>
+                                                </div>
+                                            </div><!-- /.em-blog-item -->
+
+                                        </div>
+                                    </div><!-- /.em-blog-style01 -->
+                                </div>
                             </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-        </section>
-        <section class="row features-books">
-            <section class="span12 m-bottom">
-                <div class="heading-bar">
-                    <h3 style="color:#5EB950">Sách kĩ năng</h3>
-                    <span class="h-line"></span>
-                </div>
-                <div class="slider1">
-                    <div class="slide ">
-                        <a href="@Url.Action("ProductDetail","Detail")"><img src="~/images/co-hai-con-meo-ngoi-ben-cua-so_NNA.jpg" alt="" class="pro-img" /></a>
-                        <div class="tg-postbookcontent">
-                            <div class="tg-themetagbox"><span class="tg-themetag">Hot sale</span></div>
-                            <div class="tg-booktitle">
-                                <h3><a href="@Url.Action("ProductDetail","Detail")">Có hai con mèo ngôi bên</a><span>...</span></h3>
+                        </div><!-- /.row -->
+                        <div class="img-banner hidden-xs">
+                            <div class="effect-hover-text2">
+                                <a class="banner-img" title="em-sample-title" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/wysiwyg/em_ads_05.jpg" /> </a>
                             </div>
-                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">Angela Gunning</a></span>
-                            <span class="tg-stars"><span></span></span>
-                            <span class="tg-bookprice">
-                                <ins style="font-size:15px">999.999đ</ins>
-                                <del style="font-size:12px">999.999đ</del>
-                            </span>
-                            <a class="tg-btn tg-btnstyletwo" href="@Url.Action("Cart","Cart")">
-                                <i class="fa fa-shopping-basket"></i>
-                                <span>Mua Ngay</span>
-                            </a>
+                        </div><!-- /.img-banner -->
+                    </div><!-- /.em-sidebar -->
+                </div>
+            </div><!-- /.em-main-container -->
+            <!-- /Footer -------------------- -->
+            <div class="em-wrapper-area04">
+
+            </div><!-- /.em-wrapper-area04 -->
+
+            <div class="em-wrapper-area05">
+                <div class="em-wrapper-ads-09">
+                    <div class="row">
+                        <div class="col-sm-6 text-center em-wrapper-ads-item">
+                            <div class="em-ads-item">
+                                <p>
+                                    <em class="fa fa-fw"></em>
+                                </p>
+                                <div class="em-ads-content">
+                                    <h4 class="primary em-text-upercase">SUPER ONLINE STORES</h4>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                        </div><!-- /.em-wrapper-ads-item -->
+                        <div class="col-sm-6 text-center em-wrapper-ads-item  line-left line-right">
+                            <div class="em-ads-item">
+                                <p>
+                                    <em class="fa fa-fw"></em>
+                                </p>
+                                <div class="em-ads-content">
+                                    <h4 class="primary em-text-upercase">RESPONSIVaE DESIGN</h4>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                        </div><!-- /.em-wrapper-ads-item -->
+                        <div class="col-sm-6 text-center  em-wrapper-ads-item  line-left line-right">
+                            <div class="em-ads-item">
+                                <p>
+                                    <em class="fa fa-fw"></em>
+                                </p>
+                                <div class="em-ads-content">
+                                    <h4 class="primary em-text-upercase">FREE UPDATES</h4>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                        </div><!-- /.em-wrapper-ads-item -->
+                        <div class="col-sm-6 text-center  em-wrapper-ads-item">
+                            <div class="em-ads-item">
+                                <p>
+                                    <em class="fa fa-fw"></em>
+                                </p>
+                                <div class="em-ads-content">
+                                    <h4 class="primary em-text-upercase">24/7 SUPPORT ONLINE</h4>
+                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>
+                                </div>
+                            </div>
+                        </div><!-- /.em-wrapper-ads-item -->
+                    </div>
+                </div>
+            </div><!-- /.em-wrapper-area05 -->
+
+            <div class="em-wrapper-area06">
+                <div class="em-wrapper-brands">
+                    <div class=" slider-style02">
+                        <div class="em-slider em-slider-banners em-slider-navigation-icon" data-emslider-navigation="true" data-emslider-items="6" data-emslider-desktop="5" data-emslider-desktop-small="4" data-emslider-tablet="3" data-emslider-mobile="2">
 
                         </div>
-                    </div>
-
+                    </div><!-- /.slider-style02 -->
                 </div>
-            </section>
-        </section>
-    </section>
+            </div><!-- /.em-wrapper-area06 -->
 
-
-
-
-
+        </div><!-- /.em-inner-main -->
+    </div><!-- /.container -->
+</div><!-- /.em-wrapper-main -->
+<div class="popup-content" id="em-popup" style="display: none;">
+    <div class="popup-subscribe">
+        <div class="em-wrapper-newsletter">
+            <div class="em-block-title">
+              
+            </div>
+            <div class="em-newsletter-style05">
+                <div class="block block-subscribe">
+                    <div style="width:500px;height:200px"></div>
+                </div>
+            </div><!-- /.em-newsletter-style05 -->
+        </div>
+    </div>
+    <div class="popup-content-block"></div>
+</div><!-- /.popup-content -->

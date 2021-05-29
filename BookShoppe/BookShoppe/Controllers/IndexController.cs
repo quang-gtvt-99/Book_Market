@@ -18,10 +18,9 @@ namespace BookShoppe.Controllers
             _BMContext = _MarketContext;
         }
        
-        public  IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-         
-            return View(); 
+            return View(await _BMContext.Products.ToListAsync()); 
         }
         
     }

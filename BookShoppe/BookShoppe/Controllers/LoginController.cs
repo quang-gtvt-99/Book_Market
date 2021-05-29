@@ -12,9 +12,6 @@ namespace BookShoppe.Controllers
         {
             return View();
         }
-        public ViewResult Register()
-        {
-            return View();
-        }
+        
     }
 }
