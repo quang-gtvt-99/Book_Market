@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BookMarket.Models.Products>
+﻿@model BookMarket.Models.Products
+
 @{
     ViewData["Title"] = "ProductDetail";
     Layout = "~/Views/Layouts/_Layout.cshtml";
@@ -26,175 +27,163 @@
                 <div id="tg-twocolumns" class="tg-twocolumns">
                     <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9 pull-right">
                         <div id="tg-content" class="tg-content">
-                            @foreach (var item in Model)
-                            {
-                            <div class="tg-productdetail">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                                        <div class="tg-postbook">
-                                            <figure class="tg-featureimg"><img src="~/Style2/images/@Html.DisplayFor(model => item.Author.Name)" alt="image description"></figure>
-                                            <div class="tg-postbookcontent">
-                                                <span class="tg-bookprice">
-                                                    <span>Giá bìa</span>
-                                                    <del style="font-size:15px;float:right">@Html.DisplayFor(modelItem => item.GiaBia)đ</del>
-                                                </span>
+                          <div class="tg-productdetail">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                            <div class="tg-postbook">
+                                                <figure class="tg-featureimg"><img src="~/images/product/350x350/@Html.DisplayFor(model => model.ProductImg)" alt="image description"></figure>
+                                                <div class="tg-postbookcontent">
+                                                    <span class="tg-bookprice">
+                                                        <span>Giá bìa</span>
+                                                        <del style="font-size:15px;float:right"> @Html.DisplayFor(model => model.GiaBia)đ</del>
+                                                    </span>
 
-                                                <span class="tg-bookprice">
-                                                    <span>Giá bán</span>
-                                                    <ins style="font-size:18px; float:right; color:red">@Html.DisplayFor(modelItem => item.GiaBan)đ</ins>
-                                                </span>
-                                                
-                                                <span class="tg-bookprice">
-                                                    <span>Tiết kiệm</span>
-                                                    <ins style="font-size:13px; float:right; color:#5EB950">@Html.DisplayFor(modelItem => item.ProductImg)đ</ins>
-                                                </span>
+                                                    <span class="tg-bookprice">
+                                                        <span>Giá bán</span>
+                                                        <ins style="font-size:18px; float:right; color:red">@Html.DisplayFor(model => model.GiaBan)đ</ins>
+                                                    </span>
+
+                                                    <span class="tg-bookprice">
+                                                        <span>Tiết kiệm</span>
+                                                        <ins style="font-size:13px; float:right; color:#5EB950"></ins>
+                                                    </span>
 
 
-                                                <ul class="tg-delevrystock">
-                                                    <li><i class="icon-rocket"></i><span>Miễn phí giao hàng toàn quốc cho Đơn hàng từ 300.000đ</span></li>
-                                                    <li><i class="icon-checkmark-circle"></i><span>Có dịch vụ bọc sách plastic cao cấp cho sách này</span></li>
-                                                    <li><i class="icon-store"></i><span>Chất lượng sách: <em>@Html.DisplayFor(modelItem => item.Quanity)</em></span></li>
+                                                    <ul class="tg-delevrystock">
+                                                        <li><i class="icon-rocket"></i><span>Miễn phí giao hàng toàn quốc cho Đơn hàng từ 300.000đ</span></li>
+                                                        <li><i class="icon-checkmark-circle"></i><span>Có dịch vụ bọc sách plastic cao cấp cho sách này</span></li>
+                                                        <li><i class="icon-store"></i><span>Chất lượng sách: <em>@Html.DisplayFor(model => model.Quanity)</em></span></li>
+                                                    </ul>
+
+                                                    <a class="tg-btn tg-active tg-btn-lg" href="javascript:void(0);">
+                                                        <span>Mua Ngay</span>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                            <div class="tg-productcontent">
+                                                <ul class="tg-bookscategories">
+                                                    <li><a href="javascript:void(0);">@Html.DisplayFor(model => model.Category.CategoryName)</a></li>
                                                 </ul>
-
-                                                <a class="tg-btn tg-active tg-btn-lg" href="javascript:void(0);">
-                                                    <span>Mua Ngay</span>
-                                                </a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-                                        <div class="tg-productcontent">
-                                            <ul class="tg-bookscategories">
-                                                <li><a href="javascript:void(0);">Thể Loại</a></li>
-                                            </ul>
-                                            <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
-                                            <div class="tg-booktitle">
-                                                <h3>@Html.DisplayFor(modelItem => item.ProductName)</h3>
-                                            </div>
-                                            <span class="tg-bookwriter">By: <a href="javascript:void(0);">tên tác giả</a></span>
-                                            <span class="tg-stars"><span></span></span>
-                                            <span class="tg-addreviews"><a href="javascript:void(0);">Đánh giá</a></span>
-
-                                            <div class="tg-description">
-                                                <p>@Html.DisplayFor(modelItem => item.Decription)</p>
-                                            </div>
-                                            <div class="tg-sectionhead">
-                                                <h2>Thông tin chi tiết</h2>
-                                            </div>
-                                            <ul class="tg-productinfo">
-                                                <li><span>Tác giả</span><span>Hardback</span></li>
-                                                <li><span>Nhà phát hành</span><span>528 pages</span></li>
-                                                <li><span>Khối lượng</span><span>@Html.DisplayFor(modelItem => item.Weight)</span></li>
-                                                <li><span>Định dạng</span><span>@Html.DisplayFor(modelItem => item.Format)</span></li>
-                                                <li><span>Ngày phát hành</span><span>@Html.DisplayFor(modelItem => item.ReleaseDate)</span></li>
-                                                <li><span>Nhà xuất bản</span><span>English</span></li>
-                                                <li><span>Ngôn ngữ</span><span>@Html.DisplayFor(modelItem => item.Language)</span></li>
-                                                <li><span>Kích thước</span><span>@Html.DisplayFor(modelItem => item.Size)</span></li>
-                                                <li><span>Số trang</span><span>@Html.DisplayFor(modelItem => item.NumPage)</span></li>
-                                            </ul>
-                                            <div class="tg-alsoavailable">
-                                                <figure>
-                                                    <img src="/style2/images/img-02.jpg" alt="image description">
-                                                </figure>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tg-productdescription">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="tg-sectionhead">
-
-                                            </div>
-                                            <ul class="tg-themetabs" role="tablist">
-                                                <li role="presentation" class="active"><a href="#description" data-toggle="tab">Giới thiệu sách</a></li>
-                                                <li role="presentation"><a href="#review" data-toggle="tab">Reviews</a></li>
-                                            </ul>
-                                            <div class="tg-tab-content tab-content">
-                                                <div role="tabpanel" class="tg-tab-pane tab-pane active" id="description">
-                                                    <div class="tg-description">
-                                                        <p>
-                                                            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenden
-                                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenden
-                                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenden
-                                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenden
-                                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                        </p>
-
-                                                        <p>
-                                                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam remmata aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enimsam
-                                                            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos quistatoa.
-                                                        </p>
-                                                    </div>
+                                                <div class="tg-themetagbox"><span class="tg-themetag">sale</span></div>
+                                                <div class="tg-booktitle">
+                                                    <h3>@Html.DisplayFor(model => model.ProductName)</h3>
                                                 </div>
-                                                <div role="tabpanel" class="tg-tab-pane tab-pane" id="review">
-                                                    <div class="tg-description">
-                                                        <p>
-                                                            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenden
-                                                            voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                                        </p>
-                                                        <figure class="tg-alignleft">
-                                                            <img src="/style2/images/placeholdervtwo.jpg" alt="image description">
-                                                            <iframe src="https://www.youtube.com/embed/aLwpuDpZm1k?rel=0&amp;controls=0&amp;showinfo=0"></iframe>
-                                                        </figure>
-                                                        <ul class="tg-liststyle">
-                                                            <li><span>Sed do eiusmod tempor incididunt ut labore et dolore</span></li>
-                                                            <li><span>Magna aliqua enim ad minim veniam</span></li>
-                                                            <li><span>Quis nostrud exercitation ullamco laboris nisi ut</span></li>
-                                                            <li><span>Aliquip ex ea commodo consequat aute dolor reprehenderit</span></li>
-                                                            <li><span>Voluptate velit esse cillum dolore eu fugiat nulla pariatur</span></li>
-                                                            <li><span>Magna aliqua enim ad minim veniam</span></li>
-                                                            <li><span>Quis nostrud exercitation ullamco laboris nisi ut</span></li>
-                                                        </ul>
-                                                        <p>
-                                                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam remmata aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enimsam
-                                                            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos quistatoa.
-                                                        </p>
+                                                <span class="tg-bookwriter">By: <a href="javascript:void(0);">@Html.DisplayFor(model => model.Author.Name)</a></span>
+                                                <span class="tg-stars"><span></span></span>
+                                                <span class="tg-addreviews"><a href="javascript:void(0);">Đánh giá</a></span>
+
+                                                <div class="tg-description">
+                                                    <p>@Html.DisplayFor(model => model.Decription)</p>
+                                                </div>
+                                                <div class="tg-sectionhead">
+                                                    <h2>Thông tin chi tiết</h2>
+                                                </div>
+                                                <ul class="tg-productinfo">
+                                                    <li><span>Nhà phát hành</span><span>@Html.DisplayFor(model => model.Nph.Name)</span></li>
+                                                    <li><span>Khối lượng</span><span>@Html.DisplayFor(model => model.Weight)</span></li>
+                                                    <li><span>Định dạng</span><span>@Html.DisplayFor(model => model.Format)</span></li>
+                                                    <li><span>Ngày phát hành</span><span>@Html.DisplayFor(model => model.ReleaseDate)</span></li>
+                                                    <li><span>Nhà xuất bản</span><span>@Html.DisplayFor(model => model.Nxb.Name)</span></li>
+                                                    <li><span>Ngôn ngữ</span><span>@Html.DisplayFor(model => model.Language)</span></li>
+                                                    <li><span>Kích thước</span><span>@Html.DisplayFor(model => model.Size)</span></li>
+                                                    <li><span>Số trang</span><span>@Html.DisplayFor(model => model.NumPage)</span></li>
+                                                </ul>
+                                                <div class="tg-alsoavailable">
+                                                    <figure>
+                                                        <img src="/style2/images/img-02.jpg" alt="image description">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tg-productdescription">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="tg-sectionhead">
+
+                                                </div>
+                                                <ul class="tg-themetabs" role="tablist">
+                                                    <li role="presentation" class="active"><a href="#description" data-toggle="tab">Giới thiệu sách</a></li>
+                                                    <li role="presentation"><a href="#review" data-toggle="tab">Reviews</a></li>
+                                                </ul>
+                                                <div class="tg-tab-content tab-content">
+                                                    <div role="tabpanel" class="tg-tab-pane tab-pane active" id="description">
+                                                        <div class="tg-description">
+                                                            <p>
+                                                           CÓ HAI CON MÈO NGỒI BÊN CỬA SỔ là tác phẩm đầu tiên của nhà văn Nguyễn Nhật Ánh viết theo thể loại đồng thoại. Đặc biệt hơn nữa là viết về tình bạn của hai loài vốn là thù địch của nhau mèo và chuột. Đó là tình bạn giữa mèo Gấu và chuột Tí Hon.
+Để biết tại sao mèo Gấu lại chơi thân với chuột Tí Hon, thì mời bạn hãy mở sách ra.
+Cuốn truyện mỏng mảnh vừa phải, hình vẽ của họa sĩ Hoàng Tường sinh động đến từng nét nũng nịu hay kiêu căng của nàng mèo người yêu mèo Gấu, câu chuyện thì hấp dẫn duyên dáng điểm những bài thơ tình lãng mạn nao lòng song đọc to lên thì khiến cười hinh hích…
+ Bạn hãy đọc nhé, để thấy, Nguyễn Nhật Ánh đã viết truyện đồng thoại theo cái cách của riêng mình độc đáo như thế nào.  
+                                                            </p>                       
+                                                        </div>
+                                                    </div>
+                                                    <div role="tabpanel" class="tg-tab-pane tab-pane" id="review">
+                                                        <div class="tg-description">
+                                                            <p>
+                                                                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veni quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenden
+                                                                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            </p>
+                                                            <figure class="tg-alignleft">
+                                                                <img src="/style2/images/placeholdervtwo.jpg" alt="image description">
+                                                                <iframe src="https://www.youtube.com/embed/aLwpuDpZm1k?rel=0&amp;controls=0&amp;showinfo=0"></iframe>
+                                                            </figure>
+                                                            <ul class="tg-liststyle">
+                                                                <li><span>Sed do eiusmod tempor incididunt ut labore et dolore</span></li>
+                                                                <li><span>Magna aliqua enim ad minim veniam</span></li>
+                                                                <li><span>Quis nostrud exercitation ullamco laboris nisi ut</span></li>
+                                                                <li><span>Aliquip ex ea commodo consequat aute dolor reprehenderit</span></li>
+                                                                <li><span>Voluptate velit esse cillum dolore eu fugiat nulla pariatur</span></li>
+                                                                <li><span>Magna aliqua enim ad minim veniam</span></li>
+                                                                <li><span>Quis nostrud exercitation ullamco laboris nisi ut</span></li>
+                                                            </ul>
+                                                            <p>
+                                                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam remmata aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enimsam
+                                                                voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos quistatoa.
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="tg-aboutauthor">
-                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                            <div class="tg-sectionhead">
-                                                <h2>About Author</h2>
-                                            </div>
-                                            <div class="tg-authorbox">
-                                                <figure class="tg-authorimg">
-                                                    <img src="/style2/images/author/imag-24.jpg" alt="image description">
-                                                </figure>
-                                                <div class="tg-authorinfo">
-                                                    <div class="tg-authorhead">
-                                                        <div class="tg-leftarea">
-                                                            <div class="tg-authorname">
-                                                                <h2>Kathrine Culbertson</h2>
-                                                                <span>Author Since: June 27, 2017</span>
+                                        <div class="tg-aboutauthor">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <div class="tg-sectionhead">
+                                                    <h2>About Author</h2>
+                                                </div>
+                                                <div class="tg-authorbox">
+                                                    <figure class="tg-authorimg">
+                                                        <img src="/style2/images/author/imag-24.jpg" alt="image description">
+                                                    </figure>
+                                                    <div class="tg-authorinfo">
+                                                        <div class="tg-authorhead">
+                                                            <div class="tg-leftarea">
+                                                                <div class="tg-authorname">
+                                                                    <h2>Kathrine Culbertson</h2>
+                                                                    <span>Author Since: June 27, 2017</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tg-rightarea">
+                                                                <ul class="tg-socialicons">
+                                                                    <li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
+                                                                    <li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
+                                                                    <li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
+                                                                    <li class="tg-googleplus"><a href="javascript:void(0);"><i class="fa fa-google-plus"></i></a></li>
+                                                                    <li class="tg-rss"><a href="javascript:void(0);"><i class="fa fa-rss"></i></a></li>
+                                                                </ul>
                                                             </div>
                                                         </div>
-                                                        <div class="tg-rightarea">
-                                                            <ul class="tg-socialicons">
-                                                                <li class="tg-facebook"><a href="javascript:void(0);"><i class="fa fa-facebook"></i></a></li>
-                                                                <li class="tg-twitter"><a href="javascript:void(0);"><i class="fa fa-twitter"></i></a></li>
-                                                                <li class="tg-linkedin"><a href="javascript:void(0);"><i class="fa fa-linkedin"></i></a></li>
-                                                                <li class="tg-googleplus"><a href="javascript:void(0);"><i class="fa fa-google-plus"></i></a></li>
-                                                                <li class="tg-rss"><a href="javascript:void(0);"><i class="fa fa-rss"></i></a></li>
-                                                            </ul>
+                                                        <div class="tg-description">
+                                                            <p>Laborum sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis etation.</p>
                                                         </div>
+                                                        <a class="tg-btn tg-active" href="javascript:void(0);">View All Books</a>
                                                     </div>
-                                                    <div class="tg-description">
-                                                        <p>Laborum sed ut perspiciatis unde omnis iste natus sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis etation.</p>
-                                                    </div>
-                                                    <a class="tg-btn tg-active" href="javascript:void(0);">View All Books</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            }
+                        
                         </div>
                     </div>
                     <!--************************************

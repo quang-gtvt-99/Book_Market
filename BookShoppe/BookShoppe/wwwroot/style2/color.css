@@ -60,12 +60,12 @@ input:focus,
 .tg-tag:hover,
 .tg-comments li .tg-authorbox:hover,
 .tg-comments li .tg-authorbox:hover .tg-bottomarrow,
-.tg-btnreply:hover{ border-color: #77b748;}
+.tg-btnreply:hover{ border-color: #EC6A54;}
 /*=============================================
 			Theme Shadow Color
 =============================================*/
 .tg-btn:hover,
-.tg-btn.tg-active {box-shadow:inset 0 -2px 0 0 #649b3c;}
+.tg-btn.tg-active {box-shadow:inset 0 -2px 0 0 #EC6A54;}
 /*=============================================
 			Theme Secondary Color
 =============================================*/

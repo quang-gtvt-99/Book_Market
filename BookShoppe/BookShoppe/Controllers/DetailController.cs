@@ -22,14 +22,21 @@ namespace BookShoppe.Controllers
             {
                 return NotFound();
             }
-            
-            var detail = await _BMContext.Products.Include(s=>s.Author).ThenInclude(s=>s.AuthorId).AsNoTracking().FirstOrDefaultAsync(m => m.ProductId == id);
+           
+           var detail = await _BMContext.Products.Include(i => i.Category)
+                .Include(s=>s.Nph)
+                .Include(s=>s.Nxb)
+                .Include(s => s.Author).AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ProductId == id)
+                ;
+
             if (detail == null)
             {
                 return NotFound();
             }
+            
             return View(detail);
         }
-      
+
     }
 }

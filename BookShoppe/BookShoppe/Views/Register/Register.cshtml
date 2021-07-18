@@ -3,6 +3,25 @@
     ViewData["Title"] = "Register";
     Layout = "~/Views/Layouts/_Layout.cshtml";
 }
+<div class="wrapper-breadcrums">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-24">
+                <div class="breadcrumbs">
+                    <ul>
+                        <li class="home">
+                            <a href="index.html" title="Go to Home Page"><span>Trang chủ</span></a> <span class="separator">/ </span>
+                        </li>
+                        <li class="cms_page">
+                            <strong>Đăng kí</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.wrapper-breadcrums -->
+
 
 <div class="em-wrapper-main">
     <div class="container container-main">
@@ -23,14 +42,31 @@
                                         <li class="fields">
                                             <div class="customer-name-middlename">
                                                 <div class="field name-firstname">
-                                                    <label for="firstname" class="required"><em>*</em>First Name</label>
+                                                    <label for="firstname" class="required"><em>*</em>Họ và Tên của bạn</label>
                                                     <div class="input-box">
                                                         <input type="text" id="firstname" name="firstname" value="" title="First Name" maxlength="255" class="input-text required-entry" />
                                                     </div>
                                                 </div>
-                                               
+
                                                 <div class="field name-lastname">
-                                                    <label for="lastname" class="required"><em>*</em>Last Name</label>
+                                                    <label for="lastname" class="required"><em>*</em>Số điện thoại</label>
+                                                    <div class="input-box">
+                                                        <input type="text" id="lastname" name="lastname" value="" title="Last Name" maxlength="255" class="input-text required-entry" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="fields">
+                                            <div class="customer-name-middlename">
+                                                <div class="field name-firstname">
+                                                    <label for="firstname" class="required"><em></em>Địa chỉ </label>
+                                                    <div class="input-box">
+                                                        <input type="text" id="firstname" name="firstname" value="" title="First Name" maxlength="255" class="input-text required-entry" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="field name-lastname">
+                                                    <label for="lastname" class="required"><em></em>Mã số thuế</label>
                                                     <div class="input-box">
                                                         <input type="text" id="lastname" name="lastname" value="" title="Last Name" maxlength="255" class="input-text required-entry" />
                                                     </div>
@@ -38,17 +74,12 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <label for="email_address" class="required"><em>*</em>Email Address</label>
+                                            <label for="email_address" class="required"><em>*</em>Địa chỉ email</label>
                                             <div class="input-box">
                                                 <input type="text" name="email" id="email_address" value="" title="Email Address" class="input-text validate-email required-entry" />
                                             </div>
                                         </li>
-                                        <li class="control">
-                                            <div class="input-box">
-                                                <input type="checkbox" name="is_subscribed" title="Sign Up for Newsletter" value="1" id="is_subscribed" class="checkbox" />
-                                            </div>
-                                            <label for="is_subscribed"></label>
-                                        </li>
+
                                     </ul>
                                 </div>
                                 <div class="fieldset">
@@ -83,7 +114,7 @@
                                     </div>
                                     <div class="buttons-set">
                                         <p class="back-link">
-                                            <a href="login.html" class="back-link"><small>&laquo; </small>Back</a>
+                                            <a href="login.html" class="back-link"><small>&laquo; </small>Trang chủ</a>
                                         </p>
                                         <button type="submit" title="Submit" class="button">
                                             <span><span>Đăng Kí</span></span>

@@ -71,3 +71,5 @@ D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Cart\
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Login\Login.g.cshtml.cs
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Register\Register.g.cshtml.cs
 D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Detail\ProductDetail.g.cshtml.cs
+D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\listCategory\List.g.cshtml.cs
+D:\DA_BookMarket\BookShoppe\BookShoppe\obj\Debug\netcoreapp2.1\Razor\Views\Index\_listCate.g.cshtml.cs

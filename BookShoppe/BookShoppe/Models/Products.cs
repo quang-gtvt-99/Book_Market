@@ -40,5 +40,7 @@ namespace BookMarket.Models
         public ICollection<FeedBack> FeedBack { get; set; }
         public ICollection<HotSale> HotSale { get; set; }
         public ICollection<OrderDetail> OrderDetail { get; set; }
+
+      
     }
 }
