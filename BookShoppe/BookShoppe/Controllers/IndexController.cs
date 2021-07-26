@@ -20,6 +20,13 @@ namespace BookShoppe.Controllers
        
         public async Task<IActionResult> Index()
         {
+            
+            var SP = await _BMContext.Products.ToListAsync();
+            var ListSP = new List<Products>();
+            foreach(var sp in SP )
+            {
+               
+            }
             return View(await _BMContext.Products.ToListAsync()); 
         }
         

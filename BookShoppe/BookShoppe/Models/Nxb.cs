@@ -14,6 +14,7 @@ namespace BookMarket.Models
         public string Name { get; set; }
         public string Address { get; set; }
         public int? Phone { get; set; }
+        public string Decreption { get; set; }
 
         public ICollection<Products> Products { get; set; }
     }

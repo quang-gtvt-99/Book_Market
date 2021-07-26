@@ -7,7 +7,7 @@ namespace BookMarket.Models
     {
         public int Id { get; set; }
         public int ProductId { get; set; }
-        public int? Sale { get; set; }
+        public int? PercentSale { get; set; }
         public int? Unit { get; set; }
         public DateTime? EndDate { get; set; }
         public string Status { get; set; }

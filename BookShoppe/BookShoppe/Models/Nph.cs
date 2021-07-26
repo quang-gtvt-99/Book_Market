@@ -13,8 +13,8 @@ namespace BookMarket.Models
         public int Nphid { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
-        public int? Phone { get; set; }
-        public string Detail { get; set; }
+        public string Phone { get; set; }
+        public string Decreption { get; set; }
 
         public ICollection<Products> Products { get; set; }
     }

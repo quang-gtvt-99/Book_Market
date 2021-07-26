@@ -12,9 +12,9 @@ namespace BookMarket.Models
 
         public int ShiperId { get; set; }
         public string Company { get; set; }
-        public int? Phone { get; set; }
-        public int? Hnhcm { get; set; }
-        public int? Orther { get; set; }
+        public long? InCity { get; set; }
+        public long? OurCity { get; set; }
+        public DateTime? CreatedAt { get; set; }
 
         public ICollection<Order> Order { get; set; }
     }

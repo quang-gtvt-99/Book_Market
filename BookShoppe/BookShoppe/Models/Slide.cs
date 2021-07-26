@@ -7,5 +7,8 @@ namespace BookMarket.Models
     {
         public int SlideId { get; set; }
         public string Image { get; set; }
+        public int? ProductId { get; set; }
+
+        public Products Product { get; set; }
     }
 }
