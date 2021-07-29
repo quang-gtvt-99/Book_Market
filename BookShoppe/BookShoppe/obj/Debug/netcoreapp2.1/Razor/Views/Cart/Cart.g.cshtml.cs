@@ -109,7 +109,7 @@ using BookShoppe.Models;
                             ");
             EndContext();
             BeginContext(1770, 6033, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb48c525bd81466bb8207fda7d402393", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9711e18e5cb542dbb8843a89e7afd061", async() => {
                 BeginContext(1790, 3131, true);
                 WriteLiteral(@"
                                 <input name=""form_key"" type=""hidden"" value=""inYgLvzSpOOWWVoP"" />
@@ -158,7 +158,7 @@ using BookShoppe.Models;
                 WriteLiteral("                                                           ");
                 EndContext();
                 BeginContext(4921, 129, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b6135bd12b3848f498459b961891ff33", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1cc9e9394bd442b99b3d3dfaa55b3f42", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -242,7 +242,7 @@ using BookShoppe.Models;
                                             ");
             EndContext();
             BeginContext(8130, 1495, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cdd57f2e1c0d4f4a9d9e5331ed8c820a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "15006b3fd77b43758f45f3cdc390bfff", async() => {
                 BeginContext(8176, 1442, true);
                 WriteLiteral(@"
                                                 <div class=""discount em-box-cart"">

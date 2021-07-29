@@ -94,7 +94,7 @@ using BookShoppe.Models;
             WriteLiteral("ss=\"account-create\">\r\n                            <div class=\"page-title\">\r\n                                <h2>Tạo Tài Khoản</h2>\r\n                            </div>\r\n                            ");
             EndContext();
             BeginContext(1314, 6963, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fcfb6f8f1f71490b857e95a623e6fe7c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5df49367f38c486a9897472b8d3fb2de", async() => {
                 BeginContext(1353, 6917, true);
                 WriteLiteral(@"
                                 <div class=""fieldset"">
