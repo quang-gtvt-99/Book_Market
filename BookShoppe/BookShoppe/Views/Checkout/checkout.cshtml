@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewData["Title"] = "Thanh toán";
+    Layout = "";
+}
+<link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/checkout/">
+<link rel="stylesheet" type="text/css" href="~/css/checkout.css" media="all" />
+<!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Custom styles for this template -->
+<link href="form-validation.css" rel="stylesheet">
+
+<body class="bg-light">
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="~/images/logo.png" alt="" width="218" height="46">
+            <h4>Thanh toán</h4>
+            <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt hàng.</div>
+
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Giỏ hàng</span>
+                    <span class="badge badge-secondary badge-pill">2</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Có hai con mèo bên của sổ</h6>
+                            <small class="text-muted">Nguyễn Nhật Ánh</small>
+                        </div>
+                        <span class="text-muted">37.000đ</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between lh-condensed">
+                        <div>
+                            <h6 class="my-0">Nhà giả kim</h6>
+                            <small class="text-muted">Nguyễn Nhật Ánh</small>
+                        </div>
+                        <span class="text-muted">43.000đ</span>
+                    </li>
+                    
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <div class="text-success">
+                            <h6 class="my-0">Mã giảm giá</h6>
+                            <small>GIAMGIA123</small>
+                        </div>
+                        <span class="text-success">-10.000đ</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Tổng tiền (VND)</span>
+                        <strong>70.000đ</strong>
+                    </li>
+                </ul>
+
+                <form class="card p-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Mã giảm giá">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-secondary">Áp dụng</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Thông tin khách hàng</h4>
+                <form class="needs-validation" novalidate>
+
+                    <div class="mb-3">
+                        <label for="username">Họ và tên của khách hàng</label>
+                        <div class="input-group">
+                            
+                            <input type="text" class="form-control" id="username" placeholder="Nhập họ và tên của bạn." required>
+                            <div class="invalid-feedback" style="width: 100%;">
+                                Your username is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="phone">Số điện thoại</label>
+                            <input type="tel" class="form-control"  maxlength="12" id="phone" placeholder="Nhập số điện thoại của bạn." value="" required>
+                            <div class="invalid-feedback">
+                                Valid phone is required.
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email <span style="color:red" class="text-muted">(không bắt buộc)</span></label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ của bạn." required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address2">Địa chỉ công ty <span class="text-muted">(không bắt buộc)</span></label>
+                        <input type="text" class="form-control" id="address2" placeholder="Nhập địa chỉ của công ty.">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="country">Quốc gia</label>
+                            <select class="custom-select d-block w-100" id="country" required>
+                                <option value="">Lựa chọn...</option>
+                                <option>Việt Nam</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="state">Thành phố</label>
+                            <select class="custom-select d-block w-100" id="state" required>
+                                <option value="">Lựa chọn...</option>
+                                <option>Hà Nội</option>
+                                <option>Hồ Chí Minh</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <hr class="mb-4">
+                    
+                    <hr class="mb-4">
+
+                    <h4 class="mb-3">Lựa chọn phương thức thanh toán</h4>
+
+                    <div class="d-block my-3">
+                        <div class="custom-control custom-radio">
+                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                            <label class="custom-control-label" for="credit">Thanh toán bằng tiền mặt</label>
+                        </div>
+                       
+                    </div>
+                   
+                  
+                    <hr class="mb-4">
+                    <button style="background-color:#EC6A54" class="btn btn-danger btn-lg btn-block" type="submit">Thanh toán</button>
+                </form>
+            </div>
+        </div>
+
+        
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="https://getbootstrap.com/docs/4.3/examples/checkout/form-validation.js"></script>
+</body>
