@@ -1,0 +1,80 @@
+﻿@page
+@model ExternalLoginModel
+
+<link href="~/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="~/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+@{
+     ViewData["Title"] = "Đăng kí tài khoản";
+}
+@{
+    Layout = null;
+}
+<body class="">
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-6 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <p class="h4 text-gray-900 mb-4">
+                                            Bạn đã đăng nhập thành công với <strong>@Model.LoginProvider</strong>.
+                                            Vui lòng nhập địa chỉ email cho trang web này bên dưới và nhấp vào nút Đăng ký để hoàn tất
+                                            đăng nhập.
+                                        </p>
+                                    </div>
+
+                                    <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <input class="form-control form-control-user"
+                                                   id="exampleInputEmail" aria-describedby="emailHelp"
+                                                   placeholder="Nhập địa chỉ email của bạn"
+                                                   asp-for="Input.Email">
+                                        </div>
+
+                                        <button type="submit" href="#" class="btn btn-primary btn-user btn-block">
+                                            Đăng kí
+                                        </button>
+                                        <hr>
+                                    </form>
+                                   
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Admin/js/sb-admin-2.min.js"></script>
+
+</body>
+
+
+
+

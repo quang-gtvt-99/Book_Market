@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookMarket.Models
 {
     public partial class Permission
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PerId { get; set; }
         public int UserId { get; set; }
         public string LevelUser { get; set; }

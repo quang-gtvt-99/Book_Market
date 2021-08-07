@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookMarket.Models
 {
@@ -9,7 +10,7 @@ namespace BookMarket.Models
         {
             Products = new HashSet<Products>();
         }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public string Decription { get; set; }

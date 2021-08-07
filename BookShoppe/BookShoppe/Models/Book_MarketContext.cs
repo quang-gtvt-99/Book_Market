@@ -1,20 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BookMarket.Models
 {
-    public partial class Book_MarketContext : DbContext
+    public partial class Book_MarketContext :DbContext
     {
         public Book_MarketContext()
         {
         }
 
+
         public Book_MarketContext(DbContextOptions<Book_MarketContext> options)
             : base(options)
         {
         }
-
+       
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Banner> Banner { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
@@ -36,17 +39,17 @@ namespace BookMarket.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-               optionsBuilder.UseSqlServer("Server=THINKPAD-E580\\MSSQLSERVERTP; Database=Book_Market; Trusted_Connection=True;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=THINKPAD-E580\\MSSQLSERVERTP; Database=Book_Market; Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            
             modelBuilder.Entity<Author>(entity =>
             {
-                entity.Property(e => e.AuthorId)
-                    .HasColumnName("AuthorID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.AuthorId).HasColumnName("AuthorID");
 
                 entity.Property(e => e.Address).HasMaxLength(50);
 
@@ -57,9 +60,7 @@ namespace BookMarket.Models
 
             modelBuilder.Entity<Banner>(entity =>
             {
-                entity.Property(e => e.BannerId)
-                    .HasColumnName("bannerID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.BannerId).HasColumnName("bannerID");
 
                 entity.Property(e => e.Image).HasMaxLength(50);
 
@@ -77,9 +78,7 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => e.CategoryId);
 
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("CategoryID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
 
                 entity.Property(e => e.CategoryName).HasMaxLength(50);
 
@@ -90,9 +89,7 @@ namespace BookMarket.Models
 
             modelBuilder.Entity<Discount>(entity =>
             {
-                entity.Property(e => e.DiscountId)
-                    .HasColumnName("DiscountID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.DiscountId).HasColumnName("DiscountID");
 
                 entity.Property(e => e.CreatedAt).HasColumnType("datetime");
 
@@ -109,7 +106,9 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => new { e.FbId, e.ProductId });
 
-                entity.Property(e => e.FbId).HasColumnName("FbID");
+                entity.Property(e => e.FbId)
+                    .HasColumnName("FbID")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
@@ -131,7 +130,9 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => new { e.Id, e.ProductId });
 
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.ProductId).HasColumnName("productID");
 
@@ -153,9 +154,7 @@ namespace BookMarket.Models
             {
                 entity.ToTable("NPH");
 
-                entity.Property(e => e.Nphid)
-                    .HasColumnName("NPHID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Nphid).HasColumnName("NPHID");
 
                 entity.Property(e => e.Address).HasMaxLength(50);
 
@@ -170,9 +169,7 @@ namespace BookMarket.Models
             {
                 entity.ToTable("NXB");
 
-                entity.Property(e => e.Nxbid)
-                    .HasColumnName("NXBID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Nxbid).HasColumnName("NXBID");
 
                 entity.Property(e => e.Address).HasMaxLength(50);
 
@@ -183,9 +180,7 @@ namespace BookMarket.Models
 
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.Property(e => e.OrderId)
-                    .HasColumnName("OrderID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.OrderId).HasColumnName("OrderID");
 
                 entity.Property(e => e.CreatedAt).HasColumnType("datetime");
 
@@ -242,9 +237,7 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => e.PerId);
 
-                entity.Property(e => e.PerId)
-                    .HasColumnName("PerID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.PerId).HasColumnName("PerID");
 
                 entity.Property(e => e.IsDeleted).HasColumnName("isDeleted");
 
@@ -268,9 +261,7 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => e.ProductId);
 
-                entity.Property(e => e.ProductId)
-                    .HasColumnName("productID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.ProductId).HasColumnName("productID");
 
                 entity.Property(e => e.AuthorId).HasColumnName("authorID");
 
@@ -335,9 +326,7 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => e.ShiperId);
 
-                entity.Property(e => e.ShiperId)
-                    .HasColumnName("ShiperID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.ShiperId).HasColumnName("ShiperID");
 
                 entity.Property(e => e.Company).HasMaxLength(50);
 
@@ -350,9 +339,7 @@ namespace BookMarket.Models
 
             modelBuilder.Entity<Slide>(entity =>
             {
-                entity.Property(e => e.SlideId)
-                    .HasColumnName("SlideID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.SlideId).HasColumnName("SlideID");
 
                 entity.Property(e => e.Image).HasMaxLength(50);
 
@@ -368,9 +355,7 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => e.IdStaff);
 
-                entity.Property(e => e.IdStaff)
-                    .HasColumnName("idStaff")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.IdStaff).HasColumnName("idStaff");
 
                 entity.Property(e => e.Cmnd).HasColumnName("CMND");
 
@@ -395,11 +380,11 @@ namespace BookMarket.Models
             {
                 entity.HasKey(e => e.CustomerId);
 
-                entity.Property(e => e.CustomerId)
-                    .HasColumnName("CustomerID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
 
                 entity.Property(e => e.Address).HasMaxLength(50);
+
+                entity.Property(e => e.Birdday).HasColumnType("date");
 
                 entity.Property(e => e.CreatedAt).HasColumnType("datetime");
 

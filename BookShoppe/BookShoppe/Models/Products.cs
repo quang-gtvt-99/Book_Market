@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookMarket.Models
 {
@@ -12,8 +13,9 @@ namespace BookMarket.Models
             HotSale = new HashSet<HotSale>();
             OrderDetail = new HashSet<OrderDetail>();
             Slide = new HashSet<Slide>();
+            
         }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
         public string ProductName { get; set; }
         public string ProductImg { get; set; }
@@ -34,7 +36,7 @@ namespace BookMarket.Models
         public string Language { get; set; }
         public string Size { get; set; }
         public int? PageNumber { get; set; }
-
+        
         public Author Author { get; set; }
         public Categories Category { get; set; }
         public Nph Nph { get; set; }
@@ -44,5 +46,8 @@ namespace BookMarket.Models
         public ICollection<HotSale> HotSale { get; set; }
         public ICollection<OrderDetail> OrderDetail { get; set; }
         public ICollection<Slide> Slide { get; set; }
+        public spbanchay spbanchay { get; set; }
+        
+
     }
 }

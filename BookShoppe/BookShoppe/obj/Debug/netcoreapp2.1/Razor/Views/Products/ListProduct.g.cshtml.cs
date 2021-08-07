@@ -183,7 +183,7 @@ using BookShoppe.Models;
                                                     ");
             EndContext();
             BeginContext(2909, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e69437817bde4c4885d3fe941f1f0d08", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8df0dc832b43490cbc064b5f5ebdd47e", async() => {
                 BeginContext(2954, 9, true);
                 WriteLiteral(" Position");
                 EndContext();
@@ -206,7 +206,7 @@ using BookShoppe.Models;
             WriteLiteral("\r\n                                                    ");
             EndContext();
             BeginContext(3026, 35, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "922e9729469945498e251ca86531961a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "38aa982fd256402db0f541f9f5cf3832", async() => {
                 BeginContext(3047, 5, true);
                 WriteLiteral(" Name");
                 EndContext();
@@ -228,7 +228,7 @@ using BookShoppe.Models;
             WriteLiteral("\r\n                                                    ");
             EndContext();
             BeginContext(3115, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e80e125a22404d468912fcbd709d4889", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "352974bb494c4134af51d02ced40edf9", async() => {
                 BeginContext(3137, 6, true);
                 WriteLiteral(" Price");
                 EndContext();
@@ -261,7 +261,7 @@ using BookShoppe.Models;
                                     <a href=""product-detail.html"" title=""WIASSI Version 1"" class=""product-image""> ");
             EndContext();
             BeginContext(3797, 149, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dea3e89adc044d2d9fdd7994b45b521d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b66aab300c414a79ac09bc6fe5d8f1e4", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -283,7 +283,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(3947, 181, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b0c693de809e48e1b6c0fd3a245f50d2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "835dc86086114d87a3dabebf103aa427", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -332,7 +332,7 @@ using BookShoppe.Models;
             WriteLiteral(" </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 12\" class=\"product-image\"> ");
             EndContext();
             BeginContext(6390, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "12945d8f77864c388f1ee6b8bfde9774", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "b6a13963df174e14a9a906f25584743a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -354,7 +354,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(6542, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "35ca05ed893f4af891540f13596bebe6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3005cd6cbc454c35ac74462891ec5d45", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -403,7 +403,7 @@ using BookShoppe.Models;
             WriteLiteral("       </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 13\" class=\"product-image\"> ");
             EndContext();
             BeginContext(8993, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "93476c8e88984a928cfed9ed3697c91d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8b52da06685f46efaf00b40ab227791b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -425,7 +425,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(9145, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ebbd82bb724a4644a46a2b2b76005812", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4161aaffa25843d782d6f8a90cf79a7a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -474,7 +474,7 @@ using BookShoppe.Models;
             WriteLiteral("    </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 14\" class=\"product-image\"> ");
             EndContext();
             BeginContext(11593, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dc41f2d03fad48859a0f185f10e5fe78", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1450e7e2f3594aeda33e2d5aa37d06e8", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -496,7 +496,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(11745, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "85db594776894bb09393007211cb92ce", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "01fd49855d0f4cc589714193a8d01eec", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -545,7 +545,7 @@ using BookShoppe.Models;
             WriteLiteral("    </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 15\" class=\"product-image\"> ");
             EndContext();
             BeginContext(14193, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "747e74bb8a9c424f92ce759f19334c17", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8cf3741b06684a86855dafca7a5bdeef", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -567,7 +567,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(14345, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0c7dd26ff39141bf94cef8e94d0fcd1f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cd1d33f28eac4b2b87eb9182b6bff432", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -616,7 +616,7 @@ using BookShoppe.Models;
             WriteLiteral("       </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 16\" class=\"product-image\"> ");
             EndContext();
             BeginContext(16796, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "906dc4a42ad44d769d5b8e52f7c1433d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8681526d2892455eb02103be84950360", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -638,7 +638,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(16948, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "196243646a5d4482895370ad92718089", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c5a1511d17094f26ae7b752037d8d7dc", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -687,7 +687,7 @@ using BookShoppe.Models;
             WriteLiteral("       </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 17\" class=\"product-image\"> ");
             EndContext();
             BeginContext(19399, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c30df6ee84154508990e5d1bfdb74b69", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ea387be4f93c432696b29a1d024e908c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -709,7 +709,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(19551, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "30a982f2ab824711b1ba7113b2013120", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5087e221065f48fb98e566f3c1cb8e62", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -758,7 +758,7 @@ using BookShoppe.Models;
             WriteLiteral("    </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 18\" class=\"product-image\"> ");
             EndContext();
             BeginContext(21999, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8ce0aeb3d1334c848feabc5a91dc8141", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4d6a99e232fc4369baa28bc86b499cad", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -780,7 +780,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(22151, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a9bc9b42fcd3424388b9bff7c8239d46", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "3cd25f8690054ca2836d8bae783ea5a0", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -829,7 +829,7 @@ using BookShoppe.Models;
             WriteLiteral("       </div>\r\n                                </li>\r\n                                <li class=\"item\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 19\" class=\"product-image\"> ");
             EndContext();
             BeginContext(24602, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6e16cb3aaa6d4ef0ab407f1b220a6e36", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f4d00bf2a1bd45389206aeb47a5b2f3c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -851,7 +851,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(24754, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2645766729c740ac9e7a04aed5b05f4b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9d7fea985bc041df99069962c06321b5", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -900,7 +900,7 @@ using BookShoppe.Models;
             WriteLiteral("       </div>\r\n                                </li>\r\n                                <li class=\"item last\">\r\n                                    <a href=\"product-detail.html\" title=\"WIASSI Version 11\" class=\"product-image\"> ");
             EndContext();
             BeginContext(27210, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0adcc998152e432d87af7274781ef7b1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "614f89c6fdb540bf9257656f7cc24d7b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -922,7 +922,7 @@ using BookShoppe.Models;
             WriteLiteral(" ");
             EndContext();
             BeginContext(27362, 183, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4327241bcb5e4f1b97ccb770de04b9bf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8c0dedc93bee4725a2c2139a833c8a1e", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -985,7 +985,7 @@ using BookShoppe.Models;
                                                     <a class=""next i-next"" href=""#"" title=""Next""> ");
             EndContext();
             BeginContext(30495, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1e276970caad4adaa8968d86613b239c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "59c2e3fe27c4440782f1177521c9c3ca", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1018,7 +1018,7 @@ using BookShoppe.Models;
                                                     ");
             EndContext();
             BeginContext(31510, 63, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6537330f6cba4297a74517c7dee2ce1d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3be8e7990458427f91197b998765efa7", async() => {
                 BeginContext(31555, 9, true);
                 WriteLiteral(" Position");
                 EndContext();
@@ -1041,7 +1041,7 @@ using BookShoppe.Models;
             WriteLiteral("\r\n                                                    ");
             EndContext();
             BeginContext(31627, 35, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e94be88872dc40f595e3f8a9b95543ca", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "db32f38ab3464a508ae77ae4b348d1e3", async() => {
                 BeginContext(31648, 5, true);
                 WriteLiteral(" Name");
                 EndContext();
@@ -1063,7 +1063,7 @@ using BookShoppe.Models;
             WriteLiteral("\r\n                                                    ");
             EndContext();
             BeginContext(31716, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5223464129c24f029bfd739c478df96e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "30da504f64ad420db1d5b357c053ed43", async() => {
                 BeginContext(31738, 6, true);
                 WriteLiteral(" Price");
                 EndContext();
@@ -1085,7 +1085,7 @@ using BookShoppe.Models;
             WriteLiteral("\r\n                                                </select>\r\n                                            </div>\r\n                                            <a href=\"#\" title=\"Set Descending Direction\">\r\n                                                ");
             EndContext();
             BeginContext(32005, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6b8516bbf36e42f19a6c0ff030345944", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "77f9e3d0e2774041bdfae6cee3f75467", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1112,7 +1112,7 @@ using BookShoppe.Models;
                                                     ");
             EndContext();
             BeginContext(32542, 51, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "788e3995ba9c4f6a9c12a507c368be06", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7cf3ed2a8a1d46ec9a1e2efe5982adf8", async() => {
                 BeginContext(32581, 3, true);
                 WriteLiteral(" 12");
                 EndContext();
@@ -1135,7 +1135,7 @@ using BookShoppe.Models;
             WriteLiteral("\r\n                                                    ");
             EndContext();
             BeginContext(32647, 31, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a8b28401173a46d29b7a87d16b5aca03", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbc25d0402bd4b9db30572844c64a60e", async() => {
                 BeginContext(32666, 3, true);
                 WriteLiteral(" 24");
                 EndContext();
@@ -1157,7 +1157,7 @@ using BookShoppe.Models;
             WriteLiteral("\r\n                                                    ");
             EndContext();
             BeginContext(32732, 31, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "deddf246ec9447d8bdd21ca9a284426f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10272a7de1b74165b77fb54750e93b88", async() => {
                 BeginContext(32751, 3, true);
                 WriteLiteral(" 36");
                 EndContext();
@@ -1255,7 +1255,7 @@ using BookShoppe.Models;
                                         ");
             EndContext();
             BeginContext(37273, 98, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ce53bdf9a1264eb89db975778e35c339", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9fa4a29c4afc4e9190b53664dba8d700", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1281,7 +1281,7 @@ using BookShoppe.Models;
                                     <a class=""banner-img"" title=""em-sample-title"" href=""#""> ");
             EndContext();
             BeginContext(37703, 98, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1c5059ede84a4ec0b5c0a863d045ea8a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0df196a0d94744a09b2a093c203e5d5b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -1301,7 +1301,7 @@ using BookShoppe.Models;
             WriteLiteral(" </a>\r\n                                    <a class=\"banner-text\" title=\"em-sample-title\" href=\"#\"> ");
             EndContext();
             BeginContext(37901, 92, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "5640067617fe42ea9a46f94e5de2886f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a41e51297fef4ee789c7d166f89bc72c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

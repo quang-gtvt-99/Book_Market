@@ -1,0 +1,97 @@
+﻿@model IEnumerable<BookMarket.Models.Products>;
+<div class="products-list ">
+    @{int i = 0;
+    }
+    @foreach (var item in Model)
+    {
+        if (i < 3)
+        {
+
+            <div class="item  " style="  ">
+                <a href="#" title="Mono Scallop" class="product-image">
+                    <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.spbanchay.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                    <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.spbanchay.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                </a>
+                <div class="product-shop">
+                    <div class="f-fix">
+                        <!--product name-->
+                        <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.spbanchay.ProductName)</a></h3>
+                        <!--product description-->
+                        <h5 class=""><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.spbanchay.Authorname)</a></h5>
+
+                        <!--product reviews-->
+                        <div class="ratings">
+                            <div class="rating-box">
+                                <div class="rating" style=""></div>
+                            </div>
+                            <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                        </div>
+                        <!--product price-->
+                        <div class="price-box">
+
+                            <p class="old-price">
+                                <span class="price-label"></span>
+                                <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.spbanchay.GiaBia)</span>
+                            </p>
+
+                            <p class="special-price">
+                                <span class="price-label"></span>
+                                <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.spbanchay.GiaBan)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.item -->
+            i++;
+        }
+    }
+
+</div><!-- /.products-list -->
+<div class="products-list ">
+    @{int j = 0;
+    }
+    @foreach (var item in Model)
+    {
+        j++;
+        if (j > 3 && j <= 6)
+        {
+            <div class="item  " style="  ">
+                <a href="#" title="Mono Scallop" class="product-image">
+                    <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                    <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                </a>
+                <div class="product-shop">
+                    <div class="f-fix">
+                        <!--product name-->
+                        <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                        <!--product description-->
+                        <h5 class=""><a href="#" title="tacgia"></a></h5>
+
+                        <!--product reviews-->
+                        <div class="ratings">
+                            <div class="rating-box">
+                                <div class="rating" style=""></div>
+                            </div>
+                            <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                        </div>
+                        <!--product price-->
+                        <div class="price-box">
+
+                            <p class="old-price">
+                                <span class="price-label"></span>
+                                <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                            </p>
+
+                            <p class="special-price">
+                                <span class="price-label"></span>
+                                <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.item -->
+
+        }
+    }
+
+</div><!-- /.products-list -->

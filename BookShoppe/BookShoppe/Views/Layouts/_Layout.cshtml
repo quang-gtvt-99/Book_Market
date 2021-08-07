@@ -1,4 +1,9 @@
-﻿<!doctype html>
+﻿@using Microsoft.AspNetCore.Identity
+@using BookMarket.Models;
+
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+<!doctype html>
 <html class="no-js" lang="en">
 
 <!-- Mirrored from htmlcooker.com/tvlgiao/everything/assets/everything/fashion/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2015 02:40:03 GMT -->
@@ -108,7 +113,7 @@
 <body class="cms-index-index">
 
     <div class="wrapper ">
-        
+
         <div class="page two-columns-left">
 
             <div class="em-wrapper-header">
@@ -119,7 +124,7 @@
                                 <a href="index.html" title="Fashion Commerce" class="logo"><strong></strong><img src="~/images/logo_small.png" alt="Fashion Commerce" /></a>
                             </div>
                         </div><!-- /#em-mheader-logo -->
-                      
+
                     </div><!-- /#em-mheader-top -->
                 </div><!-- /#em-mheader -->
                 <div class="hidden-xs em-header-style08">
@@ -153,63 +158,33 @@
                                                 </div><!-- /.em-wrapper-js-search -->
                                             </div>
                                         </div><!-- /.em-search -->
-                                        <div class="em-top-links">
-                                            <div class="f-right"></div>
+                                        @if (SignInManager.IsSignedIn(User))
+                                        {
+                                            <div class="em-top-links">
+                                                <div class="f-right"></div>
+                                                <ul class="list-inline f-right">
+                                                    <li><a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" class="em-register-link"  title="Register">@UserManager.GetUserName(User)!</a></li>
+                                                </ul>
+                                                <div id="em-login-link" class="account-link f-right em-non-login">
+                                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                                        <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Đăng xuất</button>
+                                                    </form>
+                                                </div><!-- /#em-login-link -->
+                                            </div><!-- /.em-top-links -->
+                                        }
+                                        else
+                                        {
+                                            <div class="em-top-links">
+                                                <div class="f-right"></div>
+                                                <ul class="list-inline f-right">
+                                                    <li><a id="register" asp-area="Identity" asp-page="/Account/Register" class="em-register-link" title="Register">Đăng Kí</a></li>
+                                                </ul>
+                                                <div id="em-login-link" class="account-link f-right em-non-login">
+                                                    <a id="login" asp-area="Identity" asp-page="/Account/Login" class="link-account" title="Login">Đăng Nhập</a>
 
-                                            <ul class="list-inline f-right">
-                                                <li><a class="em-register-link" href="register.html" title="Register">Đăng Kí</a></li>
-                                            </ul>
-                                            <div id="em-login-link" class="account-link f-right em-non-login">
-                                                <a href="login.html" class="link-account" id="link-login" title="Login">Đăng Nhập</a>
-                                                <div class="em-account" id="em-account-login-form" style="display: none;">
-                                                    <form method="post" id="top-login-form">
-                                                        <input name="form_key" type="hidden" value="LqnwQyvcDpOju7G3" />
-                                                        <div class="block-content">
-                                                            <ul class="form-list">
-                                                                <li>
-                                                                    <label for="mini-login">
-                                                                        Email <em>*</em>
-                                                                    </label>
-                                                                    <input type="text" name="5[username]" id="mini-login" class="input-text required-entry validate-email" />
-                                                                </li>
-                                                                <li>
-                                                                    <label for="mini-password">
-                                                                        Mật Khẩu<em>*</em>
-                                                                    </label>
-                                                                    <input type="password" name="login[password]" id="mini-password" class="input-text required-entry validate-password" />
-                                                                </li>
-                                                                <li>
-                                                                    <p class="required">* Bắt buộc</p>
-                                                                </li>
-                                                            </ul>
-                                                            <div class="action-forgot">
-                                                                <div class="login_forgotpassword">
-                                                                    <p>
-                                                                        <a href="#">Quên Mật Khẩu?</a>
-                                                                    </p>
-                                                                    <p>
-                                                                        <span>Chưa có tài khoản?</span><a class="create-account-link-wishlist" href="h.html#" title="Sign Up">Đăng Kí Ngay</a>
-                                                                    </p>
-                                                                </div>
-                                                                <div class="actions" style="display:inline-flex">
-                                                                    <button type="submit" class="button">
-                                                                        <span><span>Đăng nhập</span></span>
-                                                                    </button>
-                                                                    <div>
-                                                                        <p class="em-social">
-                                                                            <a class="em-social-icon em-facebook f-left" title="em-sample-title" href="#"><span style="color:#0078E8" class="fa fa-fw"></span><span style="color:#0078E8">Facebook</span></a>
-                                                                        </p>
-                                                                        <p class="em-social">
-                                                                            <a class="em-social-icon em-google f-left" title="em-sample-title" href="#"><span style="color:red" class="fa fa-fw"></span><span style="color:red">Google</span></a></p>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </form><!-- /#top-login-form -->
-                                                </div><!-- /#em-account-login-form -->
-                                            </div><!-- /#em-login-link -->
-                                        </div><!-- /.em-top-links -->
+                                                </div><!-- /#em-login-link -->
+                                            </div><!-- /.em-top-links -->
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +208,7 @@
                                                         <form id="search_mini_form_fixed_top" method="get">
                                                             <div class="form-search">
                                                                 <label for="search">Search</label>
-                                                                <input id="search-fixed-top" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="Search entire store here..." />
+                                                                <input id="search-fixed-top" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="Tìm kiếm..." />
                                                                 <button type="submit" title="Search" class="button">
                                                                     <span><span>Search</span></span>
                                                                 </button>
@@ -248,16 +223,9 @@
                                         <div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
                                             <div class="em-container-topcart">
                                                 <div class="em-summary-topcart">
-                                                    <a class="em-amount-js-topcart em-amount-topcart" title="Shopping Cart" href="cart.html"> <span class="em-topcart-text">My Cart</span> <span class="em-topcart-qty">0</span> </a>
+                                                    <a href="@Url.Action("Cart","Detail","")" class="em-amount-js-topcart em-amount-topcart" title="Giỏ hàng">  <span class="em-topcart-qty">@await Html.PartialAsync("_CartPartial")</span> </a>
                                                 </div>
-                                                <div class="em-container-js-topcart topcart-popup" style="display:none">
-                                                    <div class="topcart-popup-content">
-                                                        <p class="em-block-subtitle">Giỏ hàng</p>
-                                                        <div class="topcart-content">
-                                                            <p class="amount-content "> You have no items in your shopping cart.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div><!-- /.em-wrapper-js-topcart -->
                                     </div><!-- /.em-top-cart -->
@@ -268,37 +236,8 @@
                                                     <div class="em_nav" id="toogle_menu_4_7164">
                                                         <ul class="hnav em_hoz_menu effect-menu">
                                                             <li class="menu-item-link menu-item-depth-0  menu-item-parent">
-                                                                <a class="em-menu-link" href="#"> <span> </span> </a>
-                                                                <ul class="menu-container" >
-                                                                    <li class="menu-item-vbox menu-item-depth-1 col-menu menu_col5 grid_6 menu-item-parent" style="">
-                                                                        <ul class="menu-container">
-                                                                            <li class="menu-item-text menu-item-depth-2  col-md-24 ">
-                                                                                <div class="em-line-01">
-                                                                                    <h5 class="text-uppercasse">AJAXCART</h5>
-                                                                                    <div>
-                                                                                        <ul class="menu-container" style="">
-                                                                                            <li class="menu-item-link menu-item-depth-1 first">
-                                                                                                <a class="em-menu-link" href="#"><span>Landing Page</span> </a>
-                                                                                            </li>
-                                                                                            <li class="menu-item-link menu-item-depth-1 ">
-                                                                                                <a class="em-menu-link" href="typography.html"><span>Typography Page</span> </a>
-                                                                                            </li>
-                                                                                            <li class="menu-item-link menu-item-depth-1 ">
-                                                                                                <a class="em-menu-link" href="#"><span>Widgets Page</span> </a>
-                                                                                            </li>
-                                                                                            <li class="menu-item-link menu-item-depth-1 label-new-menu ">
-                                                                                                <a class="em-menu-link" href="contact.html"><span>Contact Page</span> </a>
-                                                                                            </li>
-                                                                                            <li class="menu-item-link menu-item-depth-1 last ">
-                                                                                                <a class="em-menu-link" href="404.html"><span>404 Page</span> </a>
-                                                                                            </li>
-                                                                                        </ul><!-- /.menu-container -->
-                                                                                    </div>
-                                                                                </div>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul><!-- /.menu-container -->
+                                                                <a class="em-menu-link"></a>
+
                                                             </li><!-- /.menu-item-link -->
                                                         </ul><!-- /.hnav em_hoz_menu -->
                                                     </div><!-- /.em_nav -->
@@ -314,7 +253,7 @@
                 </div>
             </div><!-- /.em-wrapper-header -->
 
-         
+
             @RenderBody()
             <div class="em-wrapper-footer">
                 <div class="em-footer-style09">
@@ -387,9 +326,9 @@
                                                     </li>
                                                 </ul>
                                             </div><!-- /.col-sm-4 -->
-                                           
-                                           
-                                          
+
+
+
                                         </div><!-- /.row -->
                                         <div class="em-footer-info-bottom">
                                             <div class="row">
@@ -434,7 +373,7 @@
                                                             </p>
                                                         </div>
                                                     </div>
-                                                                <a class="em-social-icon em-facebook f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-twitter f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-pinterest  f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-google f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-rss  f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a>
+                                                    <a class="em-social-icon em-facebook f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-twitter f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-pinterest  f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-google f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-rss  f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a>
                                                 </div>
                                             </div>
                                         </div><!-- /.em-footer-info-bottom -->

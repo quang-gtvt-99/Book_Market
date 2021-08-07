@@ -3,7 +3,21 @@
     ViewData["Title"] = "AllProduct";
     Layout = "~/Views/Layouts/_Layout.cshtml";
 }
+@{
+    // xây dựng Func phát sinh Url từ page ./Index
+    Func<int?, string> generateUrl = (int? _pagenumber) =>
+    {
+        return "helo" ;
+    };
 
+    var datapaging = new
+    {
+        currentPage = 2,    // trang hiện tại
+        countPages = 20,   // tổng  số trang
+        generateUrl = generateUrl
+    };
+
+}
 <style>
     .product-item a.product-image {
         position: relative;
@@ -74,224 +88,191 @@
                                                     <option value="price"> Nổi bật</option>
                                                 </select>
                                             </div>
-                                          
+
                                         </div>
-                                       
+
                                     </div><!-- /.sorter -->
                                 </div>
                             </div><!-- /.toolbar-top -->
                             <div id="em-grid-mode">
                                 <!--san pham o day-->
-                                     <div class="em-best-sales em-wrapper-product-15">
-                                <div class="emfilter-ajaxblock-loaded">
-                                    <div class="em-grid-15 custom-product-list">
-                                       
+                                <div class="em-best-sales em-wrapper-product-15">
+                                    <div class="emfilter-ajaxblock-loaded">
+                                        <div class="em-grid-15 custom-product-list">
 
-                                        <div class="widget em-filterproducts-list">
-                                            <div class="widget-products em-widget-products">
-                                                <div class="products-list ">
-                                                    @{int i = 0;
-                                                    }
-                                                    @foreach (var item in Model)
-                                                    {
-                                                        if (i < 3)
+
+                                            <div class="widget em-filterproducts-list">
+                                                <div class="widget-products em-widget-products">
+                                                    <div class="products-list ">
+                                                        @{int i = 0;
+                                                        }
+                                                        @foreach (var item in Model)
                                                         {
-                                                            <div class="item  " style="  ">
-                                                                <a href="#" title="Mono Scallop" class="product-image">
-                                                                    <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
-                                                                    <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
-                                                                </a>
-                                                                <div class="product-shop">
-                                                                    <div class="f-fix">
-                                                                        <!--product name-->
-                                <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
-                                <!--product description-->
-                                <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+                                                            if (i < 3)
+                                                            {
+                                                                <div class="item  " style="  ">
+                                                                    <a href="#" title="Mono Scallop" class="product-image">
+                                                                        <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                        <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                    </a>
+                                                                    <div class="product-shop">
+                                                                        <div class="f-fix">
+                                                                            <!--product name-->
+                                                                            <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                            <!--product description-->
+                                                                            <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
 
-                                <!--product reviews-->
-                                <div class="ratings">
-                                    <div class="rating-box">
-                                        <div class="rating" style=""></div>
+                                                                            <!--product reviews-->
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating" style=""></div>
+                                                                                </div>
+                                                                                <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                            </div>
+                                                                            <!--product price-->
+                                                                            <div class="price-box">
+
+                                                                                <p class="old-price">
+                                                                                    <span class="price-label"></span>
+                                                                                    <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                                </p>
+
+                                                                                <p class="special-price">
+                                                                                    <span class="price-label"></span>
+                                                                                    <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.item -->
+                                                                i++;
+                                                            }
+                                                        }
+
+                                                    </div><!-- /.products-list -->
+                                                    <div class="products-list ">
+                                                        @{int j = 0;
+                                                        }
+                                                        @foreach (var item in Model)
+                                                        {
+                                                            j++;
+                                                            if (j > 3 && j <= 6)
+                                                            {
+                                                                <div class="item  " style="  ">
+                                                                    <a href="#" title="Mono Scallop" class="product-image">
+                                                                        <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                        <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                    </a>
+                                                                    <div class="product-shop">
+                                                                        <div class="f-fix">
+                                                                            <!--product name-->
+                                                                            <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                            <!--product description-->
+                                                                            <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+
+                                                                            <!--product reviews-->
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    <div class="rating" style=""></div>
+                                                                                </div>
+                                                                                <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                            </div>
+                                                                            <!--product price-->
+                                                                            <div class="price-box">
+
+                                                                                <p class="old-price">
+                                                                                    <span class="price-label"></span>
+                                                                                    <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                                </p>
+
+                                                                                <p class="special-price">
+                                                                                    <span class="price-label"></span>
+                                                                                    <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div><!-- /.item -->
+
+                                                            }
+                                                        }
+
+                                                    </div><!-- /.products-list -->
+                                                </div>
+                                            </div><!-- /.widget -->
+
+                                        </div><!-- /.em-grid-15 -->
                                     </div>
-                                    <span class="amount"><a href="#" onclick="181">(0)</a></span>
-                                </div>
-                                <!--product price-->
-                                <div class="price-box">
-
-                                    <p class="old-price">
-                                        <span class="price-label"></span>
-                                        <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
-                                    </p>
-
-                                    <p class="special-price">
-                                        <span class="price-label"></span>
-                                        <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- /.item -->
-                    i++;
-                }
-            }
-
-</div><!-- /.products-list -->
-<div class="products-list ">
-    @{int j = 0;
-    }
-    @foreach (var item in Model)
-    {
-        j++;
-        if (j > 3 && j <= 6)
-        {
-            <div class="item  " style="  ">
-                <a href="#" title="Mono Scallop" class="product-image">
-                    <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
-                    <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
-                </a>
-                <div class="product-shop">
-                    <div class="f-fix">
-                        <!--product name-->
-                        <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
-                        <!--product description-->
-                        <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
-
-                        <!--product reviews-->
-                        <div class="ratings">
-                            <div class="rating-box">
-                                <div class="rating" style=""></div>
-                            </div>
-                            <span class="amount"><a href="#" onclick="181">(0)</a></span>
-                        </div>
-                        <!--product price-->
-                        <div class="price-box">
-
-                            <p class="old-price">
-                                <span class="price-label"></span>
-                                <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
-                            </p>
-
-                            <p class="special-price">
-                                <span class="price-label"></span>
-                                <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- /.item -->
-
-        }
-    }
-
-</div><!-- /.products-list -->
-</div>
-</div><!-- /.widget -->
-
-</div><!-- /.em-grid-15 -->
-</div>
-                        </div><!-- /.em-best-sales -->
+                                </div><!-- /.em-best-sales -->
                             </div><!-- /.em-grid-mode -->
-                        
-<div class="toolbar-bottom em-box-03">
-    <div class="toolbar">
-        <div class="pager">
-            
-            <div class="pages">
-                <ol>
-                    <li class="current">1</li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a class="next i-next" href="#" title="Next"> <img src="~/images/pager_arrow_right.gif" alt="Next" class="v-middle" /> </a>
-                    </li>
-                </ol>
-            </div>
-        </div><!-- /.pager -->
-       
-    </div>
-</div><!-- /.toolbar-bottom -->
+
+                            <div class="toolbar-bottom em-box-03">
+                                <div class="toolbar">
+                                    <div class="pager">
+                                        <partial name="_Paging" model="@datapaging" />
+                                    </div><!-- /.pager -->
+
+                                </div>
+                            </div><!-- /.toolbar-bottom -->
                         </div><!-- /.category-products -->
                     </div><!-- /.em-col-main -->
-<div class="col-sm-6 col-sm-pull-18 em-col-left em-sidebar">
-    <div class="em-wrapper-area02"></div>
-    <div class="em-line-01 block block-layered-nav">
-        <div class="em-block-title block-title">
-            <strong><span>Danh mục</span></strong>
-        </div>
-        <div class="block-content">
-            <p class="block-subtitle">Shopping Options</p>
-            <dl id="narrow-by-list">
-                
-                <dd>
-                    <ol class="filter tree-filter">
-                        <li>
-                            <div class="label-icon">
-                                <div class="label"> <a class="tree-item" href="#">Tất cả sản phẩm</a></div>
+                    <div class="col-sm-6 col-sm-pull-18 em-col-left em-sidebar">
+                        <div class="em-wrapper-area02"></div>
+                        <div class="em-line-01 block block-layered-nav">
+                            <div class="em-block-title block-title">
+                                <strong><span>Danh mục</span></strong>
                             </div>
-                            <ol>
-                                <li class="selected">
-                                    <div class="label-icon">
-                                        <div class="label">Sách bán chạy</div>
-                                    </div>
-                                </li>
-                                <li class="selected">
-                                    <div class="label-icon">
-                                        <div class="label">Sách mới phát hành</div>
-                                    </div>
-                                </li>
-                                <li class="selected">
-                                    <div class="label-icon">
-                                        <div class="label">Sách sắp phát hành</div>
-                                    </div>
-                                </li>
-                                <li class="selected">
-                                    <div class="label-icon">
-                                        <div class="label">Sách văn học</div>
-                                    </div>
-                                </li>
-                                <li class="selected">
-                                    <div class="label-icon">
-                                        <div class="label">Sách lịch sử</div>
-                                    </div>
-                                </li>
-                                <li class="selected">
-                                    <div class="label-icon">
-                                        <div class="label">Sách dạy trẻ</div>
-                                    </div>
-                                </li>
-                            </ol>
-                        </li>
-                    </ol>
-                </dd>
-               
-            </dl>
-        </div>
-    </div><!-- /.block-layered-nav -->
-    <div class="em-line-01 block block-list block-compare ">
-        <div class="em-block-title block-title">
-            <strong><span>Compare Products (0)</span></strong>
-        </div>
-        <div class="block-content">
-            <p class="empty">You have no items to compare.</p>
-        </div>
-    </div><!-- /.block-compare -->
-    <div class="em-wrapper-banners">
-        <div class="img-banner">
-            <div class="em-effect06">
-                <a class="em-eff06-04" href="#">
-                    <img class="img-responsive retina-img" alt="em_ads_01.jpg" src="~/images/wysiwyg/em_ads_01.jpg" />
-                </a>
-            </div>
-        </div>
-        <div class="img-banner">
-            <div class="effect-hover-text2">
-                <a class="banner-img" title="em-sample-title" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/wysiwyg/em_ads_05.jpg" /> </a>
-                <a class="banner-text" title="em-sample-title" href="#"> <img class="img-responsive" alt="em-sample-alt" src="~/images/wysiwyg/em_ads_text_05.png" /> </a>
-            </div>
-        </div>
-    </div><!-- /.em-wrapper-banners -->
-</div><!-- /.em-sidebar -->
+                            <div class="block-content">
+                                <p class="block-subtitle">Shopping Options</p>
+                                <dl id="narrow-by-list">
+
+                                    <dd>
+                                        <ol class="filter tree-filter">
+                                            <li>
+                                                <div class="label-icon">
+                                                    <div class="label"> <a class="tree-item" href="#">Tất cả sản phẩm</a></div>
+                                                </div>
+                                                <ol>
+                                                    <li class="selected">
+                                                        <div class="label-icon">
+                                                            <div class="label">Sách bán chạy</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="selected">
+                                                        <div class="label-icon">
+                                                            <div class="label">Sách mới phát hành</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="selected">
+                                                        <div class="label-icon">
+                                                            <div class="label">Sách sắp phát hành</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="selected">
+                                                        <div class="label-icon">
+                                                            <div class="label">Sách văn học</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="selected">
+                                                        <div class="label-icon">
+                                                            <div class="label">Sách lịch sử</div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="selected">
+                                                        <div class="label-icon">
+                                                            <div class="label">Sách dạy trẻ</div>
+                                                        </div>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                        </ol>
+                                    </dd>
+
+                                </dl>
+                            </div>
+                        </div><!-- /.block-layered-nav -->
+                       
+                    </div><!-- /.em-sidebar -->
                 </div>
             </div><!-- /.em-main-container -->
         </div>

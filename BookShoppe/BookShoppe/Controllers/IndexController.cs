@@ -12,23 +12,29 @@ namespace BookShoppe.Controllers
 {
     public class IndexController : Controller
     {
+       
         private readonly Book_MarketContext _BMContext;
         public IndexController(Book_MarketContext _MarketContext)
         {
             _BMContext = _MarketContext;
         }
+
        
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            
-            var SP = await _BMContext.Products.ToListAsync();
-            var ListSP = new List<Products>();
-            foreach(var sp in SP )
-            {
-               
-            }
-            return View(await _BMContext.Products.ToListAsync()); 
+            var spbanchay =  from p in _BMContext.Products
+                             join a in _BMContext.Author on p.AuthorId equals a.AuthorId
+                             select new spbanchay
+                             {
+
+                                 ProductImg = p.ProductImg,
+                                 ProductName = p.ProductName,
+                                 GiaBia = p.GiaBia,
+                                 GiaBan = p.GiaBan,
+                             }
+                             ;        
+            return View(_BMContext.Products.ToList());
         }
-        
+
     }
 }

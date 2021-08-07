@@ -1,0 +1,107 @@
+﻿
+@page 
+@model RegisterModel
+@{
+    ViewData["Title"] = "Đăng kí";
+}
+@{
+    Layout = null;
+}
+<link href="~/Admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+      rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="~/Admin/css/sb-admin-2.min.css" rel="stylesheet">
+<body class="">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Tạo tài khoản</h1>
+                                    </div>
+                                    <form class="user" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                        <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                        <div class="form-group">
+                                            <input maxlength="30" asp-for="Input.Name" class="form-control form-control-user" id="exampleFirstName"
+                                                   placeholder="Nhập tên của bạn">
+
+                                        </div>
+                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        <div class="form-group">
+                                            <input asp-for="Input.Email" class="form-control form-control-user" id="exampleInputEmail"
+                                                   placeholder="Nhập địa chỉ email của bạn">
+                                        </div>
+                                        <span asp-validation-for="Input.Phone" class="text-danger"></span>
+                                        <span asp-validation-for="Input.Date" class="text-danger"></span>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input asp-for="Input.Phone" class="form-control form-control-user"
+                                                       id="" placeholder="Nhập số điện thoại" maxlength="15">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input asp-for="Input.Date" class="form-control form-control-user"
+                                                       id="" placeholder="Ngày sinh của bạn">
+                                            </div>
+                                        </div>
+                                        <span asp-validation-for="Input.Address" class="text-danger"></span>
+                                        <div class="form-group">
+                                            <input asp-for="Input.Address" class="form-control form-control-user" id=""
+                                                   placeholder="Nhập địa chỉ của bạn">
+                                        </div>
+                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                        <div class="form-group row">
+
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input asp-for="Input.Password" class="form-control form-control-user"
+                                                       id="exampleInputPassword" placeholder="Nhập mật khẩu">
+                                            </div>
+
+                                            <div class="col-sm-6">
+                                                <input asp-for="Input.ConfirmPassword" class="form-control form-control-user"
+                                                       id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu">
+                                            </div>
+                                        </div>
+
+                                        <button type="submit"  class="btn btn-primary btn-user btn-block">
+                                            Đăng kí tài khoản
+                                        </button>
+                                        <hr>
+
+                                    </form>
+                                    
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Quên mật khẩu?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <div>Bạn đã có tài khoản? <a class="small" href="login.html"> Đăng nhập ngay</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/Admin/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Admin/js/sb-admin-2.min.js"></script>
+
+</body>
+
