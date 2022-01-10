@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using BookShoppe.Controllers;
 using IdentityServer4.Models;
+using System.Linq;
+using Microsoft.AspNetCore.Authentication;
 
 namespace BookMarket.Areas.Identity.Pages.Account
 {
@@ -39,6 +41,9 @@ namespace BookMarket.Areas.Identity.Pages.Account
         public InputModel Input { get; set; }
 
         public string ReturnUrl { get; set; }
+
+        // Xác thực từ dịch vụ ngoài (Googe, Facebook)
+        public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
         public class InputModel
         {
@@ -85,36 +90,52 @@ namespace BookMarket.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-        public void OnGet(string returnUrl = null)
+        public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
+            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
                 var user = new AppUser
                 {
-                    Name = Input.Name,
-                    Email = Input.Email,
-                    Password = Input.Password,
-                    Address = Input.Address,
-                    Phone = Input.Phone,
-                    CreatedAt = DateTime.Now,
+                    UserName = Input.Name,
+                    Email = Input.Email
 
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
-
+                    _logger.LogInformation("Vừa tạo mới tài khoản thành công.");
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    _logger.LogInformation(3, "User created a new account with password.");
-                    return RedirectToPage("./Login", new { ReturnUrl = returnUrl });
 
+                    // Link trong email người dùng bấm vào, nó sẽ gọi Page: /Acount/ConfirmEmail để xác nhận
+                    var callbackUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                        protocol: Request.Scheme);
+
+                    await _emailSender.SendEmailAsync(Input.Email, "Xác nhận địa chỉ email",
+                        $"Hãy xác nhận địa chỉ email bằng cách <a href='{callbackUrl}'>Bấm vào đây</a>.");
+                    if (_userManager.Options.SignIn.RequireConfirmedEmail)
+                    {
+                        // Nếu cấu hình phải xác thực email mới được đăng nhập thì chuyển hướng đến trang
+                        // RegisterConfirmation - chỉ để hiện thông báo cho biết người dùng cần mở email xác nhận
+                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                    }
+                    else
+                    {
+                        // Không cần xác thực - đăng nhập luôn
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return LocalRedirect(returnUrl);
+                    }
                 }
                 foreach (var error in result.Errors)
                 {

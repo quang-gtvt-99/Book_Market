@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookMarket.Models
 {
     public partial class HotSale
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int ProductId { get; set; }
         public int? PercentSale { get; set; }
@@ -16,6 +14,6 @@ namespace BookMarket.Models
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
 
-        public Products Product { get; set; }
+        public virtual Products Product { get; set; }
     }
 }

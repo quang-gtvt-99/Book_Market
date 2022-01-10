@@ -1,13 +1,14 @@
-﻿@model IEnumerable<BookMarket.Models.Products>
-@{
+﻿@{
     ViewData["Title"] = "AllProduct";
     Layout = "~/Views/Layouts/_Layout.cshtml";
 }
+@model PaginatedList<BookMarket.Models.Products>
 @{
+
     // xây dựng Func phát sinh Url từ page ./Index
     Func<int?, string> generateUrl = (int? _pagenumber) =>
     {
-        return "helo" ;
+        return "helo";
     };
 
     var datapaging = new
@@ -25,6 +26,43 @@
         display: block;
     }
 </style>
+<style>
+    .tg-stars span,
+    .tg-stars {
+        width: 80px;
+        height: 13px;
+        float: left;
+        line-height: 13px;
+        position: relative;
+    }
+
+        .tg-stars span:after,
+        .tg-stars:before {
+            top: 0;
+            left: 0;
+            font-size: 13px;
+            line-height: 13px;
+            position: absolute;
+            letter-spacing: 4px;
+            font-family: 'FontAwesome';
+            color: rgba(218, 218, 218, 0.80);
+            content: '\f005 \f005 \f005 \f005 \f005';
+        }
+
+        .tg-stars span {
+            width: 75%;
+            overflow: hidden;
+            color: #fcd01e !important;
+        }
+
+            .tg-stars span:after {
+                color: #fcd01e !important;
+            }
+
+            .tg-stars span:after {
+                color: #000;
+            }
+</style>
 
 <div class="wrapper-breadcrums">
     <div class="container">
@@ -33,10 +71,10 @@
                 <div class="breadcrumbs">
                     <ul>
                         <li class="home">
-                            <a href="index.html" title="Home"><span>Trang chủ</span></a> <span class="separator">/ </span>
+                            <a href="@Url.Action("Index","Index")" title="Home"><span>Trang chủ</span></a> <span class="separator">/ </span>
                         </li>
                         <li class="contact">
-                            <strong> Tất cả sản phẩm</strong>
+                            <strong>@ViewBag.Typetitle</strong>
                         </li>
                     </ul>
                 </div>
@@ -75,23 +113,7 @@
                                             </ol>
                                         </div>
                                     </div><!-- /.pager -->
-                                    <div class="sorter">
-                                        <p class="view-mode">
-                                            <label></label> <strong title="Grid" class="grid">Grid</strong> <a href="category-two-columns-left-list.html" title="List" class="list">List</a>
-                                        </p>
-                                        <div class="sort-by toolbar-switch">
-                                            <div class="toolbar-title">
-                                                <label>Sắp xếp theo:</label>
-                                                <select class="sortby" name="sortby">
-                                                    <option value="position" selected="selected">Giảm dần</option>
-                                                    <option value="name"> Tăng dần</option>
-                                                    <option value="price"> Nổi bật</option>
-                                                </select>
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- /.sorter -->
+                                    
                                 </div>
                             </div><!-- /.toolbar-top -->
                             <div id="em-grid-mode">
@@ -99,13 +121,12 @@
                                 <div class="em-best-sales em-wrapper-product-15">
                                     <div class="emfilter-ajaxblock-loaded">
                                         <div class="em-grid-15 custom-product-list">
-
-
                                             <div class="widget em-filterproducts-list">
                                                 <div class="widget-products em-widget-products">
                                                     <div class="products-list ">
                                                         @{int i = 0;
                                                         }
+
                                                         @foreach (var item in Model)
                                                         {
                                                             if (i < 3)
@@ -118,28 +139,25 @@
                                                                     <div class="product-shop">
                                                                         <div class="f-fix">
                                                                             <!--product name-->
-                                                                            <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                            <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                             <!--product description-->
-                                                                            <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
+                                                                            <h5 class=""><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.Author.Name)</a></h5>
 
                                                                             <!--product reviews-->
                                                                             <div class="ratings">
-                                                                                <div class="rating-box">
-                                                                                    <div class="rating" style=""></div>
-                                                                                </div>
-                                                                                <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                                 <span class="tg-stars"><span style="width:0%"></span></span>
                                                                             </div>
                                                                             <!--product price-->
                                                                             <div class="price-box">
 
                                                                                 <p class="old-price">
                                                                                     <span class="price-label"></span>
-                                                                                    <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                                    <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)<span>&nbsp;đ</span></span>
                                                                                 </p>
 
                                                                                 <p class="special-price">
                                                                                     <span class="price-label"></span>
-                                                                                    <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                                    <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)<span>&nbsp;đ</span></span>
                                                                                 </p>
                                                                             </div>
                                                                         </div>
@@ -151,43 +169,42 @@
 
                                                     </div><!-- /.products-list -->
                                                     <div class="products-list ">
-                                                        @{int j = 0;
+                                                        @{int h = 0;
                                                         }
                                                         @foreach (var item in Model)
                                                         {
-                                                            j++;
-                                                            if (j > 3 && j <= 6)
+                                                            h++;
+                                                            if (h > 3 && h <= 6)
                                                             {
+                                                                var productName = "";
+                                                                productName = item.Decription;
                                                                 <div class="item  " style="  ">
-                                                                    <a href="#" title="Mono Scallop" class="product-image">
-                                                                        <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="Mono Scallop" height="110" width="110">
-                                                                        <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="Mono Scallop" height="110" width="110">
+                                                                    <a href="#" class="product-image">
+                                                                        <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
+                                                                        <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
                                                                     </a>
                                                                     <div class="product-shop">
                                                                         <div class="f-fix">
                                                                             <!--product name-->
-                                                                            <h3 class="product-name"><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                            <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                             <!--product description-->
-                                                                            <h5 class=""><a href="#" title="Mono Scallop">Nguyễn Nhật Ánh</a></h5>
-
+                                                                            <h5 class=""><a href="#" title="Mono Scallop">@Html.DisplayFor(modelItem => item.Author.Name)</a></h5>
+                                                                            <!--product reviews-->
                                                                             <!--product reviews-->
                                                                             <div class="ratings">
-                                                                                <div class="rating-box">
-                                                                                    <div class="rating" style=""></div>
-                                                                                </div>
-                                                                                <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                                 <span class="tg-stars"><span style="width:0%"></span></span>
                                                                             </div>
                                                                             <!--product price-->
                                                                             <div class="price-box">
 
                                                                                 <p class="old-price">
                                                                                     <span class="price-label"></span>
-                                                                                    <span class="price" id="old-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                                    <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)<span>&nbsp;đ</span></span>
                                                                                 </p>
 
                                                                                 <p class="special-price">
                                                                                     <span class="price-label"></span>
-                                                                                    <span class="price" content="75" id="product-price-181-emprice-f425d011393677da16e76f16bed41113">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                                    <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)<span>&nbsp;đ</span></span>
                                                                                 </p>
                                                                             </div>
                                                                         </div>
@@ -197,7 +214,7 @@
                                                             }
                                                         }
 
-                                                    </div><!-- /.products-list -->
+                                                    </div><!-- /.products-list -->                                        
                                                 </div>
                                             </div><!-- /.widget -->
 
@@ -209,10 +226,29 @@
                             <div class="toolbar-bottom em-box-03">
                                 <div class="toolbar">
                                     <div class="pager">
-                                        <partial name="_Paging" model="@datapaging" />
+                                        @{
+                                            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                                            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                                        }
+
+                                        <a asp-action="AllProduct"
+                                           asp-route-sortOrder="@ViewData["CurrentSort"]"
+                                           asp-route-pageNumber="@(Model.PageIndex - 1)"
+                                           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                           class="btn btn-default @prevDisabled">
+                                            Previous
+                                        </a>
+                                        <a asp-action="AllProduct"
+                                           asp-route-sortOrder="@ViewData["CurrentSort"]"
+                                           asp-route-pageNumber="@(Model.PageIndex + 1)"
+                                           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                                           class="btn btn-default @nextDisabled">
+                                            Next
+                                        </a>
                                     </div><!-- /.pager -->
 
                                 </div>
+                                <br />
                             </div><!-- /.toolbar-bottom -->
                         </div><!-- /.category-products -->
                     </div><!-- /.em-col-main -->
@@ -223,44 +259,49 @@
                                 <strong><span>Danh mục</span></strong>
                             </div>
                             <div class="block-content">
-                                <p class="block-subtitle">Shopping Options</p>
+                                <p class="block-subtitle"></p>
                                 <dl id="narrow-by-list">
 
                                     <dd>
                                         <ol class="filter tree-filter">
                                             <li>
                                                 <div class="label-icon">
-                                                    <div class="label"> <a class="tree-item" href="#">Tất cả sản phẩm</a></div>
+                                                    <div class="label"> <a href="@Url.Action("AllProduct","Products")">Tất cả sản phẩm</a></div>
                                                 </div>
                                                 <ol>
                                                     <li class="selected">
                                                         <div class="label-icon">
-                                                            <div class="label">Sách bán chạy</div>
+                                                            <div class="label"><a href="@Url.Action("AllProduct","Products",new { type = 7 })">Sách mới phát hành</a></div>
                                                         </div>
                                                     </li>
                                                     <li class="selected">
                                                         <div class="label-icon">
-                                                            <div class="label">Sách mới phát hành</div>
+                                                            <div class="label"><a href="@Url.Action("AllProduct","Products",new { type = 1 })">Sách văn học</a></div>
                                                         </div>
                                                     </li>
                                                     <li class="selected">
                                                         <div class="label-icon">
-                                                            <div class="label">Sách sắp phát hành</div>
+                                                            <div class="label"><a href="@Url.Action("AllProduct","Products",new { type = 2 })">Sách kinh tế</a></div>
                                                         </div>
                                                     </li>
                                                     <li class="selected">
                                                         <div class="label-icon">
-                                                            <div class="label">Sách văn học</div>
+                                                            <div class="label"><a href="@Url.Action("AllProduct","Products",new { type = 3 })">Sách đời sống</a></div>
                                                         </div>
                                                     </li>
                                                     <li class="selected">
                                                         <div class="label-icon">
-                                                            <div class="label">Sách lịch sử</div>
+                                                            <div class="label"><a href="@Url.Action("AllProduct","Products",new { type = 4 })">Sách thiếu nhi</a></div>
                                                         </div>
                                                     </li>
                                                     <li class="selected">
                                                         <div class="label-icon">
-                                                            <div class="label">Sách dạy trẻ</div>
+                                                            <div class="label"><a href="@Url.Action("AllProduct","Products",new { type = 5 })">Sách tin học - ngoại ngữ</a></div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="selected">
+                                                        <div class="label-icon">
+                                                            <div class="label"><a href="@Url.Action("AllProduct","Products",new { type = 6 })">Tạp chí văn phòng phẩm</a></div>
                                                         </div>
                                                     </li>
                                                 </ol>
@@ -271,7 +312,7 @@
                                 </dl>
                             </div>
                         </div><!-- /.block-layered-nav -->
-                       
+
                     </div><!-- /.em-sidebar -->
                 </div>
             </div><!-- /.em-main-container -->

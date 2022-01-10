@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookMarket.Models
 {
     public partial class FeedBack
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int FbId { get; set; }
         public int ProductId { get; set; }
         public string Name { get; set; }
@@ -15,6 +13,6 @@ namespace BookMarket.Models
         public int? Star { get; set; }
         public DateTime? CreateAt { get; set; }
 
-        public Products Product { get; set; }
+        public virtual Products Product { get; set; }
     }
 }

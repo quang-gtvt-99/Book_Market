@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace BookMarket.Areas.Identity.Pages.Account
 {
@@ -80,6 +81,9 @@ namespace BookMarket.Areas.Identity.Pages.Account
             {
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                //getID
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                //
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (!result.Succeeded)
                 {
@@ -98,9 +102,16 @@ namespace BookMarket.Areas.Identity.Pages.Account
                 }
                 if (result.Succeeded)
                 {
+                    if (Input.Email == "nguyenquang22091999@gmail.com")
+                    {
+                        _logger.LogInformation("User đã đăng nhập.");
+                        return RedirectToAction("Index", "Admin");
+                    }   
+                    else
+                    {     
                     _logger.LogInformation("User đã đăng nhập.");
                     return RedirectToAction("Index","Index");
-                    
+                    }
                 }
                 
                 else

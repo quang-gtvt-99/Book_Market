@@ -5,32 +5,40 @@
 }
 <style>
     .tg-stars span,
-.tg-stars {
-	width:80px;
-	height: 13px;
-	float: left;
-	line-height:13px;
-	position:relative;
-}
-.tg-stars span:after,
-.tg-stars:before {
-	top: 0;
-	left: 0;
-	font-size: 13px;
-	line-height: 13px;
-	position: absolute;
-	letter-spacing: 4px;
-	font-family: 'FontAwesome';
-	color: rgba(218, 218, 218, 0.80);
-	content: '\f005 \f005 \f005 \f005 \f005';
-}
-.tg-stars span {
-	width:75%;
-	overflow: hidden;
-	color: #fcd01e !important;
-}
-.tg-stars span:after{ color: #fcd01e !important; }
-.tg-stars span:after { color:#000; }
+    .tg-stars {
+        width: 80px;
+        height: 13px;
+        float: left;
+        line-height: 13px;
+        position: relative;
+    }
+
+        .tg-stars span:after,
+        .tg-stars:before {
+            top: 0;
+            left: 0;
+            font-size: 13px;
+            line-height: 13px;
+            position: absolute;
+            letter-spacing: 4px;
+            font-family: 'FontAwesome';
+            color: rgba(218, 218, 218, 0.80);
+            content: '\f005 \f005 \f005 \f005 \f005';
+        }
+
+        .tg-stars span {
+            width: 75%;
+            overflow: hidden;
+            color: #fcd01e !important;
+        }
+
+            .tg-stars span:after {
+                color: #fcd01e !important;
+            }
+
+            .tg-stars span:after {
+                color: #000;
+            }
 </style>
 <div class="em-wrapper-main">
     <div class="container container-main">
@@ -70,17 +78,17 @@
                             <div class="em-wrapper-banners">
                                 <div class="col-sm-8  text-center">
                                     <div class="img-banner">
-                                        <a class="banner-img"  href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-gio-he-may.jpg" /> </a>
+                                        <a class="banner-img" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-gio-he-may.jpg" /> </a>
                                     </div>
                                 </div>
                                 <div class="col-sm-8  img-banner text-center">
                                     <div class="img-banner">
-                                        <a class="banner-img"  href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-netflix.jpg" /> </a>
+                                        <a class="banner-img" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-netflix.jpg" /> </a>
                                     </div>
                                 </div>
                                 <div class="col-sm-8 text-center">
                                     <div class="img-banner">
-                                        <a class="banner-img"  href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-jessica.jpg" /> </a>
+                                        <a class="banner-img" href="#"> <img class="img-responsive retina-img" alt="em-sample-alt" src="~/images/em_minislideshow/slide-jessica.jpg" /> </a>
                                     </div>
                                 </div>
                             </div><!-- /.em-wrapper-banners -->
@@ -89,37 +97,36 @@
                             <div class="emfilter-ajaxblock-loaded">
                                 <div class="em-grid-15 custom-product-list">
                                     <div class="widget-title em-widget-title">
-                                        <h3><span>Sản phẩm giảm giá</span></h3>
+                                        <h3><span>Sản phẩm bán chạy</span></h3>
                                     </div>
 
                                     <div class="widget em-filterproducts-list">
                                         <div class="widget-products em-widget-products">
                                             <div class="products-list ">
-                                                @{int ii = 0;
+                                                @{int f = 0;
                                                 }
                                                 @foreach (var item in Model)
                                                 {
-                                                    if (ii < 3)
+                                                    if (f < 3)
                                                     {
-                                                        
                                                         var productName = "";
                                                         productName = item.Decription;
-                                                         <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)"  alt="" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)"  alt="" height="110" width="110">
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
                                                             </a>
                                                             <div class="product-shop">
                                                                 <div class="f-fix">
                                                                     <!--product name-->
-                                                                    
-                                                                    <h3  class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>                                           
+
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                     <!--product description-->
-                                                                    <h6 class="">@productName.Substring(0,83)<span> ...</span></h6>
+                                                                    <h6 class="">@productName.Substring(0, 20)<span> ...</span></h6>
 
                                                                     <!--product reviews-->
                                                                     <div class="ratings">
-                                                                        <span class="tg-stars"><span style="width:100%"></span></span>
+                                                                         <span class="tg-stars"><span style="width:0%"></span></span>
                                                                     </div>
 
                                                                     <!--product price-->
@@ -127,60 +134,59 @@
 
                                                                         <p class="old-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia) đ</span>
                                                                         </p>
 
                                                                         <p class="special-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)đ</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div><!-- /.item -->
-                                                        ii++;
+                                                        f++;
                                                     }
                                                 }
 
                                             </div><!-- /.products-list -->
                                             <div class="products-list ">
-                                                @{int jj = 0;
+                                                @{int p = 0;
                                                 }
                                                 @foreach (var item in Model)
                                                 {
-                                                    jj++;
-                                                    if (jj > 3 && jj <= 6)
+                                                    p++;
+                                                    if (p > 3 && p <= 6)
                                                     {
+                                                        var productName = "";
+                                                        productName = item.Decription;
                                                         <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
+                                                            <a href="#" class="product-image">
                                                                 <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
                                                                 <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
                                                             </a>
                                                             <div class="product-shop">
                                                                 <div class="f-fix">
                                                                     <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                     <!--product description-->
-                                                                    <h5 class=""><a href="#" title="tacgia"></a></h5>
+                                                                    
 
                                                                     <!--product reviews-->
                                                                     <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                         <span class="tg-stars"><span style="width:0%"></span></span>
                                                                     </div>
                                                                     <!--product price-->
                                                                     <div class="price-box">
 
                                                                         <p class="old-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)</span>
                                                                         </p>
 
                                                                         <p class="special-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -205,127 +211,9 @@
 
                         <div class="em-wrapper-banners hidden-xs">
                             <div class="">
-                                <a class=""  href="#"> <img class="img-responsive" alt="em-sample-alt" src="~/images/wysiwyg/Mua-sam-an-toan-920x420.png" /> </a>
+                                <a class="" href="#"> <img class="img-responsive" alt="em-sample-alt" src="~/images/wysiwyg/Mua-sam-an-toan-920x420.png" /> </a>
                             </div>
                         </div><!-- /.em-wrapper-banners -->
-
-                        <div class="em-best-sales em-wrapper-product-15">
-                            <div class="emfilter-ajaxblock-loaded">
-                                <div class="em-grid-15 custom-product-list">
-                                    <div class="widget-title em-widget-title">
-                                        <h3><span>Sản phẩm bán chạy</span></h3>
-                                    </div>
-
-                                    <div class="widget em-filterproducts-list">
-                                        <div class="widget-products em-widget-products">
-                                            <div class="products-list ">
-                                                @{int i = 0;
-                                                }
-                                                @foreach (var item in Model)
-                                                {
-                                                    if (i < 3)
-                                                    {
-
-                                                        <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.spbanchay.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.spbanchay.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
-                                                            </a>
-                                                            <div class="product-shop">
-                                                                <div class="f-fix">
-                                                                    <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.spbanchay.ProductName)</a></h3>
-                                                                    <!--product description-->
-                                                                    <h5 class=""><a href="#" >@Html.DisplayFor(modelItem => item.spbanchay.Authorname)</a></h5>
-
-                                                                    <!--product reviews-->
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
-                                                                    </div>
-                                                                    <!--product price-->
-                                                                    <div class="price-box">
-
-                                                                        <p class="old-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.spbanchay.GiaBia)</span>
-                                                                        </p>
-
-                                                                        <p class="special-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.spbanchay.GiaBan)</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.item -->
-                                                        i++;
-                                                    }
-                                                }
-
-                                            </div><!-- /.products-list -->
-                                            <div class="products-list ">
-                                                @{int j = 0;
-                                                }
-                                                @foreach (var item in Model)
-                                                {
-                                                    j++;
-                                                    if (j > 3 && j <= 6)
-                                                    {
-                                                        <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
-                                                            </a>
-                                                            <div class="product-shop">
-                                                                <div class="f-fix">
-                                                                    <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
-                                                                    <!--product description-->
-                                                                    <h5 class=""><a href="#" title="tacgia"></a></h5>
-
-                                                                    <!--product reviews-->
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
-                                                                    </div>
-                                                                    <!--product price-->
-                                                                    <div class="price-box">
-
-                                                                        <p class="old-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
-                                                                        </p>
-
-                                                                        <p class="special-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.item -->
-
-                                                    }
-                                                }
-
-                                            </div><!-- /.products-list -->
-                                        </div>
-                                    </div><!-- /.widget -->
-                                    <div class="" style="display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-weight:Bold">
-                                        <a style="color:#EC6A54" href="#" class="">Xem Thêm</a>
-                                    </div>
-                                </div><!-- /.em-grid-15 -->
-                            </div>
-                        </div><!-- /.em-best-sales -->
-
 
                         <div class="em-best-sales em-wrapper-product-15">
                             <div class="emfilter-ajaxblock-loaded">
@@ -337,90 +225,92 @@
                                     <div class="widget em-filterproducts-list">
                                         <div class="widget-products em-widget-products">
                                             <div class="products-list ">
-                                                @{int a = 0;
+                                                @{int b = 0;
                                                 }
                                                 @foreach (var item in Model)
                                                 {
-                                                    if (a < 3)
+                                                    
+                                                    if ((b < 3) && item.CategoryId == 2)
                                                     {
+
+                                                        var productName = "";
+                                                        productName = item.Decription;
                                                         <div class="item  " style="  ">
-                                                            <a href="@Url.Action("Detail","ProductDetail", new {id = item.ProductId})"  class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
+                                                            <a href="#" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
                                                             </a>
                                                             <div class="product-shop">
                                                                 <div class="f-fix">
                                                                     <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                     <!--product description-->
-                                                                    <h5 class=""><a href="#" >Nguyễn Nhật Ánh</a></h5>
+                                                                    
 
                                                                     <!--product reviews-->
                                                                     <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                        <span class="tg-stars"><span style="width:0%"></span></span>
                                                                     </div>
+
                                                                     <!--product price-->
                                                                     <div class="price-box">
 
                                                                         <p class="old-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)</span>
                                                                         </p>
 
                                                                         <p class="special-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div><!-- /.item -->
-                                                        a++;
+                                                        b++;
                                                     }
                                                 }
 
                                             </div><!-- /.products-list -->
                                             <div class="products-list ">
-                                                @{int n = 0;
+                                                @{int h = 0;
                                                 }
                                                 @foreach (var item in Model)
                                                 {
-                                                    n++;
-                                                    if (n > 3 && n <= 6)
+                                                    h++;
+                                                    if (h > 3 && h < 6 && item.CategoryId == 2)
                                                     {
+                                                        var productName = "";
+                                                        productName = item.Decription;
                                                         <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
+                                                            <a href="#" class="product-image">
                                                                 <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
                                                                 <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
                                                             </a>
                                                             <div class="product-shop">
                                                                 <div class="f-fix">
                                                                     <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                     <!--product description-->
-                                                                    <h5 class=""><a href="#" >Nguyễn Nhật Ánh</a></h5>
+                                                                    
 
                                                                     <!--product reviews-->
                                                                     <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                         <span class="tg-stars"><span style="width:0%"></span></span>
                                                                     </div>
                                                                     <!--product price-->
                                                                     <div class="price-box">
 
                                                                         <p class="old-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)</span>
                                                                         </p>
 
                                                                         <p class="special-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -448,54 +338,174 @@
                             <div class="emfilter-ajaxblock-loaded">
                                 <div class="em-grid-15 custom-product-list">
                                     <div class="widget-title em-widget-title">
-                                        <h3><span>sách chính trị</span></h3>
+                                        <h3><span>sách đời sống - xã hội</span></h3>
                                     </div>
 
                                     <div class="widget em-filterproducts-list">
                                         <div class="widget-products em-widget-products">
                                             <div class="products-list ">
-                                                @{int m = 0;
+                                                @{int c = 0;
                                                 }
                                                 @foreach (var item in Model)
                                                 {
-                                                    if (m < 3)
+                                                    if (c < 3 && item.CategoryId == 3)
                                                     {
+
+                                                        var productName = "";
+                                                        productName = item.Decription;
                                                         <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
+                                                            <a href="#" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    @**@
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <span class="tg-stars"><span style="width:0%"></span></span>
+                                                                    </div>
+
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+                                                        c++;
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                            <div class="products-list ">
+                                                @{int l = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    l++;
+                                                    if (l > 3 && l <= 6 && item.CategoryId == 3)
+                                                    {
+                                                        var productName = "";
+                                                        productName = item.Decription;
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" class="product-image">
                                                                 <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
                                                                 <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
                                                             </a>
                                                             <div class="product-shop">
                                                                 <div class="f-fix">
                                                                     <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                     <!--product description-->
-                                                                    <h5 class=""><a href="#" >Nguyễn Nhật Ánh</a></h5>
+                                                                    @**@
 
                                                                     <!--product reviews-->
                                                                     <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                         <span class="tg-stars"><span style="width:0%"></span></span>
                                                                     </div>
                                                                     <!--product price-->
                                                                     <div class="price-box">
 
                                                                         <p class="old-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)</span>
                                                                         </p>
 
                                                                         <p class="special-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div><!-- /.item -->
-                                                        m++;
+
+                                                    }
+                                                }
+
+                                            </div><!-- /.products-list -->
+                                        </div>
+                                    </div><!-- /.widget -->
+                                    <div class="" style="display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-weight:Bold">
+                                        <a style="color:#EC6A54" href="#" class="">Xem Thêm</a>
+                                    </div>
+                                </div><!-- /.em-grid-15 -->
+                            </div>
+                        </div><!-- /.em-best-sales -->
+
+
+                        <div class="em-best-sales em-wrapper-product-15">
+                            <div class="emfilter-ajaxblock-loaded">
+                                <div class="em-grid-15 custom-product-list">
+                                    <div class="widget-title em-widget-title">
+                                        <h3><span>Sách cho trẻ</span></h3>
+                                    </div>
+
+                                    <div class="widget em-filterproducts-list">
+                                        <div class="widget-products em-widget-products">
+                                            <div class="products-list ">
+                                                @{int d = 0;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    if (d < 3 && item.CategoryId == 4)
+                                                    {
+
+                                                        var productName = "";
+                                                        productName = item.Decription;
+                                                        <div class="item  " style="  ">
+                                                            <a href="#" class="product-image">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" alt="" height="110" width="110">
+                                                            </a>
+                                                            <div class="product-shop">
+                                                                <div class="f-fix">
+                                                                    <!--product name-->
+
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <!--product description-->
+                                                                    
+
+                                                                    <!--product reviews-->
+                                                                    <div class="ratings">
+                                                                        <span class="tg-stars"><span style="width:0%"></span></span>
+                                                                    </div>
+
+                                                                    <!--product price-->
+                                                                    <div class="price-box">
+
+                                                                        <p class="old-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                        </p>
+
+                                                                        <p class="special-price">
+                                                                            <span class="price-label"></span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><!-- /.item -->
+                                                        d++;
                                                     }
                                                 }
 
@@ -506,155 +516,37 @@
                                                 @foreach (var item in Model)
                                                 {
                                                     o++;
-                                                    if (o > 3 && o <= 6)
+                                                    if (o > 3 && o <= 6 && item.CategoryId == 4)
                                                     {
+                                                        var productName = "";
+                                                        productName = item.Decription;
                                                         <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
+                                                            <a href="#" class="product-image">
                                                                 <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
                                                                 <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
                                                             </a>
                                                             <div class="product-shop">
                                                                 <div class="f-fix">
                                                                     <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
+                                                                    <h3 class="product-name"><a style="color:#FF6148;font-weight:bold" href="@Url.Action("ProductDetail","Detail",new {id = item.ProductId })">@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
                                                                     <!--product description-->
-                                                                    <h5 class=""><a href="#" >Nguyễn Nhật Ánh</a></h5>
+                                                                    
 
                                                                     <!--product reviews-->
                                                                     <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
+                                                                         <span class="tg-stars"><span style="width:0%"></span></span>
                                                                     </div>
                                                                     <!--product price-->
                                                                     <div class="price-box">
 
                                                                         <p class="old-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
+                                                                            <span class="price">@Html.DisplayFor(modelItem => item.GiaBia)</span>
                                                                         </p>
 
                                                                         <p class="special-price">
                                                                             <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.item -->
-
-                                                    }
-                                                }
-
-                                            </div><!-- /.products-list -->
-                                        </div>
-                                    </div><!-- /.widget -->
-                                    <div class="" style="display: flex;
-                                    align-items: center;
-                                    justify-content: center;
-                                    font-weight:Bold">
-                                        <a style="color:#EC6A54" href="#" class="">Xem Thêm</a>
-                                    </div>
-                                </div><!-- /.em-grid-15 -->
-                            </div>
-                        </div><!-- /.em-best-sales -->
-
-
-                        <div class="em-best-sales em-wrapper-product-15">
-                            <div class="emfilter-ajaxblock-loaded">
-                                <div class="em-grid-15 custom-product-list">
-                                    <div class="widget-title em-widget-title">
-                                        <h3><span>Sách dạy trẻ</span></h3>
-                                    </div>
-
-                                    <div class="widget em-filterproducts-list">
-                                        <div class="widget-products em-widget-products">
-                                            <div class="products-list ">
-                                                @{int p = 0;
-                                                }
-                                                @foreach (var item in Model)
-                                                {
-                                                    if (p < 3)
-                                                    {
-                                                        <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
-                                                            </a>
-                                                            <div class="product-shop">
-                                                                <div class="f-fix">
-                                                                    <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
-                                                                    <!--product description-->
-                                                                    <h5 class=""><a href="#" >Nguyễn Nhật Ánh</a></h5>
-
-                                                                    <!--product reviews-->
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
-                                                                    </div>
-                                                                    <!--product price-->
-                                                                    <div class="price-box">
-
-                                                                        <p class="old-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
-                                                                        </p>
-
-                                                                        <p class="special-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.item -->
-                                                        p++;
-                                                    }
-                                                }
-
-                                            </div><!-- /.products-list -->
-                                            <div class="products-list ">
-                                                @{int q = 0;
-                                                }
-                                                @foreach (var item in Model)
-                                                {
-                                                    q++;
-                                                    if (q > 3 && q <= 6)
-                                                    {
-                                                        <div class="item  " style="  ">
-                                                            <a href="#"  class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_2.jpg" alt="" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="~/images/product/110x110/@Html.DisplayFor(modelItem => item.ProductImg)" data-original="~/images/product/110x110/clothing_sp16_1.jpg" alt="" height="110" width="110">
-                                                            </a>
-                                                            <div class="product-shop">
-                                                                <div class="f-fix">
-                                                                    <!--product name-->
-                                                                    <h3 class="product-name"><a href="#" >@Html.DisplayFor(modelItem => item.ProductName)</a></h3>
-                                                                    <!--product description-->
-                                                                    <h5 class=""><a href="#" >Nguyễn Nhật Ánh</a></h5>
-
-                                                                    <!--product reviews-->
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            <div class="rating" style=""></div>
-                                                                        </div>
-                                                                        <span class="amount"><a href="#" onclick="181">(0)</a></span>
-                                                                    </div>
-                                                                    <!--product price-->
-                                                                    <div class="price-box">
-
-                                                                        <p class="old-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" >@Html.DisplayFor(modelItem => item.GiaBia)</span>
-                                                                        </p>
-
-                                                                        <p class="special-price">
-                                                                            <span class="price-label"></span>
-                                                                            <span class="price" content="75" >@Html.DisplayFor(modelItem => item.GiaBan)</span>
+                                                                            <span class="price" content="75">@Html.DisplayFor(modelItem => item.GiaBan)</span>
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -700,33 +592,33 @@
                                                 <div class="em_nav" id="toogle_menu_5_4607">
                                                     <ul class="vnav em-menu-icon effect-menu em-menu-long">
                                                         <li class="menu-item-link menu-item-depth-0  hidden-sm ">
-                                                            <a class="em-menu-link" href="@Url.Action("AllProduct","Products")"> <span>Sách Bán Chạy</span> </a>
+                                                            <a class="em-menu-link" href="@Url.Action("AllProduct","Products")"> <span>Tất cả sản phẩm</span> </a>
                                                         </li><!-- /.menu-item-link -->
                                                         <li class="menu-item-link menu-item-depth-0 em-more-menu  hidden-sm ">
-                                                            <a class="em-menu-link" href="#"> <span>Sách Mới Phát Hành </span> </a>
+                                                            <a href="@Url.Action("AllProduct","Products",new { type = 7 })" class="em-menu-link" > <span>Sách Mới Phát Hành </span> </a>
                                                         </li><!-- /.menu-item-link -->
                                                         <li class="menu-item-link menu-item-depth-0  ">
-                                                            <a class="em-menu-link" href="#"> <span>Sách văn học</span> </a>
+                                                            <a href="@Url.Action("AllProduct","Products",new { type = 1 })" class="em-menu-link" > <span>Sách văn học</span> </a>
 
                                                         </li><!-- /.menu-item-link -->
                                                         <li class="menu-item-link menu-item-depth-0  ">
-                                                            <a class="em-menu-link" href="#"> <span>Sách kinh tế</span> </a>
+                                                            <a href="@Url.Action("AllProduct","Products",new { type = 2 })" class="em-menu-link" > <span>Sách kinh tế</span> </a>
 
                                                         </li><!-- /.menu-item-link -->
                                                         <li class="menu-item-link menu-item-depth-0  ">
-                                                            <a class="em-menu-link" href="#"> <span>Sách đời sống</span> </a>
+                                                            <a href="@Url.Action("AllProduct","Products",new { type = 3 })"  class="em-menu-link"> <span>Sách đời sống</span> </a>
 
                                                         </li><!-- /.menu-item-link -->
                                                         <li class="menu-item-link menu-item-depth-0  ">
-                                                            <a class="em-menu-link" href="#"> <span>Sách thiếu nhi</span> </a>
+                                                            <a href="@Url.Action("AllProduct","Products",new { type = 4 })" class="em-menu-link"> <span>Sách thiếu nhi</span> </a>
 
                                                         </li><!-- /.menu-item-link -->
                                                         <li class="menu-item-link menu-item-depth-0  ">
-                                                            <a class="em-menu-link" href="#"> <span>Sách tin học - ngoại ngữ</span> </a>
+                                                            <a href="@Url.Action("AllProduct","Products",new { type = 5 })" class="em-menu-link"> <span>Sách tin học - ngoại ngữ</span> </a>
 
                                                         </li><!-- /.menu-item-link -->
                                                         <li class="menu-item-link menu-item-depth-0  ">
-                                                            <a class="em-menu-link" href="#"> <span>Tạp chí văn phòng phẩm</span> </a>
+                                                            <a href="@Url.Action("AllProduct","Products",new { type = 6 })" class="em-menu-link"> <span>Tạp chí văn phòng phẩm</span> </a>
 
                                                         </li><!-- /.menu-item-link -->
 
@@ -767,7 +659,7 @@
                                         <div class="em-from-our-blog">
                                             <div class="em-blog-item em-effect-13">
                                                 <div class="em-blog-content bkg-top">
-                                                    <a  class="img-banner-small" href="#"> <img alt="em_blog" class="img-responsive" src="~/images/wysiwyg/nguyen-nhat-anh.jpg" /> </a>
+                                                    <a class="img-banner-small" href="#"> <img alt="em_blog" class="img-responsive" src="~/images/wysiwyg/nguyen-nhat-anh.jpg" /> </a>
 
                                                     <div class="hov">&nbsp;</div>
                                                 </div>
@@ -791,13 +683,13 @@
                                         <div class="em-from-our-blog">
                                             <div class="em-blog-item em-effect-13">
                                                 <div class="em-blog-content bkg-top">
-                                                    <a  class="img-banner-small" href="#"> <img alt="em_blog" class="img-responsive" src="~/images/product/350x350/ba_co_tien.jpg" /> </a>
+                                                    <a class="img-banner-small" href="#"> <img alt="em_blog" class="img-responsive" src="~/images/product/350x350/ba_co_tien.jpg" /> </a>
 
                                                     <div class="hov">&nbsp;</div>
                                                 </div>
                                                 <div class="em-box bkg-bottom">
-                                                    <h4 class="em-blog-title"><a href="#">Nguyễn Nhật Ánh</a></h4>
-                                                    <p class="em-blog-des">Boutique festival Secret Garden went down in Sydney&rsquo;s&nbsp;Camden over the weekend,&hellip;Boutique festival Secret Garden went down in Sydney&rsquo;s&nbsp;Camden over the weekend,&hellip;</p>
+                                                    <h4 class="em-blog-title"><a href="#">3 cô tiên</a></h4>
+                                                    <p class="em-blog-des"></p>
                                                     <p>
                                                         <a class="link-more" href="#">Read more</a>
                                                     </p>
@@ -809,7 +701,7 @@
                                 </div>
                             </div>
                         </div><!-- /.row -->
-                       
+
                     </div><!-- /.em-sidebar -->
                 </div>
             </div><!-- /.em-main-container -->

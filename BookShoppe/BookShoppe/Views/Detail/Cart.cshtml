@@ -1,8 +1,12 @@
-﻿@model List<BookMarket.Models.CartItem>
+﻿@using Microsoft.AspNetCore.Identity
+@using BookMarket.Models;
+@model List<BookMarket.Models.CartItem>
 @{
     ViewData["Title"] = "Cart";
     Layout = "~/Views/Layouts/_Layout.cshtml";
 }
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
 
 <div class="wrapper-breadcrums">
     <div class="container">
@@ -11,7 +15,7 @@
                 <div class="breadcrumbs">
                     <ul>
                         <li class="home">
-                            <a href="index.html" title="Go to Home Page"><span>Trang chủ</span></a> <span class="separator">/ </span>
+                            <a href="@Url.Action("Index","Index")" title="Home"><span>Trang chủ</span></a> <span class="separator">/ </span>
                         </li>
                         <li class="cms_page">
                             <strong>Giỏ hàng</strong>
@@ -31,95 +35,139 @@
                 <div class="row">
                     <div class="em-col-main col-sm-24">
                         @if (Model.Count > 0)
-                            {
-                               
+                        {
+                        <form method="post">
                             <div class="cart">
 
-                                <form method="post">
-                                    <input name="form_key" type="hidden" value="inYgLvzSpOOWWVoP" />
-                                   
-                                    <table id="shopping-cart-table" class="data-table cart-table">
-                                        <thead>
-                                            <tr class="em-block-title">
-                                                <th>
-                                                    <span class="nobr">Tên Sản Phẩm</span>
-                                                </th>
-                                                <th>&nbsp;</th>
-                                                <th></th>
 
-                                                <th class="a-center" colspan="1">
-                                                    <span class="nobr">Giá Tiền</span>
-                                                </th>
-                                                <th class="a-center">Số Lượng</th>
-                                                <th class="a-center last" colspan="1">Tổng Tiền</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
+                                <input name="form_key" type="hidden" value="inYgLvzSpOOWWVoP" />
+
+                                <table id="shopping-cart-table" class="data-table cart-table">
+                                    <thead>
+                                        <tr class="em-block-title">
+                                            <th>
+                                                <span class="nobr">Tên Sản Phẩm</span>
+                                            </th>
+                                            <th>&nbsp;</th>
+                                            <th></th>
+
+                                            <th class="a-center" colspan="1">
+                                                <span class="nobr">Giá Tiền</span>
+                                            </th>
+                                            <th class="a-center">Số Lượng</th>
+                                            <th class="a-center" colspan="1">Tổng Tiền</th>
+                                            <th class="a-center last" colspan="1"></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            @if (SignInManager.IsSignedIn(User))
+                                            {
                                                 <td colspan="7" class="a-right">
                                                     <button asp-action="checkOut" type="submit" title="Thanh toán" class="button btn-continue">
                                                         <span><span>Thanh toán</span></span>
                                                     </button>
-                                                   
+                                                </td>
+                                            }
+                                            else
+                                            {
+
+                                                <td colspan="7" class="a-right">
+                                                    <button asp-area="Identity" asp-page="/Account/Login" type="submit" title="Login" class="button btn-continue">
+                                                        <span><span>Thanh toán</span></span>
+                                                    </button>
+
+
+                                                </td>
+                                            }
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                        @foreach (var cartitem in Model)
+                                        {
+                                            var thanhtien = cartitem.quantity * cartitem.product.GiaBan;
+                                            var des = @cartitem.product.Decription;
+
+                                            <tr class="last even">
+                                                <td>
+                                                    <div class="cart-product">
+                                                        <a asp-route="removecart" asp-route-productid="@cartitem.product.ProductId" title="Remove item" class="btn-remove btn-remove2">Remove item</a>
+                                                        <a href="" title="" class="product-image">
+                                                            <img src="~/images/product/110x110/@cartitem.product.ProductImg" width="100" alt="  " />
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <h2 class="product-name"> <a style="color : #FF6148; font-size:17px" href="product-detail.html">@cartitem.product.ProductName</a></h2>
+                                                    <p style="color : black" class="sku"></p>
+
+                                                    @{
+                                                        if (des.Length >= 200)
+                                                        {
+                                                            <p class="sku">
+                                                                @cartitem.product.Decription.Substring(0, 200)<span>...</span>
+                                                            </p>
+                                                        }
+                                                    }
+
+
+                                                </td>
+                                                <td class="a-center">
+                                                </td>
+
+                                                <td class="a-center">
+                                                    <span class="cart-price"> <span class="price">@(cartitem.product.GiaBan)</span> </span>
+                                                </td>
+                                                <td class="a-center">
+                                                    <input onKeyUp="if(this.value>10){this.value='10';}else if(this.value<1){this.value='1';}"
+                                                           type="number" min="1" max="10" asp-for="@cartitem.quantity" id="@($"quantity-{cartitem.product.ProductId}")" />
+                                                </td>
+                                                <td class="a-center">
+                                                    <span class="cart-price"> <span class="price">@thanhtien</span> </span>
+                                                </td>
+                                                <td class="a-center last">
+                                                    <button class="btn btn-success updatecartitem"
+                                                            data-productid="@cartitem.product.ProductId">
+                                                        Cập nhật
+                                                    </button>
 
                                                 </td>
                                             </tr>
-                                        </tfoot>
 
-                                        <tbody>
-                                            @foreach (var cartitem in Model)
-                                            {
-                                                var thanhtien = cartitem.quantity * cartitem.product.GiaBan;
+                                        }
 
 
-                                                <tr class="last even">
-                                                    <td>
-                                                        <div class="cart-product">
-                                                            <a asp-route="removecart" asp-route-productid="@cartitem.product.ProductId" title="Remove item" class="btn-remove btn-remove2">Remove item</a>
-                                                            <a href="" title="" class="product-image">
-                                                                <img src="~/images/product/110x110/@cartitem.product.ProductImg" width="100" alt="  " />
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <h2 class="product-name"> <a style="color : #FF6148; font-size:17px" href="product-detail.html">@cartitem.product.ProductName</a></h2>
-                                                        <p style="color : black" class="sku"></p>
-                                                        <p class="sku">
-                                                            @cartitem.product.Decription.Substring(0, 200) ...
-                                                        </p>
 
-                                                    </td>
-                                                    <td class="a-center">
-                                                    </td>
+                                    </tbody>
+                                </table>
 
-                                                    <td class="a-center">
-                                                        <span class="cart-price"> <span class="price">@(cartitem.product.GiaBan)</span> </span>
-                                                    </td>
-                                                    <td class="a-center">
-                                                        <div class="qty_cart">
-                                                            <div class="qty-ctl">
-                                                                <button data-productid="@cartitem.product.ProductId" title="Decrease Qty" onclick="qtyDown(302); return false;" class="decrease">decrease</button>
-                                                            </div>
-                                                            <input asp-for="@cartitem.quantity" id="cart[302][qty]" name="cart[302][qty]" value="@cartitem.quantity" size="4" title="Qty" class="input-text qty" maxlength="12" />
-                                                            <div class="qty-ctl">
-                                                                <button data-productid="@cartitem.product.ProductId" title="Increase Qty" onclick="qtyUp(302); return false;" class="increase">increase</button>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                    <td class="a-center last">
-                                                        <span class="cart-price"> <span class="price">@thanhtien</span> </span>
-                                                    </td>
-                                                </tr>
-
-                                            }
-
-                                        </tbody>
-                                    </table>
-                               
-                                </form><!-- /form -->
-
-                                
                             </div>
+                        </form>
+                            @section Scripts {
+                                <script>
+          $(document).ready(function () {
+              $(".updatecartitem").click(function (event) {
+                  event.preventDefault();
+                  var productid = $(this).attr("data-productid");
+                  var quantity = $("#quantity-" + productid).val();
+                  $.ajax({
+                      type: "POST",
+                      url:"@Url.RouteUrl("updatecart")",
+                      data: {
+                          productid: productid,
+                          quantity:quantity
+                      },
+                      success: function (result) {
+                          window.location.href = "@Url.RouteUrl("cart")";
+                      }
+                  });
+              });
+          });
+                                </script>
+                            }
+
                         }
                         else
                         {
@@ -133,43 +181,3 @@
     </div>
 </div><!-- /.em-wrapper-main -->
 
-    <script>
-         $(document).ready(function () {
-             $(".updatecartitem").click(function (event) {
-                 event.preventDefault();
-                 var productid = $(this).attr("data-productid");
-                 var quantity = cart[302][qty];
-                 $.ajax({
-                     type: "POST",
-                     url:"@Url.RouteUrl("updatecart")",
-                     data: {
-                         productid: productid,
-                         quantity:quantity
-                     },
-                     success: function (result) {
-                         window.location.href = "@Url.RouteUrl("cart")";
-                     }
-                 });
-             });
-         });
-    </script>
-
-<script type="text/javascript">
-    function qtyDown(id) {
-        var qty_el = document.getElementById('cart[' + id + '][qty]');
-        var qty = qty_el.value;
-        if (!isNaN(qty) && qty > 1) {
-            qty_el.value--;
-        }
-        return false;
-    }
-
-    function qtyUp(id) {
-        var qty_el = document.getElementById('cart[' + id + '][qty]');
-        var qty = qty_el.value;
-        if (!isNaN(qty)) {
-            qty_el.value++;
-        }
-        return false;
-    }
-</script>

@@ -121,7 +121,7 @@
                     <div id="em-mheader-top" class="row">
                         <div id="em-mheader-logo" class="col-xs-4">
                             <div class="em-logo">
-                                <a href="index.html" title="Fashion Commerce" class="logo"><strong></strong><img src="~/images/logo_small.png" alt="Fashion Commerce" /></a>
+                                <a href="@Url.Action("Index","Index")" title="Book Market" class="logo"><strong></strong><img src="~/images/logo_small.png" alt="Fashion Commerce" /></a>
                             </div>
                         </div><!-- /#em-mheader-logo -->
 
@@ -142,11 +142,11 @@
                                                     <div class="em-wrapper-search em-no-category-search">
                                                         <a class="em-search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>
                                                         <div class="em-container-js-search" style="display: none;">
-                                                            <form id="search_mini_form" method="get">
+                                                            <form asp-controller="Products" asp-action="AllProduct" id="search_mini_form" method="get">
                                                                 <div class="form-search no_cate_search">
                                                                     <div class="text-search">
                                                                         <label for="search"></label>
-                                                                        <input id="search" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="Tìm kiếm..." />
+                                                                        <input id="search" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" class="input-text" maxlength="128" placeholder="Nhập từ khóa tìm kiếm." />
                                                                         <button type="submit" title="Search" class="button">
                                                                             <span><span class="fa fa-search"></span></span>
                                                                         </button>
@@ -163,10 +163,11 @@
                                             <div class="em-top-links">
                                                 <div class="f-right"></div>
                                                 <ul class="list-inline f-right">
-                                                    <li><a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" class="em-register-link"  title="Register">@UserManager.GetUserName(User)!</a></li>
+                                                    <li><a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" class="">@UserManager.GetUserName(User)</a></li>
+
                                                 </ul>
                                                 <div id="em-login-link" class="account-link f-right em-non-login">
-                                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
+                                                    <form id="logoutForm" class="link-account" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new { area = "" })">
                                                         <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Đăng xuất</button>
                                                     </form>
                                                 </div><!-- /#em-login-link -->
@@ -181,7 +182,6 @@
                                                 </ul>
                                                 <div id="em-login-link" class="account-link f-right em-non-login">
                                                     <a id="login" asp-area="Identity" asp-page="/Account/Login" class="link-account" title="Login">Đăng Nhập</a>
-
                                                 </div><!-- /#em-login-link -->
                                             </div><!-- /.em-top-links -->
                                         }
@@ -196,7 +196,7 @@
                             <div class="row">
                                 <div class="col-sm-24">
                                     <div class="em-logo f-left">
-                                        <a href="index.html" title="Fashion Commerce" class="logo"><strong>Book Market</strong><img class="retina-img" src="~/images/logo.png" alt="Fashion Commerce" /></a>
+                                        <a href="@Url.Action("Index","Index")" title="Book Market" class="logo"><strong>Book Market</strong><img class="retina-img" src="~/images/logo.png" alt="BookMarket" /></a>
                                     </div>
 
                                     <div class="em-search em-search-sticky f-right">
@@ -205,10 +205,10 @@
                                                 <div class="em-wrapper-search">
                                                     <a class="em-search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>
                                                     <div class="em-container-js-search" style="display: none;">
-                                                        <form id="search_mini_form_fixed_top" method="get">
+                                                        <form asp-controller="Products" asp-action="AllProduct" id="search_mini_form_fixed_top" method="get">
                                                             <div class="form-search">
                                                                 <label for="search">Search</label>
-                                                                <input id="search-fixed-top" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="Tìm kiếm..." />
+                                                                <input id="search-fixed-top" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" class="input-text" maxlength="128" placeholder="Nhập từ khóa tìm kiếm." />
                                                                 <button type="submit" title="Search" class="button">
                                                                     <span><span>Search</span></span>
                                                                 </button>
@@ -255,6 +255,7 @@
 
 
             @RenderBody()
+            @RenderSection("scripts", required: false)
             <div class="em-wrapper-footer">
                 <div class="em-footer-style09">
                     <div class="em-footer-top">

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using BookShoppe.Controllers;
-using BookShoppe.Models;
 using BookMarket.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+
 
 namespace BookShoppe.Controllers
 {
@@ -19,57 +19,14 @@ namespace BookShoppe.Controllers
         private readonly Book_MarketContext _BMContext;
         private readonly ILogger<DetailController> _logger;
         public const string CARTKEY = "cart";
+        //public checkOut Input;
+        public string ReturnUrl { get; set; }
         public DetailController(ILogger<DetailController> logger, Book_MarketContext BMContext)
         {
             _logger = logger;
             _BMContext = BMContext;
         }
-        public class InputModel
-        {
-            [Required(AllowEmptyStrings = false, ErrorMessage = "Thông tin số điện thoại là bắt buộc")]
-            [MaxLength(15, ErrorMessage = "Số điện thoại tối đa 15 số")]
-            [MinLength(5, ErrorMessage = "Số điện thoại tối thiểu 5 số")]
-            [Phone]
-            [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$",
-                   ErrorMessage = "Định dạng số điện thoại không đúng")]
-            [Display(Name = "Phone")]
-            public string Phone { get; set; }
-
-            [Required(AllowEmptyStrings = false, ErrorMessage = "Thông tin tên người dùng là bắt buộc")]
-            [MaxLength(30, ErrorMessage = "Tối đa 30 kí tự")]
-            [Display(Name = "Name")]
-            public string Name { get; set; }
-
-            [Display(Name = "Date")]
-            [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
-            [Required]
-            [DataType(DataType.Date)]
-            public DateTime Date { get; set; }
-
-            [Required]
-            [MaxLength(30, ErrorMessage = "Tối đa 30 kí tự")]
-            [Display(Name = "Address")]
-            public string Address { get; set; }
-
-            [Required(AllowEmptyStrings = false, ErrorMessage = "Thông tin email là bắt buộc")]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
-
-            [Required(AllowEmptyStrings = false, ErrorMessage = "Thông tin mật khẩu là bắt buộc")]
-            [StringLength(100, ErrorMessage = "Mật khẩu ít nhất 6 kí tự và tối đa 100 kí tự", MinimumLength = 6)]
-            [DataType(DataType.Password)]
-            [Display(Name = "Password")]
-            public string Password { get; set; }
-
-            [Required(AllowEmptyStrings = false, ErrorMessage = "Nhập mật khẩu cần xác nhận")]
-            [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "Mật khẩu đang không giống nhau")]
-            public string ConfirmPassword { get; set; }
-        }
-        public InputModel Input { get; set; }
-
+        [HttpGet]
         public async Task<IActionResult> ProductDetail(int? id)
         {
             if (id == null)
@@ -84,7 +41,7 @@ namespace BookShoppe.Controllers
                 .FirstOrDefaultAsync(m => m.ProductId == id)
                 ;
             ViewData.Model = new Products();
-
+            
             if (detail == null)
             {
                 return NotFound();
@@ -95,7 +52,7 @@ namespace BookShoppe.Controllers
       
         [Route("AddToCart/{productid:int}")]
         public IActionResult AddToCart([FromRoute]int productid)
-        {
+        { 
             var product = _BMContext.Products
                        .Where(p => p.ProductId == productid)
                        .FirstOrDefault();
@@ -121,6 +78,81 @@ namespace BookShoppe.Controllers
             SaveCartSession(cart);
             return RedirectToAction(nameof(Cart));
         }
+
+        [HttpPost]
+        [Route("/addInfo", Name = "addInfo")]
+        public IActionResult addInfo()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var cart = GetCartItems();
+            var input = cart.Find(n => n.product.ProductId == 1);
+
+            var orderIĐefault = _BMContext.Order.Select(i => i.OrderId).ToList();
+            var odID = orderIĐefault.LastOrDefault() ;
+            var odeID = odID + 1;
+
+            var thanhtien = 0;
+            foreach (var cartitem in GetCartItems())
+            {
+              thanhtien += Convert.ToInt32(cartitem.product.GiaBan * cartitem.quantity);
+            }    
+               
+            var info = new Order()
+            {   
+                OrderId = odeID,
+                CustomerId = userId,
+                OrderDate = DateTime.Today,
+                NameKh = "Nguyen Quang",
+                PhoneKh = "0366775698",
+                Email = "",
+                ShipAddress = "Hà nội",
+                ShipCity = "ha noi",
+                Total = thanhtien,
+                Status = "Đơn hàng chờ xác nhận",
+                CreatedAt = DateTime.Today
+            };
+            if (info == null)
+                return NotFound("Không có thông tin đăng kí");
+            
+            //var cartitem = cart.Find(p => p.order.ProductId == productid);
+            //if (cartitem != null)
+            //{
+            //    // Đã tồn tại, tăng thêm 1
+            //    cartitem.quantity++;
+            //}
+            //else
+            {
+                //  Thêm mới
+                cart.Add(new CartItem() {order = info });
+            }
+            _BMContext.Order.Add(info);
+
+            foreach (var cartitem in GetCartItems())
+            {
+                var detail = new OrderDetail()
+                {
+                    OrderId = odeID,
+                    ProductId = cartitem.product.ProductId,
+                    Unit = cartitem.quantity,
+                    Amount = cartitem.product.GiaBan,
+
+                };
+                cart.Add(new CartItem() { orderDetail = detail });
+                _BMContext.OrderDetail.Add(detail);
+            }
+            _BMContext.SaveChanges();
+            SaveCartSession(cart);
+            return RedirectToAction(nameof(ConfirmCheckout));
+        }
+
+        [Route("/ConfirmCheckout", Name = "ConfirmCheckout")]
+        public IActionResult ConfirmCheckout()
+        {
+            
+            _BMContext.SaveChanges();
+            return View();
+        }
+
         [Route("/removecart/{productid:int}", Name = "removecart")]
         public IActionResult RemoveCart([FromRoute]int productid)
         {
@@ -162,7 +194,7 @@ namespace BookShoppe.Controllers
         public IActionResult CheckOut()
         {
             // Xử lý khi đặt hàng
-            return View(GetCartItems());
+            return View();
         }
         List<CartItem> GetCartItems()
         {
@@ -190,6 +222,7 @@ namespace BookShoppe.Controllers
             string jsoncart = JsonConvert.SerializeObject(ls);
             session.SetString(CARTKEY, jsoncart);
         }
-
+       
+       
     }
 }

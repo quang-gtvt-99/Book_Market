@@ -12,7 +12,7 @@ namespace BookMarket.Models
         public spbanchay() {       
         }
         [Key]
-       
+        public int ProductID { get; set; }
         public string ProductName { get; set; }
         public string ProductImg { get; set; }
         public int? CategoryId { get; set; }

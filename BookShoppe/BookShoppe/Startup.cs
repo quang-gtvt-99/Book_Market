@@ -9,12 +9,14 @@ using BookMarket.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using BookMarket.Mail;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
+
 namespace BookShoppe
 {
     public class Startup
@@ -49,10 +51,20 @@ namespace BookShoppe
                 options.UseSqlServer(connectstring);
             });
             
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddControllersWithViews();
             services.AddIdentity<AppUser, IdentityRole>()
             .AddEntityFrameworkStores<BookMarketContext>()
             .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options => {
+                // options.Cookie.HttpOnly = true;
+                // options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.LoginPath = $"/login/";
+                options.LogoutPath = $"/logout/";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
+            services.AddRazorPages();
 
             services.Configure<IdentityOptions>(options => {
                 // Thiết lập về Password
@@ -74,45 +86,58 @@ namespace BookShoppe
                 options.User.RequireUniqueEmail = true;  // Email là duy nhất
 
                 // Cấu hình đăng nhập.
-                options.SignIn.RequireConfirmedEmail = true;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
+                options.SignIn.RequireConfirmedEmail = false;            // Cấu hình xác thực địa chỉ email (email phải tồn tại)
                 options.SignIn.RequireConfirmedPhoneNumber = false;     // Xác thực số điện thoại
 
             });
             services.AddOptions();                                        // Kích hoạt Options
             var mailsettings = Configuration.GetSection("MailSettings");  // đọc config
             services.Configure<MailSettings>(mailsettings);               // đăng ký để Inject
-
             services.AddTransient<IEmailSender, SendMailService>();        // Đăng ký dịch vụ Mail
+
             services.AddAuthentication()
-    .AddGoogle(googleOptions =>
-    {
-        // Đọc thông tin Authentication:Google từ appsettings.json
-        IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
-        // Thiết lập ClientID và ClientSecret để truy cập API google
-        googleOptions.ClientId = googleAuthNSection["ClientId"];
-        googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
-    })
-    .AddFacebook(facebookOptions => {
-        // Đọc cấu hình
-        IConfigurationSection facebookAuthNSection = Configuration.GetSection("Authentication:Facebook");
-        facebookOptions.AppId = facebookAuthNSection["AppId"];
-        facebookOptions.AppSecret = facebookAuthNSection["AppSecret"];
-        // Thiết lập đường dẫn Facebook chuyển hướng đến
-        facebookOptions.CallbackPath = "/dang-nhap-tu-facebook";
-    });
+                .AddGoogle(googleOptions =>
+                  {
+                      // Đọc thông tin Authentication:Google từ appsettings.json
+                      IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
+                      // Thiết lập ClientID và ClientSecret để truy cập API google
+                      googleOptions.ClientId = googleAuthNSection["ClientId"];
+                      googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+                  })
+                  .AddFacebook(facebookOptions => {
+                      // Đọc cấu hình
+                      IConfigurationSection facebookAuthNSection = Configuration.GetSection("Authentication:Facebook");
+                      facebookOptions.AppId = facebookAuthNSection["AppId"];
+                      facebookOptions.AppSecret = facebookAuthNSection["AppSecret"];
+                      // Thiết lập đường dẫn Facebook chuyển hướng đến
+                      facebookOptions.CallbackPath = "/dang-nhap-tu-facebook";
+                  });
+            services.ConfigureApplicationCookie(options =>
+            {
+                // Cookie settings
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+                options.LoginPath = "/Identity/Account/Login";
+                options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+                options.SlidingExpiration = true;
+            });
+
+
         }
 
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
             }
             else
             {
+                app.UseHsts();
                 app.UseExceptionHandler("/Home/Error");
                
             }
@@ -121,14 +146,17 @@ namespace BookShoppe
             app.UseStaticFiles();
             app.UseSession();
             app.UseCookiePolicy();
+            app.UseRouting();
             app.UseAuthentication();
+            app.UseAuthorization();
+ 
             
-
-            app.UseMvc(routes =>
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
+                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Index}/{action=Index}/{id?}");
+                    pattern: "{controller=Index}/{action=Index}/{id?}");
             });
         }
     }

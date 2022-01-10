@@ -18,21 +18,7 @@ namespace BookShoppe.Controllers
         {
             _BMContext = _MarketContext;
         }
-
-        public IActionResult checkout()
-        {
-            List<CartItem> GetCartItems()
-            {
-
-                var session = HttpContext.Session;
-                string jsoncart = session.GetString(CARTKEY);
-                if (jsoncart != null)
-                {
-                    return JsonConvert.DeserializeObject<List<CartItem>>(jsoncart);
-                }
-                return new List<CartItem>();
-            }
-            return View(GetCartItems());
-        }
+        
+        
     }
 }

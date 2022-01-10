@@ -1,23 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BookMarket.Models
 {
-    public partial class Book_MarketContext :DbContext
+    public partial class Book_MarketContext : DbContext
     {
         public Book_MarketContext()
         {
         }
 
-
         public Book_MarketContext(DbContextOptions<Book_MarketContext> options)
             : base(options)
         {
         }
-       
+
+        public virtual DbSet<AspNetRoleClaims> AspNetRoleClaims { get; set; }
+        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
+        public virtual DbSet<AspNetUserClaims> AspNetUserClaims { get; set; }
+        public virtual DbSet<AspNetUserLogins> AspNetUserLogins { get; set; }
+        public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
+        public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
+        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<Author> Author { get; set; }
         public virtual DbSet<Banner> Banner { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
@@ -46,7 +50,122 @@ namespace BookMarket.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<AspNetRoleClaims>(entity =>
+            {
+                entity.HasIndex(e => e.RoleId);
+
+                entity.Property(e => e.RoleId).IsRequired();
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.AspNetRoleClaims)
+                    .HasForeignKey(d => d.RoleId);
+            });
+
+            modelBuilder.Entity<AspNetRoles>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedName)
+                    .HasName("RoleNameIndex")
+                    .IsUnique()
+                    .HasFilter("([NormalizedName] IS NOT NULL)");
+
+                entity.Property(e => e.Name).HasMaxLength(256);
+
+                entity.Property(e => e.NormalizedName).HasMaxLength(256);
+            });
+
+            modelBuilder.Entity<AspNetUserClaims>(entity =>
+            {
+                entity.HasIndex(e => e.UserId);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserClaims)
+                    .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<AspNetUserLogins>(entity =>
+            {
+                entity.HasKey(e => new { e.LoginProvider, e.ProviderKey });
+
+                entity.HasIndex(e => e.UserId);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserLogins)
+                    .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<AspNetUserRoles>(entity =>
+            {
+                entity.HasIndex(e => e.RoleId);
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.RoleId).IsRequired();
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.AspNetUserRoles)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetRoles");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserRoles)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK_AspNetUserRoles_AspNetUsers");
+            });
+
+            modelBuilder.Entity<AspNetUserTokens>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.LoginProvider)
+                    .IsRequired()
+                    .HasMaxLength(450);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(450);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.AspNetUserTokens)
+                    .HasForeignKey(d => d.UserId);
+            });
+
+            modelBuilder.Entity<AspNetUsers>(entity =>
+            {
+                entity.HasIndex(e => e.NormalizedEmail)
+                    .HasName("EmailIndex");
+
+                entity.HasIndex(e => e.NormalizedUserName)
+                    .HasName("UserNameIndex")
+                    .IsUnique()
+                    .HasFilter("([NormalizedUserName] IS NOT NULL)");
+
+                entity.Property(e => e.Id).HasMaxLength(50);
+
+                entity.Property(e => e.Email).HasMaxLength(256);
+
+                entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+
+                entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+
+                entity.Property(e => e.UserName).HasMaxLength(256);
+            });
+
             modelBuilder.Entity<Author>(entity =>
             {
                 entity.Property(e => e.AuthorId).HasColumnName("AuthorID");
@@ -180,19 +299,31 @@ namespace BookMarket.Models
 
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.Property(e => e.OrderId).HasColumnName("OrderID");
+                entity.Property(e => e.OrderId)
+                    .HasColumnName("OrderID")
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedAt).HasColumnType("datetime");
 
-                entity.Property(e => e.CustomerId).HasColumnName("CustomerID");
+                entity.Property(e => e.CustomerId)
+                    .HasColumnName("CustomerID")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Email).HasMaxLength(50);
+
+                entity.Property(e => e.NameKh)
+                    .HasColumnName("nameKH")
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.OrderDate).HasColumnType("datetime");
+
+                entity.Property(e => e.PhoneKh)
+                    .HasColumnName("phoneKH")
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.ShipAddress).HasMaxLength(50);
 
                 entity.Property(e => e.ShipCity).HasMaxLength(50);
-
-                entity.Property(e => e.ShiperId).HasColumnName("ShiperID");
 
                 entity.Property(e => e.Status).HasMaxLength(50);
 
@@ -200,13 +331,7 @@ namespace BookMarket.Models
                     .WithMany(p => p.Order)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Order_User");
-
-                entity.HasOne(d => d.Shiper)
-                    .WithMany(p => p.Order)
-                    .HasForeignKey(d => d.ShiperId)
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .HasConstraintName("FK_Order_Shipper");
+                    .HasConstraintName("FK_Order_AspNetUsers2");
             });
 
             modelBuilder.Entity<OrderDetail>(entity =>
@@ -218,8 +343,6 @@ namespace BookMarket.Models
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
                 entity.Property(e => e.DiscountId).HasColumnName("DiscountID");
-
-                entity.Property(e => e.Unit).HasMaxLength(10);
 
                 entity.HasOne(d => d.Discount)
                     .WithMany(p => p.OrderDetail)
@@ -250,11 +373,6 @@ namespace BookMarket.Models
                 entity.Property(e => e.PmsUser).HasMaxLength(50);
 
                 entity.Property(e => e.UserId).HasColumnName("UserID");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Permission)
-                    .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK_Permission_User");
             });
 
             modelBuilder.Entity<Products>(entity =>
@@ -284,7 +402,6 @@ namespace BookMarket.Models
                     .HasMaxLength(50);
 
                 entity.Property(e => e.ProductName)
-                    .IsRequired()
                     .HasColumnName("productName")
                     .HasMaxLength(50);
 
@@ -303,6 +420,7 @@ namespace BookMarket.Models
                 entity.HasOne(d => d.Author)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.AuthorId)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Products_Author");
 
                 entity.HasOne(d => d.Category)
@@ -314,11 +432,13 @@ namespace BookMarket.Models
                 entity.HasOne(d => d.Nph)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.Nphid)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Products_NPH");
 
                 entity.HasOne(d => d.Nxb)
                     .WithMany(p => p.Products)
                     .HasForeignKey(d => d.Nxbid)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_Products_NXB");
             });
 
@@ -398,6 +518,10 @@ namespace BookMarket.Models
 
                 entity.Property(e => e.UpdatedAt).HasColumnType("datetime");
             });
+
+            OnModelCreatingPartial(modelBuilder);
         }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }

@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookMarket.Models
 {
     public partial class Staff
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdStaff { get; set; }
         public string LevelStaff { get; set; }
         public int? LevelSlary { get; set; }

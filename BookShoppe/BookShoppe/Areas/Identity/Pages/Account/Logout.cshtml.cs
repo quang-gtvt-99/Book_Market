@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using BookShoppe.Controllers;
 
 namespace BookMarket.Areas.Identity.Pages.Account
 {
@@ -31,14 +32,7 @@ namespace BookMarket.Areas.Identity.Pages.Account
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
-            if (returnUrl != null)
-            {
-                return LocalRedirect(returnUrl);
-            }
-            else
-            {
-                return Page();
-            }
+            return RedirectToAction(nameof(IndexController.Index), "Index");
         }
     }
 }

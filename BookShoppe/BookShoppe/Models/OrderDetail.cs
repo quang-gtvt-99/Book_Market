@@ -7,10 +7,11 @@ namespace BookMarket.Models
     {
         public int OrderId { get; set; }
         public int ProductId { get; set; }
-        public string Unit { get; set; }
+        public int? Unit { get; set; }
         public int? DiscountId { get; set; }
+        public int? Amount { get; set; }
 
-        public Discount Discount { get; set; }
-        public Products Product { get; set; }
+        public virtual Discount Discount { get; set; }
+        public virtual Products Product { get; set; }
     }
 }
